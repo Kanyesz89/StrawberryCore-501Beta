@@ -35,7 +35,8 @@ extern DatabaseType LoginDatabase;
 // list sorted from high to low build and first build used as low bound for accepted by default range (any > it will accepted by strawberryrealm at least)
 
 static RealmBuildInfo ExpectedRealmdClientBuilds[] = {
-    {15464, 5, 0, 1, ' '},                                  // highest supported build, also auto accept all above for simplify future supported builds testing
+    {15508, 5, 0, 1, ' '},                                  // highest supported build, also auto accept all above for simplify future supported builds testing
+    {15464, 5, 0, 1, ' '},
     {15354, 4, 3, 3, ' '},
     {15050, 4, 3, 0, 'a'},
     {12340, 3, 3, 5, 'a'},
