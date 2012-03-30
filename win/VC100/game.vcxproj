@@ -871,6 +871,7 @@
     <ClCompile Include="..\..\src\game\Scripts\outland\tempest_keep\the_mechanar\boss_nethermancer_sepethrea.cpp" />
     <ClCompile Include="..\..\src\game\Scripts\outland\tempest_keep\the_mechanar\boss_pathaleon_the_calculator.cpp" />
     <ClCompile Include="..\..\src\game\Scripts\outland\tempest_keep\the_mechanar\instance_mechanar.cpp" />
+    <ClCompile Include="..\..\src\game\Scripts\pandaria\temple_of_the_jade_serpent\boss_wise_maru.cpp" />
     <ClCompile Include="..\..\src\game\Scripts\world\areatrigger_scripts.cpp" />
     <ClCompile Include="..\..\src\game\Scripts\world\bosses_emerald_dragons.cpp" />
     <ClCompile Include="..\..\src\game\Scripts\world\go_scripts.cpp" />
@@ -1119,6 +1120,7 @@
     <ClInclude Include="..\..\src\game\Scripts\outland\tempest_keep\arcatraz\arcatraz.h" />
     <ClInclude Include="..\..\src\game\Scripts\outland\tempest_keep\the_eye\the_eye.h" />
     <ClInclude Include="..\..\src\game\Scripts\outland\tempest_keep\the_mechanar\mechanar.h" />
+    <ClInclude Include="..\..\src\game\Scripts\pandaria\temple_of_the_jade_serpent\instance_temple_of_the_jade_serpent.h" />
     <ClInclude Include="..\..\src\game\SkillDiscovery.h" />
     <ClInclude Include="..\..\src\game\SkillExtraItems.h" />
     <ClInclude Include="..\..\src\game\Spell.h" />

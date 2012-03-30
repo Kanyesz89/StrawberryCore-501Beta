@@ -331,6 +331,12 @@
     <Filter Include="Scripts\northrend\ruby_sanctum">
       <UniqueIdentifier>{e35abead-2389-4eb9-88bd-70e6fe5636b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts\pandaria">
+      <UniqueIdentifier>{4617b444-a2e7-4ed3-99b4-ae62abe9e30d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\pandaria\temple_of_the_jade_serpent">
+      <UniqueIdentifier>{bf50a277-628c-42c4-96bf-faaac38ea69a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\game\AccountMgr.cpp">
@@ -2275,6 +2281,9 @@
     <ClCompile Include="..\..\src\game\Scripts\battlegrounds\battleground_script.cpp">
       <Filter>Scripts\battlegrounds</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\pandaria\temple_of_the_jade_serpent\boss_wise_maru.cpp">
+      <Filter>Scripts\pandaria\temple_of_the_jade_serpent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game\AccountMgr.h">
@@ -2977,6 +2986,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\game\Scripts\outland\tempest_keep\the_mechanar\mechanar.h">
       <Filter>scripts\outland\tempest_keep\the_mechanar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\pandaria\temple_of_the_jade_serpent\instance_temple_of_the_jade_serpent.h">
+      <Filter>Scripts\pandaria\temple_of_the_jade_serpent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
