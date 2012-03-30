@@ -1078,7 +1078,7 @@ CREATE TABLE `db_string` (
 -- ----------------------------
 -- Records of db_string
 -- ----------------------------
-INSERT INTO `db_string` VALUES ('1');
+INSERT INTO `db_string` VALUES ('2');
 
 -- ----------------------------
 -- Table structure for `disenchant_loot_template`
@@ -16846,7 +16846,7 @@ INSERT INTO `player_xp_for_level` VALUES ('80', '1686300');
 INSERT INTO `player_xp_for_level` VALUES ('81', '2121500');
 INSERT INTO `player_xp_for_level` VALUES ('82', '4004000');
 INSERT INTO `player_xp_for_level` VALUES ('83', '5203400');
-INSERT INTO `player_xp_for_level` VALUES ('84', '9165100');
+INSERT INTO `player_xp_for_level` VALUES ('84', '6546500');
 INSERT INTO `player_xp_for_level` VALUES ('85', '0');
 INSERT INTO `player_xp_for_level` VALUES ('86', '0');
 INSERT INTO `player_xp_for_level` VALUES ('87', '0');
