@@ -13,7 +13,7 @@ enum
 	SPELL_DIVE_UNDER = 0
 };
 
-struct MANGOS_DLL_DECL boss_slagmaw : public ScriptedAI
+struct boss_slagmaw : public ScriptedAI
 {
     // *** HANDLED FUNCTION ***
     // This is the constructor, called only once when the creature is first created
@@ -49,7 +49,7 @@ struct MANGOS_DLL_DECL boss_slagmaw : public ScriptedAI
     void Aggro(Unit* pWho)
     {
         // Say some stuff
-        DoScriptText(SAY_AGGRO, m_creature, pWho);
+        // DoScriptText(SAY_AGGRO, m_creature, pWho);
 
 		// Can also cast any Spells/Buffs
     }
@@ -72,12 +72,12 @@ CreatureAI* GetAI_boss_slagmaw(Creature* pCreature)
 
 // This is the actual function called only once durring InitScripts()
 // It must define all handled functions that are to be run in this script
-void AddSC_example_creature()
+void AddSC_boss_slagmaw()
 {
     Script* pNewScript;
 
     pNewScript = new Script;
     pNewScript->Name = "boss_slagmaw";
     pNewScript->GetAI = &GetAI_boss_slagmaw;
-    pNewScript->RegisterSelf(false);
+    pNewScript->RegisterSelf();
 }

@@ -12,7 +12,7 @@ enum
 	SAY_ENTER_COMBAT = -1469003
 };
 
-struct MANGOS_DLL_DECL boss_wise_maru : public ScriptedAI
+struct boss_wise_maru : public ScriptedAI
 {
     // *** HANDLED FUNCTION ***
     // This is the constructor, called only once when the creature is first created
@@ -71,14 +71,12 @@ CreatureAI* GetAI_boss_wise_maru(Creature* pCreature)
 
 // This is the actual function called only once durring InitScripts()
 // It must define all handled functions that are to be run in this script
-void AddSC_example_creature()
+void AddSC_boss_wise_maru()
 {
     Script* pNewScript;
 
     pNewScript = new Script;
     pNewScript->Name = "boss_wise_maru";
-    pNewScript->GetAI = &GetAI_example_creature;
-    pNewScript->pGossipHello = &GossipHello_example_creature;
-    pNewScript->pGossipSelect = &GossipSelect_example_creature;
+    pNewScript->GetAI = &GetAI_boss_wise_maru;
     pNewScript->RegisterSelf(false);
 }

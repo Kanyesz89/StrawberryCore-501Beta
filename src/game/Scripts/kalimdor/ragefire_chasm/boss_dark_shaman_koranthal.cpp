@@ -84,5 +84,5 @@ void AddSC_boss_dark_shaman_korathal()
     pNewScript = new Script;
     pNewScript->Name = "boss_dark_shaman_korathal";
     pNewScript->GetAI = &GetAI_boss_dark_shaman_korathal;
-    pNewScript->RegisterSelf(false);
+    pNewScript->RegisterSelf();
 }

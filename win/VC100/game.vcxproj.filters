@@ -2284,6 +2284,18 @@
     <ClCompile Include="..\..\src\game\Scripts\pandaria\temple_of_the_jade_serpent\boss_wise_maru.cpp">
       <Filter>Scripts\pandaria\temple_of_the_jade_serpent</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\kalimdor\ragefire_chasm\boss_adarogg.cpp">
+      <Filter>Scripts\kalimdor\ragefire_chasm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\kalimdor\ragefire_chasm\boss_dark_shaman_koranthal.cpp">
+      <Filter>Scripts\kalimdor\ragefire_chasm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\kalimdor\ragefire_chasm\boss_lava_guard_gordoth.cpp">
+      <Filter>Scripts\kalimdor\ragefire_chasm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\kalimdor\ragefire_chasm\boss_slagmaw.cpp">
+      <Filter>Scripts\kalimdor\ragefire_chasm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game\AccountMgr.h">

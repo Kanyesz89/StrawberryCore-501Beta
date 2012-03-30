@@ -589,6 +589,10 @@
     <ClCompile Include="..\..\src\game\Scripts\kalimdor\moonglade.cpp" />
     <ClCompile Include="..\..\src\game\Scripts\kalimdor\mulgore.cpp" />
     <ClCompile Include="..\..\src\game\Scripts\kalimdor\orgrimmar.cpp" />
+    <ClCompile Include="..\..\src\game\Scripts\kalimdor\ragefire_chasm\boss_adarogg.cpp" />
+    <ClCompile Include="..\..\src\game\Scripts\kalimdor\ragefire_chasm\boss_dark_shaman_koranthal.cpp" />
+    <ClCompile Include="..\..\src\game\Scripts\kalimdor\ragefire_chasm\boss_lava_guard_gordoth.cpp" />
+    <ClCompile Include="..\..\src\game\Scripts\kalimdor\ragefire_chasm\boss_slagmaw.cpp" />
     <ClCompile Include="..\..\src\game\Scripts\kalimdor\silithus.cpp" />
     <ClCompile Include="..\..\src\game\Scripts\kalimdor\stonetalon_mountains.cpp" />
     <ClCompile Include="..\..\src\game\Scripts\kalimdor\tanaris.cpp" />
