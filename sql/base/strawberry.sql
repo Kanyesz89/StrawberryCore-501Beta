@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50519
 File Encoding         : 65001
 
-Date: 2012-03-26 03:16:13
+Date: 2012-03-30 02:35:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -2619,7 +2619,7 @@ CREATE TABLE `npc_vendor_template` (
 DROP TABLE IF EXISTS `opcodes`;
 CREATE TABLE `opcodes` (
   `OpcodeName` varchar(255) NOT NULL DEFAULT '',
-  `OpcodeValue` mediumint(5) NOT NULL DEFAULT '0',
+  `OpcodeValue` int(10) NOT NULL DEFAULT '0',
   `ClientBuild` mediumint(5) NOT NULL DEFAULT '15050',
   `StructureBuild` mediumint(5) NOT NULL,
   PRIMARY KEY (`OpcodeName`,`OpcodeValue`)
@@ -2628,15 +2628,19 @@ CREATE TABLE `opcodes` (
 -- ----------------------------
 -- Records of opcodes
 -- ----------------------------
+INSERT INTO `opcodes` VALUES ('CMSG_AUTH_CONTINUED_SESSION', '1815', '15464', '0');
 INSERT INTO `opcodes` VALUES ('CMSG_AUTH_SESSION', '1847', '15464', '15464');
 INSERT INTO `opcodes` VALUES ('CMSG_REQUEST_CHARACTER_CREATE', '29668', '15464', '15464');
 INSERT INTO `opcodes` VALUES ('CMSG_REQUEST_CHARACTER_ENUM', '9985', '15464', '15464');
 INSERT INTO `opcodes` VALUES ('MSG_WOW_CONNECTION', '20311', '15464', '15464');
+INSERT INTO `opcodes` VALUES ('SMSG_ADDON_INFO', '244', '15464', '15464');
 INSERT INTO `opcodes` VALUES ('SMSG_AUTH_CHALLENGE', '3988', '15464', '15464');
 INSERT INTO `opcodes` VALUES ('SMSG_AUTH_RESPONSE', '2919', '15464', '15464');
 INSERT INTO `opcodes` VALUES ('SMSG_CHAR_DELETE', '727', '15464', '15464');
+INSERT INTO `opcodes` VALUES ('SMSG_CLIENTCACHE_VERSION', '2884', '15464', '15464');
 INSERT INTO `opcodes` VALUES ('SMSG_RESPONSE_CHARACTER_CREATE', '2164', '15464', '15464');
 INSERT INTO `opcodes` VALUES ('SMSG_RESPONSE_CHARACTER_ENUM', '2184', '15464', '15464');
+INSERT INTO `opcodes` VALUES ('SMSG_WARDEN_DATA', '101', '15464', '0');
 
 -- ----------------------------
 -- Table structure for `page_text`

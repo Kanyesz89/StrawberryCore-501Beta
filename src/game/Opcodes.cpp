@@ -28,7 +28,7 @@
 OpcodeHandler opcodeTable[NUM_MSG_TYPES];
 OpcodeTableContainer opcodeTableMap;
 
-uint16 opcodesEnumToNumber[MAX_OPCODE_VALUE];
+uint32 opcodesEnumToNumber[MAX_OPCODE_VALUE];
 
 void OpcodeTableHandler::LoadOpcodesFromDB()
 {
@@ -42,7 +42,7 @@ void OpcodeTableHandler::LoadOpcodesFromDB()
         Field *fields = result->Fetch();
 
         std::string OpcodeName = fields[0].GetString();
-        uint16 OpcodeValue     = fields[1].GetUInt16();
+        uint32 OpcodeValue     = fields[1].GetUInt32();
 
         opcodeTableMap[OpcodeName] = OpcodeValue;
 
@@ -56,7 +56,7 @@ void OpcodeTableHandler::LoadOpcodesFromDB()
     sLog.outString();
 }
 
-uint16 OpcodeTableHandler::GetOpcodeTable(const char* name)
+uint32 OpcodeTableHandler::GetOpcodeTable(const char* name)
 {
     OpcodeTableContainer::iterator itr = opcodeTableMap.find(std::string(name));
     if (itr != opcodeTableMap.end())

@@ -29,6 +29,7 @@ enum Opcodes
     MSG_WOW_CONNECTION,
     SMSG_AUTH_CHALLENGE,
     CMSG_AUTH_SESSION,
+    CMSG_AUTH_CONTINUED_SESSION,
     SMSG_AUTH_RESPONSE,
 
     // Realmlist
@@ -1344,7 +1345,6 @@ enum Opcodes335a
     SMSG_SUSPEND_COMMS                              = 0x50F,
     CMSG_SUSPEND_COMMS_ACK                          = 0x510,
     SMSG_RESUME_COMMS                               = 0x511,
-    CMSG_AUTH_CONTINUED_SESSION                     = 0x512,
     CMSG_DROP_NEW_CONNECTION                        = 0x513,
     SMSG_SEND_ALL_COMBAT_LOG                        = 0x514,
     SMSG_OPEN_LFG_DUNGEON_FINDER                    = 0x515,
@@ -1424,10 +1424,10 @@ struct OpcodeHandler
 };
 
 extern OpcodeHandler opcodeTable[NUM_MSG_TYPES];
-extern uint16 opcodesEnumToNumber[MAX_OPCODE_VALUE];
+extern uint32 opcodesEnumToNumber[MAX_OPCODE_VALUE];
 
 // Lookup opcode name for human understandable logging
-inline const char* LookupOpcodeName(uint16 id)
+inline const char* LookupOpcodeName(uint32 id)
 {
     if (id >= NUM_MSG_TYPES)
         return "Received unknown opcode, it's more than max!";
@@ -1435,17 +1435,17 @@ inline const char* LookupOpcodeName(uint16 id)
     return opcodeTable[id].name;
 }
 
-inline Opcodes LookupOpcodeEnum(uint16 OpcodeValue)
+inline Opcodes LookupOpcodeEnum(uint32 OpcodeValue)
 {
     return opcodeTable[OpcodeValue].opcodeEnum;
 }
 
-inline uint16 LookupOpcodeNumber(Opcodes enumValue)
+inline uint32 LookupOpcodeNumber(Opcodes enumValue)
 {
     return opcodesEnumToNumber[enumValue];
 }
 
-typedef UNORDERED_MAP<std::string, uint16> OpcodeTableContainer;
+typedef UNORDERED_MAP<std::string, uint32> OpcodeTableContainer;
 extern OpcodeTableContainer opcodeTableMap;
 
 class OpcodeTableHandler
@@ -1453,7 +1453,7 @@ class OpcodeTableHandler
     public:
         void LoadOpcodesFromDB();
 
-        uint16 GetOpcodeTable(const char* name);
+        uint32 GetOpcodeTable(const char* name);
 };
 
 #define sOpcodeTableHandler ACE_Singleton<OpcodeTableHandler, ACE_Null_Mutex>::instance()
