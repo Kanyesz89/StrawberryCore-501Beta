@@ -1087,7 +1087,8 @@ void AddScripts()
     AddSC_terokkar_forest();
     AddSC_zangarmarsh();
 
-/*	// Cataclysm
+	/*
+	// Cataclysm
 	//Raids 6
     AddSC_instance_baradin_hold();					//Baradin Hold
     AddSC_boss_argaloth();
