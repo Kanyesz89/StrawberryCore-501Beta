@@ -2593,6 +2593,24 @@
     <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulGurub\boss_kilnara.cpp">
       <Filter>Scripts\cataclysm\instance\zul_gurub</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\game\BattleGroundBG.cpp">
+      <Filter>World/Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\BattleGroundCF.cpp">
+      <Filter>World/Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\BattleGroundDM.cpp">
+      <Filter>World/Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\BattleGroundTA.cpp">
+      <Filter>World/Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\BattleGroundTP.cpp">
+      <Filter>World/Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\BattleGroundVP.cpp">
+      <Filter>World/Handlers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game\AccountMgr.h">
@@ -3337,6 +3355,24 @@
     </ClInclude>
     <ClInclude Include="..\..\src\game\Scripts\cataclysm\raid\BastionOfTwilight\instance_bastion_of_twilight.h">
       <Filter>Scripts\cataclysm\raid\bastion_of_twilight</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\BattleGroundBG.h">
+      <Filter>World/Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\BattleGroundCF.h">
+      <Filter>World/Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\BattleGroundDM.h">
+      <Filter>World/Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\BattleGroundTA.h">
+      <Filter>World/Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\BattleGroundTP.h">
+      <Filter>World/Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\BattleGroundVP.h">
+      <Filter>World/Handlers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -345,6 +345,9 @@
     <ClCompile Include="..\..\src\game\BattleGroundAB.cpp" />
     <ClCompile Include="..\..\src\game\BattleGroundAV.cpp" />
     <ClCompile Include="..\..\src\game\BattleGroundBE.cpp" />
+    <ClCompile Include="..\..\src\game\BattleGroundBG.cpp" />
+    <ClCompile Include="..\..\src\game\BattleGroundCF.cpp" />
+    <ClCompile Include="..\..\src\game\BattleGroundDM.cpp" />
     <ClCompile Include="..\..\src\game\BattleGroundDS.cpp" />
     <ClCompile Include="..\..\src\game\BattleGroundEY.cpp" />
     <ClCompile Include="..\..\src\game\BattleGroundHandler.cpp" />
@@ -355,6 +358,9 @@
     <ClCompile Include="..\..\src\game\BattleGroundRL.cpp" />
     <ClCompile Include="..\..\src\game\BattleGroundRV.cpp" />
     <ClCompile Include="..\..\src\game\BattleGroundSA.cpp" />
+    <ClCompile Include="..\..\src\game\BattleGroundTA.cpp" />
+    <ClCompile Include="..\..\src\game\BattleGroundTP.cpp" />
+    <ClCompile Include="..\..\src\game\BattleGroundVP.cpp" />
     <ClCompile Include="..\..\src\game\BattleGroundWS.cpp" />
     <ClCompile Include="..\..\src\game\CalendarHandler.cpp" />
     <ClCompile Include="..\..\src\game\Channel.cpp" />
@@ -1088,6 +1094,9 @@
     <ClInclude Include="..\..\src\game\BattleGroundAB.h" />
     <ClInclude Include="..\..\src\game\BattleGroundAV.h" />
     <ClInclude Include="..\..\src\game\BattleGroundBE.h" />
+    <ClInclude Include="..\..\src\game\BattleGroundBG.h" />
+    <ClInclude Include="..\..\src\game\BattleGroundCF.h" />
+    <ClInclude Include="..\..\src\game\BattleGroundDM.h" />
     <ClInclude Include="..\..\src\game\BattleGroundDS.h" />
     <ClInclude Include="..\..\src\game\BattleGroundEY.h" />
     <ClInclude Include="..\..\src\game\BattleGroundIC.h" />
@@ -1097,6 +1106,9 @@
     <ClInclude Include="..\..\src\game\BattleGroundRL.h" />
     <ClInclude Include="..\..\src\game\BattleGroundRV.h" />
     <ClInclude Include="..\..\src\game\BattleGroundSA.h" />
+    <ClInclude Include="..\..\src\game\BattleGroundTA.h" />
+    <ClInclude Include="..\..\src\game\BattleGroundTP.h" />
+    <ClInclude Include="..\..\src\game\BattleGroundVP.h" />
     <ClInclude Include="..\..\src\game\BattleGroundWS.h" />
     <ClInclude Include="..\..\src\game\Cell.h" />
     <ClInclude Include="..\..\src\game\CellImpl.h" />
