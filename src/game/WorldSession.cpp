@@ -757,6 +757,9 @@ void WorldSession::LoadTutorialsData()
 void WorldSession::SendTutorialsData()
 {
     WorldPacket data(SMSG_TUTORIAL_FLAGS, 4*8);
+    // header...
+    data << uint16(0);
+
     for(uint32 i = 0; i < 8; ++i)
         data << m_Tutorials[i];
     SendPacket(&data);
@@ -858,6 +861,9 @@ void WorldSession::ReadAddonsInfo(WorldPacket &data)
 void WorldSession::SendAddonsInfo()
 {
     WorldPacket data(SMSG_ADDON_INFO);
+    // Header...
+    data << uint16(0);
+
     data << uint8(0x0C);
     data << uint8(0xC7);
     data << uint8(0x34);

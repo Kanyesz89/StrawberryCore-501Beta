@@ -251,20 +251,31 @@ World::AddSession_ (WorldSession* s)
     }
 
     WorldPacket packet(SMSG_AUTH_RESPONSE, 17);
-    packet << uint8(AUTH_OK);
-    packet << uint8(0x80);
+
+    // Header...
+    packet << uint16(0);
+
+    packet.WriteBit(false);
+    packet.WriteBit(true);
+
+    packet.FlushBits();
+
     packet << uint8(0);                                     // BillingPlanFlags
-    packet << uint8(s->Expansion());                        // 0 - normal, 1 - TBC, 2 - WotLK, 3 - CT, 4 - MoP.
+    packet << uint8(4);                                     // 0 - normal, 1 - TBC, 2 - WotLK, 3 - CT. Must be set in database manually for each account.
     packet << uint32(0);                                    // BillingTimeRemaining
     packet << uint32(0);                                    // BillingTimeRested
-    packet << uint8(s->Expansion());                        // 0 - normal, 1 - TBC, 2 - WotLK, 3 - CT, 4 - MoP.
+    packet << uint8(4);                                     // 0 - normal, 1 - TBC, 2 - WotLK, 3 - CT. must be set in database manually for each account
     packet << uint32(0);                                    // Unknown - 4.3.2
+    packet << uint8(AUTH_OK);
 
     s->SendPacket(&packet);
 
     s->SendAddonsInfo();
 
     WorldPacket pkt(SMSG_CLIENTCACHE_VERSION, 4);
+    // Header...
+    pkt << uint16(0);
+
     pkt << uint32(getConfig(CONFIG_UINT32_CLIENTCACHE_VERSION));
     s->SendPacket(&pkt);
 
@@ -305,17 +316,24 @@ void World::AddQueuedSession(WorldSession* sess)
     m_QueuedSessions.push_back (sess);
 
     // The 1st SMSG_AUTH_RESPONSE needs to contain other info too.
-    WorldPacket packet (SMSG_AUTH_RESPONSE, 19);
-    packet << uint8(AUTH_WAIT_QUEUE);
-    packet << uint8(0x80);
+    WorldPacket packet (SMSG_AUTH_RESPONSE, 25);
+    // Header...
+    packet << uint16(0);
+
+    packet.WriteBit(true);
+    packet.WriteBit(true);
+
+    packet.FlushBits();
+
     packet << uint8(0);                                     // unk 3.3.0
     packet << uint32(GetQueuedSessionPos(sess));            // position in queue
     packet << uint8(0);                                     // BillingPlanFlags
-    packet << uint8(sess->Expansion());                     // 0 - normal, 1 - TBC, 2 - WotLK, 3 - CT, 4 - MoP.
+    packet << uint8(sess->Expansion());                     // 0 - normal, 1 - TBC, 2 - WotLK, 3 - CT. Must be set in database manually for each account.
     packet << uint32(0);                                    // BillingTimeRemaining
     packet << uint32(0);                                    // BillingTimeRested
-    packet << uint8(sess->Expansion());                     // 0 - normal, 1 - TBC, 2 - WotLK, 3 - CT, 4 - MoP.
+    packet << uint8(sess->Expansion());                     // 0 - normal, 1 - TBC, 2 - WotLK, 3 - CT. must be set in database manually for each account
     packet << uint32(0);                                    // Unknown - 4.3.2
+    packet << uint8(AUTH_WAIT_QUEUE);
     sess->SendPacket(&packet);
 }
 

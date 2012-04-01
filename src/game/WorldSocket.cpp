@@ -168,7 +168,7 @@ int WorldSocket::SendPacket(const WorldPacket& pct)
 
     // Dump outgoing packet.
     sLog.outWorldPacketDump(uint32(get_handle()), pct.GetOpcode(), LookupOpcodeName(pct.GetOpcode()), &pct, false);
-
+   
     ServerPktHeader header(pct.size()+2, pct.GetOpcode());
     m_Crypt.EncryptSend((uint8*)header.header, header.getHeaderLength());
 
@@ -964,7 +964,7 @@ int WorldSocket::HandleAuthSession(WorldPacket& recvPacket)
     m_Session->LoadTutorialsData();
     recvPacket.rpos(addonInfoPos);
     m_Session->ReadAddonsInfo(recvPacket);
-    m_Session->InitWarden(&K, os);
+    //m_Session->InitWarden(&K, os);
 
     // In case needed sometime the second arg is in microseconds 1 000 000 = 1 sec
     ACE_OS::sleep(ACE_Time_Value(0, 10000));
