@@ -211,8 +211,6 @@ bool WorldSession::Update(PacketFilter& updater)
     WorldPacket* packet;
     while (m_Socket && !m_Socket->IsClosed() && _recvQueue.next(packet, updater))
     {
-
-        
         OpcodeHandler const& opHandle = opcodeTable[packet->GetOpcode()];
 
         try

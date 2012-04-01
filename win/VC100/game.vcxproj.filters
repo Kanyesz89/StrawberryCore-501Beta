@@ -67,9 +67,6 @@
     <Filter Include="Scripts\eastern_kingdoms\blackwing_lair">
       <UniqueIdentifier>{31605090-12b9-4d42-a5e9-1cbfac8ab384}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scripts\eastern_kingdoms\deadmines">
-      <UniqueIdentifier>{08fb5b22-710d-46d6-9893-f567aa75a5e6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Scripts\eastern_kingdoms\gnomeregan">
       <UniqueIdentifier>{cef5c3c5-f434-4b9f-9bad-8c106d46c755}</UniqueIdentifier>
     </Filter>
@@ -85,15 +82,6 @@
     <Filter Include="Scripts\eastern_kingdoms\scarlet_enclave">
       <UniqueIdentifier>{6ffd42e5-ac49-4635-8087-77ad2b7b0866}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scripts\eastern_kingdoms\scarlet_monastery">
-      <UniqueIdentifier>{dd4995a8-6d86-4f21-82bc-a18acc2c688f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scripts\eastern_kingdoms\scholomance">
-      <UniqueIdentifier>{2a3a25e5-51f1-4ab3-a1a0-1b9ec9c45d1a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scripts\eastern_kingdoms\shadowfang_keep">
-      <UniqueIdentifier>{7a028ad9-afa1-42ea-b147-20a40c5e716c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Scripts\eastern_kingdoms\stockade">
       <UniqueIdentifier>{66401dac-d94c-4ed6-b912-229dda0906d6}</UniqueIdentifier>
     </Filter>
@@ -108,12 +96,6 @@
     </Filter>
     <Filter Include="Scripts\eastern_kingdoms\uldaman">
       <UniqueIdentifier>{c929f54b-22dd-49b4-862c-92dfa9a2d1f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scripts\eastern_kingdoms\zulaman">
-      <UniqueIdentifier>{60b91cfe-7dff-40de-9957-41f8d03144cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scripts\eastern_kingdoms\zulgurub">
-      <UniqueIdentifier>{22eca3e6-662f-4c53-9344-6e749c09c86b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Scripts\kalimdor">
       <UniqueIdentifier>{5cda7bda-399b-46b7-8bc2-5786f0202fa2}</UniqueIdentifier>
@@ -144,9 +126,6 @@
     </Filter>
     <Filter Include="Scripts\kalimdor\onyxias_lair">
       <UniqueIdentifier>{9feb59d0-e6bd-4328-9a50-7ddb9852936e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scripts\kalimdor\ragefire_chasm">
-      <UniqueIdentifier>{00f03f8d-4af1-40d9-a95a-e2dc1a81ca7d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Scripts\kalimdor\razorfen_downs">
       <UniqueIdentifier>{de2e959a-1ef4-41ef-9235-15a1f3f8a19d}</UniqueIdentifier>
@@ -331,11 +310,92 @@
     <Filter Include="Scripts\northrend\ruby_sanctum">
       <UniqueIdentifier>{e35abead-2389-4eb9-88bd-70e6fe5636b5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scripts\pandaria">
-      <UniqueIdentifier>{4617b444-a2e7-4ed3-99b4-ae62abe9e30d}</UniqueIdentifier>
+    <Filter Include="Scripts\cataclysm">
+      <UniqueIdentifier>{3ac436e9-e2d9-415b-9592-a51bdb46407d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scripts\pandaria\temple_of_the_jade_serpent">
-      <UniqueIdentifier>{bf50a277-628c-42c4-96bf-faaac38ea69a}</UniqueIdentifier>
+    <Filter Include="Scripts\pandaria">
+      <UniqueIdentifier>{d1725754-ef6f-47ad-ac79-bc78bcbe1086}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance">
+      <UniqueIdentifier>{b4354bf9-fe6d-420b-9820-108c32c8eac2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\raid">
+      <UniqueIdentifier>{7aed2c1e-7dce-4226-8f39-943d70347f89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\zone">
+      <UniqueIdentifier>{2034f831-1e9c-41f5-bea4-088704050b67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\raid\baradins_hold">
+      <UniqueIdentifier>{e17e1adb-b219-4625-a56f-3bc3d718ccbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\raid\blackwing_descent">
+      <UniqueIdentifier>{952ee044-07d4-4887-aaad-1bd234ab1586}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\raid\dragon_soul">
+      <UniqueIdentifier>{24904eea-2d4b-4b32-9212-8f111599967d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\raid\firelands">
+      <UniqueIdentifier>{6b536864-04e6-4f8c-94b7-78e3448b29da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\raid\throne_of_the_four_winds">
+      <UniqueIdentifier>{d0eaaa65-7fb1-443a-9d81-062a26680792}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\raid\bastion_of_twilight">
+      <UniqueIdentifier>{fa027813-2c6e-4c46-be00-686463b1aee8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance\blackrock_caverns">
+      <UniqueIdentifier>{8723caee-51a2-4516-9750-9d641111bb7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance\deadmines">
+      <UniqueIdentifier>{442bc61f-19ad-4c5e-af25-7719a5cc9910}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance\end_time">
+      <UniqueIdentifier>{985768f2-1ab2-4fd1-91ea-20edffde0b2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance\grim_batol">
+      <UniqueIdentifier>{b1d51525-1eb0-4a32-a18b-c8a7639a8843}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance\halls_of_origination">
+      <UniqueIdentifier>{a574e0f6-7739-4459-ab23-de8f0153d0ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance\hour_of_twilight">
+      <UniqueIdentifier>{65a8ff25-8c6a-4063-ad4a-b632e89d24c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance\lost_city_tolvir">
+      <UniqueIdentifier>{90f84380-943e-4436-ac19-1c4f56143e38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance\zul_gurub">
+      <UniqueIdentifier>{a12d64c5-deec-469d-880b-063c476cef81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance\zul_aman">
+      <UniqueIdentifier>{e9129deb-ed66-443a-9697-59342e0dbfb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance\well_of_eternity">
+      <UniqueIdentifier>{fe427583-72d2-442d-a9c7-01c75f6ecad6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance\throne_of_the_tides">
+      <UniqueIdentifier>{aaf0127c-36af-4f72-bd95-bf01d1863149}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance\the_vortex_pinnacle">
+      <UniqueIdentifier>{537cbaf9-1704-4902-bfc1-13183631ed8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance\the_stonecore">
+      <UniqueIdentifier>{38eccdb6-3aa1-4cfe-9e9b-f2a4c4a29252}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\cataclysm\instance\shadowfang_keep">
+      <UniqueIdentifier>{a5d4b01b-6e14-483a-840b-772db3c9e9f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\pandaria\instance">
+      <UniqueIdentifier>{7c7a43f6-fe36-4b54-b45d-6fb3964d2ebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\pandaria\raid">
+      <UniqueIdentifier>{c8b32dec-d100-4c25-bce0-fdd1a7d95369}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\pandaria\zone">
+      <UniqueIdentifier>{d2c8bf13-633f-4328-a333-f4f437cdc88b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\pandaria\instance\ragefire_chasm">
+      <UniqueIdentifier>{00f03f8d-4af1-40d9-a95a-e2dc1a81ca7d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1045,15 +1105,6 @@
     <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\blackwing_lair\instance_blackwing_lair.cpp">
       <Filter>scripts\eastern_kingdoms\blackwing_lair</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\deadmines\boss_mr_smite.cpp">
-      <Filter>scripts\eastern_kingdoms\deadmines</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\deadmines\deadmines.cpp">
-      <Filter>scripts\eastern_kingdoms\deadmines</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\deadmines\instance_deadmines.cpp">
-      <Filter>scripts\eastern_kingdoms\deadmines</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\gnomeregan\boss_thermaplugg.cpp">
       <Filter>scripts\eastern_kingdoms\gnomeregan</Filter>
     </ClCompile>
@@ -1159,66 +1210,6 @@
     <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scarlet_enclave\ebon_hold.cpp">
       <Filter>scripts\eastern_kingdoms\scarlet_enclave</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scarlet_monastery\boss_arcanist_doan.cpp">
-      <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scarlet_monastery\boss_azshir_the_sleepless.cpp">
-      <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scarlet_monastery\boss_bloodmage_thalnos.cpp">
-      <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scarlet_monastery\boss_headless_horseman.cpp">
-      <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scarlet_monastery\boss_herod.cpp">
-      <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scarlet_monastery\boss_high_inquisitor_fairbanks.cpp">
-      <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scarlet_monastery\boss_houndmaster_loksey.cpp">
-      <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scarlet_monastery\boss_interrogator_vishas.cpp">
-      <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scarlet_monastery\boss_mograine_and_whitemane.cpp">
-      <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scarlet_monastery\boss_scorn.cpp">
-      <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scarlet_monastery\instance_scarlet_monastery.cpp">
-      <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scholomance\boss_darkmaster_gandling.cpp">
-      <Filter>scripts\eastern_kingdoms\scholomance</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scholomance\boss_death_knight_darkreaver.cpp">
-      <Filter>scripts\eastern_kingdoms\scholomance</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scholomance\boss_jandice_barov.cpp">
-      <Filter>scripts\eastern_kingdoms\scholomance</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scholomance\boss_kormok.cpp">
-      <Filter>scripts\eastern_kingdoms\scholomance</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scholomance\boss_vectus.cpp">
-      <Filter>scripts\eastern_kingdoms\scholomance</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\scholomance\instance_scholomance.cpp">
-      <Filter>scripts\eastern_kingdoms\scholomance</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\shadowfang_keep\boss_hummel.cpp">
-      <Filter>scripts\eastern_kingdoms\shadowfang_keep</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\shadowfang_keep\instance_shadowfang_keep.cpp">
-      <Filter>scripts\eastern_kingdoms\shadowfang_keep</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\shadowfang_keep\shadowfang_keep.cpp">
-      <Filter>scripts\eastern_kingdoms\shadowfang_keep</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\stratholme\boss_baron_rivendare.cpp">
       <Filter>scripts\eastern_kingdoms\stratholme</Filter>
     </ClCompile>
@@ -1293,72 +1284,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\uldaman\instance_uldaman.cpp">
       <Filter>scripts\eastern_kingdoms\uldaman</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulaman\boss_akilzon.cpp">
-      <Filter>scripts\eastern_kingdoms\zulaman</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulaman\boss_halazzi.cpp">
-      <Filter>scripts\eastern_kingdoms\zulaman</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulaman\boss_janalai.cpp">
-      <Filter>scripts\eastern_kingdoms\zulaman</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulaman\boss_malacrass.cpp">
-      <Filter>scripts\eastern_kingdoms\zulaman</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulaman\boss_nalorakk.cpp">
-      <Filter>scripts\eastern_kingdoms\zulaman</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulaman\boss_zuljin.cpp">
-      <Filter>scripts\eastern_kingdoms\zulaman</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulaman\instance_zulaman.cpp">
-      <Filter>scripts\eastern_kingdoms\zulaman</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulaman\zulaman.cpp">
-      <Filter>scripts\eastern_kingdoms\zulaman</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\boss_arlokk.cpp">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\boss_gahzranka.cpp">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\boss_grilek.cpp">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\boss_hakkar.cpp">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\boss_hazzarah.cpp">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\boss_jeklik.cpp">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\boss_jindo.cpp">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\boss_mandokir.cpp">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\boss_marli.cpp">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\boss_renataki.cpp">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\boss_thekal.cpp">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\boss_venoxis.cpp">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\boss_wushoolay.cpp">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\instance_zulgurub.cpp">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\game\Scripts\kalimdor\ashenvale.cpp">
       <Filter>scripts\kalimdor</Filter>
@@ -2281,20 +2206,392 @@
     <ClCompile Include="..\..\src\game\Scripts\battlegrounds\battleground_script.cpp">
       <Filter>Scripts\battlegrounds</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\pandaria\temple_of_the_jade_serpent\boss_wise_maru.cpp">
-      <Filter>Scripts\pandaria\temple_of_the_jade_serpent</Filter>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\BlackrockCaverns\boss_ascendant_lord_obsidius.cpp">
+      <Filter>Scripts\cataclysm\instance\blackrock_caverns</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\kalimdor\ragefire_chasm\boss_adarogg.cpp">
-      <Filter>Scripts\kalimdor\ragefire_chasm</Filter>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\BlackrockCaverns\boss_beauty.cpp">
+      <Filter>Scripts\cataclysm\instance\blackrock_caverns</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\kalimdor\ragefire_chasm\boss_dark_shaman_koranthal.cpp">
-      <Filter>Scripts\kalimdor\ragefire_chasm</Filter>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\BlackrockCaverns\boss_corla_herald_of_twilight.cpp">
+      <Filter>Scripts\cataclysm\instance\blackrock_caverns</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\kalimdor\ragefire_chasm\boss_lava_guard_gordoth.cpp">
-      <Filter>Scripts\kalimdor\ragefire_chasm</Filter>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\BlackrockCaverns\boss_karsh_steelbender.cpp">
+      <Filter>Scripts\cataclysm\instance\blackrock_caverns</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\game\Scripts\kalimdor\ragefire_chasm\boss_slagmaw.cpp">
-      <Filter>Scripts\kalimdor\ragefire_chasm</Filter>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\BlackrockCaverns\boss_romogg_bonecrusher.cpp">
+      <Filter>Scripts\cataclysm\instance\blackrock_caverns</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\BlackrockCaverns\instance_blackrock_caverns.cpp">
+      <Filter>Scripts\cataclysm\instance\blackrock_caverns</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\Deadmines\boss_admiral_ripsnarl.cpp">
+      <Filter>Scripts\cataclysm\instance\deadmines</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\Deadmines\boss_cookie.cpp">
+      <Filter>Scripts\cataclysm\instance\deadmines</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\Deadmines\boss_foe_reaper_5000.cpp">
+      <Filter>Scripts\cataclysm\instance\deadmines</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\Deadmines\boss_glubtok.cpp">
+      <Filter>Scripts\cataclysm\instance\deadmines</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\Deadmines\boss_helix_gearbreaker.cpp">
+      <Filter>Scripts\cataclysm\instance\deadmines</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\Deadmines\boss_vanessa_vancleef.cpp">
+      <Filter>Scripts\cataclysm\instance\deadmines</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\Deadmines\instance_deadmines.cpp">
+      <Filter>Scripts\cataclysm\instance\deadmines</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\EndTime\boss_echo_of_baine.cpp">
+      <Filter>Scripts\cataclysm\instance\end_time</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\EndTime\boss_echo_of_jaina.cpp">
+      <Filter>Scripts\cataclysm\instance\end_time</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\EndTime\boss_echo_of_sylvanas.cpp">
+      <Filter>Scripts\cataclysm\instance\end_time</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\EndTime\boss_echo_of_tyrande.cpp">
+      <Filter>Scripts\cataclysm\instance\end_time</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\EndTime\boss_murozond.cpp">
+      <Filter>Scripts\cataclysm\instance\end_time</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\EndTime\instance_end_time.cpp">
+      <Filter>Scripts\cataclysm\instance\end_time</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\GrimBatol\boss_drahga_shadowburner.cpp">
+      <Filter>Scripts\cataclysm\instance\grim_batol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\GrimBatol\boss_erudax.cpp">
+      <Filter>Scripts\cataclysm\instance\grim_batol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\GrimBatol\boss_forgemaster_throngus.cpp">
+      <Filter>Scripts\cataclysm\instance\grim_batol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\GrimBatol\boss_general_umbriss.cpp">
+      <Filter>Scripts\cataclysm\instance\grim_batol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\GrimBatol\instance_grim_batol.cpp">
+      <Filter>Scripts\cataclysm\instance\grim_batol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\HallsOfOrigination\boss_ammunae.cpp">
+      <Filter>Scripts\cataclysm\instance\halls_of_origination</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\HallsOfOrigination\boss_anraphet.cpp">
+      <Filter>Scripts\cataclysm\instance\halls_of_origination</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\HallsOfOrigination\boss_earthrager_ptah.cpp">
+      <Filter>Scripts\cataclysm\instance\halls_of_origination</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\HallsOfOrigination\boss_isiset.cpp">
+      <Filter>Scripts\cataclysm\instance\halls_of_origination</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\HallsOfOrigination\boss_rajh.cpp">
+      <Filter>Scripts\cataclysm\instance\halls_of_origination</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\HallsOfOrigination\boss_setesh.cpp">
+      <Filter>Scripts\cataclysm\instance\halls_of_origination</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\HallsOfOrigination\boss_temple_guardian_anhuur.cpp">
+      <Filter>Scripts\cataclysm\instance\halls_of_origination</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\HallsOfOrigination\instance_halls_of_origination.cpp">
+      <Filter>Scripts\cataclysm\instance\halls_of_origination</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\HourOfTwilight\boss_archbishop_benedictus.cpp">
+      <Filter>Scripts\cataclysm\instance\hour_of_twilight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\HourOfTwilight\boss_arcurion.cpp">
+      <Filter>Scripts\cataclysm\instance\hour_of_twilight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\HourOfTwilight\boss_asira_dawnslayer.cpp">
+      <Filter>Scripts\cataclysm\instance\hour_of_twilight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\HourOfTwilight\instance_hour_of_twilight.cpp">
+      <Filter>Scripts\cataclysm\instance\hour_of_twilight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\LostCityOfTheTolvir\boss_high_prophet_barim.cpp">
+      <Filter>Scripts\cataclysm\instance\lost_city_tolvir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\LostCityOfTheTolvir\boss_husam.cpp">
+      <Filter>Scripts\cataclysm\instance\lost_city_tolvir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\LostCityOfTheTolvir\boss_lockmaw.cpp">
+      <Filter>Scripts\cataclysm\instance\lost_city_tolvir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\LostCityOfTheTolvir\boss_siamat.cpp">
+      <Filter>Scripts\cataclysm\instance\lost_city_tolvir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\LostCityOfTheTolvir\instance_lost_city_of_the_tolvir.cpp">
+      <Filter>Scripts\cataclysm\instance\lost_city_tolvir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ShadowfangKeep\boss_baron_ashbury.cpp">
+      <Filter>Scripts\cataclysm\instance\shadowfang_keep</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ShadowfangKeep\boss_baron_silverlaine.cpp">
+      <Filter>Scripts\cataclysm\instance\shadowfang_keep</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ShadowfangKeep\boss_commander_springvale.cpp">
+      <Filter>Scripts\cataclysm\instance\shadowfang_keep</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ShadowfangKeep\boss_lord_godfrey.cpp">
+      <Filter>Scripts\cataclysm\instance\shadowfang_keep</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ShadowfangKeep\boss_lord_walden.cpp">
+      <Filter>Scripts\cataclysm\instance\shadowfang_keep</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ShadowfangKeep\instance_shadowfang_keep.cpp">
+      <Filter>Scripts\cataclysm\instance\shadowfang_keep</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\TheStonecore\boss_corborus.cpp">
+      <Filter>Scripts\cataclysm\instance\the_stonecore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\TheStonecore\boss_ozruk.cpp">
+      <Filter>Scripts\cataclysm\instance\the_stonecore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\TheStonecore\boss_priestess_azil.cpp">
+      <Filter>Scripts\cataclysm\instance\the_stonecore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\TheStonecore\boss_slabhide.cpp">
+      <Filter>Scripts\cataclysm\instance\the_stonecore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\TheStonecore\instance_the_stonecore.cpp">
+      <Filter>Scripts\cataclysm\instance\the_stonecore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\TheVortexPinnacle\boss_altairus.cpp">
+      <Filter>Scripts\cataclysm\instance\the_vortex_pinnacle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\TheVortexPinnacle\boss_asaad.cpp">
+      <Filter>Scripts\cataclysm\instance\the_vortex_pinnacle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\TheVortexPinnacle\boss_grand_vizier_ertan.cpp">
+      <Filter>Scripts\cataclysm\instance\the_vortex_pinnacle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\TheVortexPinnacle\instance_vortex_pinnacle.cpp">
+      <Filter>Scripts\cataclysm\instance\the_vortex_pinnacle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ThroneOfTheTides\boss_commander_ulthok.cpp">
+      <Filter>Scripts\cataclysm\instance\throne_of_the_tides</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ThroneOfTheTides\boss_erunak_ghursha.cpp">
+      <Filter>Scripts\cataclysm\instance\throne_of_the_tides</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ThroneOfTheTides\boss_lady_nazjar.cpp">
+      <Filter>Scripts\cataclysm\instance\throne_of_the_tides</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ThroneOfTheTides\boss_ozumat.cpp">
+      <Filter>Scripts\cataclysm\instance\throne_of_the_tides</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ThroneOfTheTides\instance_throne_of_the_tides.cpp">
+      <Filter>Scripts\cataclysm\instance\throne_of_the_tides</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\WellOfEternity\boss_mannaroth_varothen.cpp">
+      <Filter>Scripts\cataclysm\instance\well_of_eternity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\WellOfEternity\boss_perotharn.cpp">
+      <Filter>Scripts\cataclysm\instance\well_of_eternity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\WellOfEternity\boss_queen_azshara.cpp">
+      <Filter>Scripts\cataclysm\instance\well_of_eternity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\WellOfEternity\instance_well_of_eternity.cpp">
+      <Filter>Scripts\cataclysm\instance\well_of_eternity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulAman\boss_akilzon.cpp">
+      <Filter>Scripts\cataclysm\instance\zul_aman</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulAman\boss_halazzi.cpp">
+      <Filter>Scripts\cataclysm\instance\zul_aman</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulAman\boss_janalai.cpp">
+      <Filter>Scripts\cataclysm\instance\zul_aman</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulAman\boss_malacrass.cpp">
+      <Filter>Scripts\cataclysm\instance\zul_aman</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulAman\boss_nalorakk.cpp">
+      <Filter>Scripts\cataclysm\instance\zul_aman</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulAman\boss_zuljin.cpp">
+      <Filter>Scripts\cataclysm\instance\zul_aman</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulGurub\boss_edge_of_madness.cpp">
+      <Filter>Scripts\cataclysm\instance\zul_gurub</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulGurub\boss_jindo.cpp">
+      <Filter>Scripts\cataclysm\instance\zul_gurub</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulGurub\boss_mandokir.cpp">
+      <Filter>Scripts\cataclysm\instance\zul_gurub</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulGurub\boss_venoxis.cpp">
+      <Filter>Scripts\cataclysm\instance\zul_gurub</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulGurub\boss_zanzil.cpp">
+      <Filter>Scripts\cataclysm\instance\zul_gurub</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BaradinsHold\boss_alizabal.cpp">
+      <Filter>Scripts\cataclysm\raid\baradins_hold</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BaradinsHold\boss_argaloth.cpp">
+      <Filter>Scripts\cataclysm\raid\baradins_hold</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BaradinsHold\boss_occuthar.cpp">
+      <Filter>Scripts\cataclysm\raid\baradins_hold</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BaradinsHold\instance_baradin_hold.cpp">
+      <Filter>Scripts\cataclysm\raid\baradins_hold</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BastionOfTwilight\boss_ascendant_council.cpp">
+      <Filter>Scripts\cataclysm\raid\bastion_of_twilight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BastionOfTwilight\boss_chogall.cpp">
+      <Filter>Scripts\cataclysm\raid\bastion_of_twilight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BastionOfTwilight\boss_halfus_wyrmbreaker.cpp">
+      <Filter>Scripts\cataclysm\raid\bastion_of_twilight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BastionOfTwilight\boss_sinestra.cpp">
+      <Filter>Scripts\cataclysm\raid\bastion_of_twilight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BastionOfTwilight\boss_theralion_and_valiona.cpp">
+      <Filter>Scripts\cataclysm\raid\bastion_of_twilight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BastionOfTwilight\instance_bastion_of_twilight.cpp">
+      <Filter>Scripts\cataclysm\raid\bastion_of_twilight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BlackwingDescent\boss_atramedes.cpp">
+      <Filter>Scripts\cataclysm\raid\blackwing_descent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BlackwingDescent\boss_chimaeron.cpp">
+      <Filter>Scripts\cataclysm\raid\blackwing_descent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BlackwingDescent\boss_magmaw.cpp">
+      <Filter>Scripts\cataclysm\raid\blackwing_descent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BlackwingDescent\boss_maloriak.cpp">
+      <Filter>Scripts\cataclysm\raid\blackwing_descent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BlackwingDescent\boss_omnotron.cpp">
+      <Filter>Scripts\cataclysm\raid\blackwing_descent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BlackwingDescent\instance_blackwing_descent.cpp">
+      <Filter>Scripts\cataclysm\raid\blackwing_descent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\DragonSoul\boss_hagara_the_stormbinder.cpp">
+      <Filter>Scripts\cataclysm\raid\dragon_soul</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\DragonSoul\boss_madness_of_deathwing.cpp">
+      <Filter>Scripts\cataclysm\raid\dragon_soul</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\DragonSoul\boss_morchok.cpp">
+      <Filter>Scripts\cataclysm\raid\dragon_soul</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\DragonSoul\boss_spine_of_deathwing.cpp">
+      <Filter>Scripts\cataclysm\raid\dragon_soul</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\DragonSoul\boss_ultraxion.cpp">
+      <Filter>Scripts\cataclysm\raid\dragon_soul</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\DragonSoul\boss_warlord_zonozz.cpp">
+      <Filter>Scripts\cataclysm\raid\dragon_soul</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\DragonSoul\boss_warmaster_blackhorn.cpp">
+      <Filter>Scripts\cataclysm\raid\dragon_soul</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\DragonSoul\boss_yorsahi_the_unsleeping.cpp">
+      <Filter>Scripts\cataclysm\raid\dragon_soul</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\DragonSoul\instance_dragon_soul.cpp">
+      <Filter>Scripts\cataclysm\raid\dragon_soul</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\Firelands\boss_alysrazor.cpp">
+      <Filter>Scripts\cataclysm\raid\firelands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\Firelands\boss_baleroc.cpp">
+      <Filter>Scripts\cataclysm\raid\firelands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\Firelands\boss_bethtilac.cpp">
+      <Filter>Scripts\cataclysm\raid\firelands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\Firelands\boss_lord_rhyolith.cpp">
+      <Filter>Scripts\cataclysm\raid\firelands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\Firelands\boss_major_domo.cpp">
+      <Filter>Scripts\cataclysm\raid\firelands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\Firelands\boss_shannox.cpp">
+      <Filter>Scripts\cataclysm\raid\firelands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\Firelands\instance_firelands.cpp">
+      <Filter>Scripts\cataclysm\raid\firelands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\ThroneOfTheFourWinds\boss_conclave_of_wind.cpp">
+      <Filter>Scripts\cataclysm\raid\throne_of_the_four_winds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\ThroneOfTheFourWinds\instance_throne_of_the_four_winds.cpp">
+      <Filter>Scripts\cataclysm\raid\throne_of_the_four_winds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulAman\instance_zul_aman.cpp">
+      <Filter>Scripts\cataclysm\instance\zul_aman</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulGurub\instance_zul_gurub.cpp">
+      <Filter>Scripts\cataclysm\instance\zul_gurub</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\Zones\ahnqiraj_fallen_kingdom.cpp">
+      <Filter>Scripts\cataclysm\zone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\Zones\darkmoon.cpp">
+      <Filter>Scripts\cataclysm\zone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\Zones\deepholm.cpp">
+      <Filter>Scripts\cataclysm\zone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\Zones\gilneas.cpp">
+      <Filter>Scripts\cataclysm\zone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\Zones\instance_kezan.cpp">
+      <Filter>Scripts\cataclysm\zone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\Zones\lost_isles.cpp">
+      <Filter>Scripts\cataclysm\zone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\Zones\molten_front.cpp">
+      <Filter>Scripts\cataclysm\zone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\Zones\mount_hyjal.cpp">
+      <Filter>Scripts\cataclysm\zone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\Zones\the_maelstrom.cpp">
+      <Filter>Scripts\cataclysm\zone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\Zones\tol_barad.cpp">
+      <Filter>Scripts\cataclysm\zone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\Zones\twilight_highlands.cpp">
+      <Filter>Scripts\cataclysm\zone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\Zones\uldum.cpp">
+      <Filter>Scripts\cataclysm\zone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\Zones\vashjir.cpp">
+      <Filter>Scripts\cataclysm\zone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\ThroneOfTheFourWinds\boss_alakir.cpp">
+      <Filter>Scripts\cataclysm\raid\throne_of_the_four_winds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\BlackwingDescent\boss_nefarian_onyxia.cpp">
+      <Filter>Scripts\cataclysm\raid\blackwing_descent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\raid\Firelands\boss_ragnaros_final.cpp">
+      <Filter>Scripts\cataclysm\raid\firelands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\Scripts\cataclysm\instance\ZulGurub\boss_kilnara.cpp">
+      <Filter>Scripts\cataclysm\instance\zul_gurub</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2813,9 +3110,6 @@
     <ClInclude Include="..\..\src\game\Scripts\eastern_kingdoms\blackwing_lair\blackwing_lair.h">
       <Filter>scripts\eastern_kingdoms\blackwing_lair</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\game\Scripts\eastern_kingdoms\deadmines\deadmines.h">
-      <Filter>scripts\eastern_kingdoms\deadmines</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\game\Scripts\eastern_kingdoms\gnomeregan\gnomeregan.h">
       <Filter>scripts\eastern_kingdoms\gnomeregan</Filter>
     </ClInclude>
@@ -2828,15 +3122,6 @@
     <ClInclude Include="..\..\src\game\Scripts\eastern_kingdoms\molten_core\molten_core.h">
       <Filter>scripts\eastern_kingdoms\molten_core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\game\Scripts\eastern_kingdoms\scarlet_monastery\scarlet_monastery.h">
-      <Filter>scripts\eastern_kingdoms\scarlet_monastery</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\game\Scripts\eastern_kingdoms\scholomance\scholomance.h">
-      <Filter>scripts\eastern_kingdoms\scholomance</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\game\Scripts\eastern_kingdoms\shadowfang_keep\shadowfang_keep.h">
-      <Filter>scripts\eastern_kingdoms\shadowfang_keep</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\game\Scripts\eastern_kingdoms\stratholme\stratholme.h">
       <Filter>scripts\eastern_kingdoms\stratholme</Filter>
     </ClInclude>
@@ -2848,12 +3133,6 @@
     </ClInclude>
     <ClInclude Include="..\..\src\game\Scripts\eastern_kingdoms\uldaman\uldaman.h">
       <Filter>scripts\eastern_kingdoms\uldaman</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\game\Scripts\eastern_kingdoms\zulaman\zulaman.h">
-      <Filter>scripts\eastern_kingdoms\zulaman</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\game\Scripts\eastern_kingdoms\zulgurub\zulgurub.h">
-      <Filter>scripts\eastern_kingdoms\zulgurub</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\game\Scripts\kalimdor\blackfathom_deeps\blackfathom_deeps.h">
       <Filter>scripts\kalimdor\blackfathom_deeps</Filter>
@@ -2999,8 +3278,65 @@
     <ClInclude Include="..\..\src\game\Scripts\outland\tempest_keep\the_mechanar\mechanar.h">
       <Filter>scripts\outland\tempest_keep\the_mechanar</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\game\Scripts\pandaria\temple_of_the_jade_serpent\instance_temple_of_the_jade_serpent.h">
-      <Filter>Scripts\pandaria\temple_of_the_jade_serpent</Filter>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\instance\ZulAman\instance_zul_aman.h">
+      <Filter>Scripts\cataclysm\instance\zul_aman</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\instance\ZulGurub\instance_zul_gurub.h">
+      <Filter>Scripts\cataclysm\instance\zul_gurub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\instance\WellOfEternity\instance_well_of_eternity.h">
+      <Filter>Scripts\cataclysm\instance\well_of_eternity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\instance\TheVortexPinnacle\instance_vortex_pinnacle.h">
+      <Filter>Scripts\cataclysm\instance\the_vortex_pinnacle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\instance\BlackrockCaverns\instance_blackrock_caverns.h">
+      <Filter>Scripts\cataclysm\instance\blackrock_caverns</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\instance\Deadmines\instance_deadmines.h">
+      <Filter>Scripts\cataclysm\instance\deadmines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\instance\EndTime\instance_end_time.h">
+      <Filter>Scripts\cataclysm\instance\end_time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\instance\GrimBatol\instance_grim_batol.h">
+      <Filter>Scripts\cataclysm\instance\grim_batol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\instance\HallsOfOrigination\instance_halls_of_origination.h">
+      <Filter>Scripts\cataclysm\instance\halls_of_origination</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\instance\HourOfTwilight\instance_hour_of_twilight.h">
+      <Filter>Scripts\cataclysm\instance\hour_of_twilight</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\instance\LostCityOfTheTolvir\instance_lost_city_of_the_tolvir.h">
+      <Filter>Scripts\cataclysm\instance\lost_city_tolvir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\instance\ShadowfangKeep\instance_shadowfang_keep.h">
+      <Filter>Scripts\cataclysm\instance\shadowfang_keep</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\instance\TheStonecore\instance_the_stonecore.h">
+      <Filter>Scripts\cataclysm\instance\the_stonecore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\instance\ThroneOfTheTides\instance_throne_of_the_tides.h">
+      <Filter>Scripts\cataclysm\instance\throne_of_the_tides</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\raid\BaradinsHold\instance_baradin_hold.h">
+      <Filter>Scripts\cataclysm\raid\baradins_hold</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\raid\ThroneOfTheFourWinds\instance_throne_of_the_four_winds.h">
+      <Filter>Scripts\cataclysm\raid\throne_of_the_four_winds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\raid\Firelands\instance_firelands.h">
+      <Filter>Scripts\cataclysm\raid\firelands</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\raid\DragonSoul\instance_dragon_soul.h">
+      <Filter>Scripts\cataclysm\raid\dragon_soul</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\raid\BlackwingDescent\instance_blackwing_descent.h">
+      <Filter>Scripts\cataclysm\raid\blackwing_descent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\Scripts\cataclysm\raid\BastionOfTwilight\instance_bastion_of_twilight.h">
+      <Filter>Scripts\cataclysm\raid\bastion_of_twilight</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

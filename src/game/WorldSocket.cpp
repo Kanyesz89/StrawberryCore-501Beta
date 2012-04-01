@@ -55,7 +55,7 @@ struct ServerPktHeader
     /**
      * size is the length of the payload _plus_ the length of the opcode
      */
-    ServerPktHeader(uint32 size, uint16 cmd) : size(size)
+    ServerPktHeader(uint32 size, uint32 cmd) : size(size)
     {
         uint8 headerIndex=0;
         if (isLargePacket())
@@ -69,12 +69,14 @@ struct ServerPktHeader
         
         header[headerIndex++] = 0xFF & cmd;
         header[headerIndex++] = 0xFF & (cmd >> 8);
+        header[headerIndex++] = 0xFF & (cmd >> 16);
+        header[headerIndex++] = 0xFF & (cmd >> 24);
     }
 
     uint8 getHeaderLength()
     {
-        // cmd = 2 bytes, size= 2||3bytes
-        return 2 + (isLargePacket() ? 3 : 2);
+        // cmd = 4 bytes, size = 2 || 3 bytes
+        return 4 + (isLargePacket() ? 3 : 2);
     }
 
     bool isLargePacket()
@@ -83,7 +85,7 @@ struct ServerPktHeader
     }
      
     const uint32 size;
-    uint8 header[5];
+    uint8 header[7];
 };
 
 struct ClientPktHeader
@@ -169,7 +171,7 @@ int WorldSocket::SendPacket(const WorldPacket& pct)
     // Dump outgoing packet.
     sLog.outWorldPacketDump(uint32(get_handle()), pct.GetOpcode(), LookupOpcodeName(pct.GetOpcode()), &pct, false);
    
-    ServerPktHeader header(pct.size()+2, pct.GetOpcode());
+    ServerPktHeader header(pct.size()+4, pct.GetOpcode());
     m_Crypt.EncryptSend((uint8*)header.header, header.getHeaderLength());
 
     if (m_OutBuffer->space() >= pct.size() + header.getHeaderLength() && msg_queue()->is_empty())
@@ -255,9 +257,6 @@ int WorldSocket::open(void *a)
 
     // Send startup packet.
     WorldPacket packet(SMSG_AUTH_CHALLENGE, 37);
-
-    packet << uint8(0);
-    packet << uint8(0);
 
     for (uint32 i = 0; i < 8; i++)
         packet << uint32(0);
@@ -666,7 +665,7 @@ int WorldSocket::ProcessIncoming(WorldPacket* new_pct)
     // manage memory ;)
     ACE_Auto_Ptr<WorldPacket> aptr(new_pct);
 
-    const ACE_UINT16 opcode = new_pct->GetOpcode();
+    const ACE_UINT32 opcode = new_pct->GetOpcode();
 
     if (strcmp(LookupOpcodeName(new_pct->GetOpcode()), "UNKNOWN") == 0)
         sLog.outError("SESSION: received non-existed opcode %s (0x%.4X)", LookupOpcodeName(new_pct->GetOpcode()), new_pct->GetOpcode());
