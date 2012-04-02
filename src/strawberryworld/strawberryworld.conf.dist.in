@@ -1228,6 +1228,7 @@ Visibility.AIRelocationNotifyDelay = 1000
 #    Rate.RunicPower.Income
 #    Rate.RunicPower.Loss
 #    Rate.Focus
+#    Rate.Chi (Monk)
 #    Rate.Energy (Rogue)
 #        Health and power regeneration and rage income from damage.
 #        Default: 1
@@ -1382,6 +1383,7 @@ Rate.Rage.Loss                    = 1
 Rate.RunicPower.Income            = 1
 Rate.RunicPower.Loss              = 1
 Rate.Focus                        = 1
+Rate.Chi                       	  = 1
 Rate.Energy                       = 1
 Rate.Skill.Discovery              = 1
 Rate.Drop.Item.Poor               = 1

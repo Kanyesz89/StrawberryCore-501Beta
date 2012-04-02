@@ -700,6 +700,9 @@ void Creature::RegeneratePower()
         case POWER_FOCUS:
             addvalue = 24 * sWorld.getConfig(CONFIG_FLOAT_RATE_POWER_FOCUS);
             break;
+		case POWER_CHI:
+            addvalue = 20 * sWorld.getConfig(CONFIG_FLOAT_RATE_POWER_CHI);
+            break;
         default:
             return;
     }

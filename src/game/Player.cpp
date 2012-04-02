@@ -2033,6 +2033,8 @@ void Player::RegenerateAll(uint32 diff)
 
     Regenerate(POWER_ENERGY, diff);
 
+	Regenerate(POWER_CHI, diff);
+
     Regenerate(POWER_MANA, diff);
 
     if (getClass() == CLASS_DEATH_KNIGHT)
@@ -2078,6 +2080,9 @@ void Player::Regenerate(Powers power, uint32 diff)
         case POWER_FOCUS:
             addvalue = 12;
             break;
+		case POWER_CHI:
+            addvalue = 12;
+            break;
         case POWER_ENERGY:                                  // Regenerate energy (rogue)
         {
             float EnergyRate = sWorld.getConfig(CONFIG_FLOAT_RATE_POWER_ENERGY);
@@ -2113,7 +2118,7 @@ void Player::Regenerate(Powers power, uint32 diff)
     }
 
     // Mana regen calculated in Player::UpdateManaRegen()
-    // Exist only for POWER_MANA, POWER_ENERGY, POWER_FOCUS auras
+    // Exist only for POWER_MANA, POWER_ENERGY, POWER_FOCUS, POWER_CHI auras
     if(power != POWER_MANA)
     {
         AuraList const& ModPowerRegenPCTAuras = GetAurasByType(SPELL_AURA_MOD_POWER_REGEN_PERCENT);
@@ -2576,6 +2581,7 @@ void Player::GiveLevel(uint32 level)
         SetHealth(GetMaxHealth());
     SetPower(POWER_MANA, GetMaxPower(POWER_MANA));
     SetPower(POWER_ENERGY, GetMaxPower(POWER_ENERGY));
+	 SetPower(POWER_CHI, GetMaxPower(POWER_CHI));
     if(GetPower(POWER_RAGE) > GetMaxPower(POWER_RAGE))
         SetPower(POWER_RAGE, GetMaxPower(POWER_RAGE));
     SetPower(POWER_FOCUS, 0);
@@ -2794,6 +2800,7 @@ void Player::InitStatsForLevel(bool reapplyMods)
     SetHealth(GetMaxHealth());
     SetPower(POWER_MANA, GetMaxPower(POWER_MANA));
     SetPower(POWER_ENERGY, GetMaxPower(POWER_ENERGY));
+	SetPower(POWER_CHI, GetMaxPower(POWER_CHI));
     if(GetPower(POWER_RAGE) > GetMaxPower(POWER_RAGE))
         SetPower(POWER_RAGE, GetMaxPower(POWER_RAGE));
     SetPower(POWER_FOCUS, 0);
