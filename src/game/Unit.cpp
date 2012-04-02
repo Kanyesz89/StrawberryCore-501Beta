@@ -9315,6 +9315,10 @@ void Unit::SetPower(Powers power, uint32 val)
         {
             pet->UpdateDamagePhysical(BASE_ATTACK);
         }
+		if(pet->getPetType() == BATTLE_PET)
+        {
+            pet->UpdateDamagePhysical(BASE_ATTACK);
+        }
     }
 }
 

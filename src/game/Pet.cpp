@@ -197,6 +197,10 @@ bool Pet::LoadPetFromDB( Player* owner, uint32 petentry, uint32 petnumber, bool 
         case SUMMON_PET:
             petlevel=owner->getLevel();
             break;
+		case BATTLE_PET:
+            SetByteFlag(UNIT_FIELD_BYTES_2, 2, fields[9].GetBool() ? UNIT_CAN_BE_ABANDONED : UNIT_CAN_BE_RENAMED | UNIT_CAN_BE_ABANDONED);
+            setPowerType(POWER_MANA);
+            break;
         case HUNTER_PET:
             SetByteFlag(UNIT_FIELD_BYTES_2, 2, fields[9].GetBool() ? UNIT_CAN_BE_ABANDONED : UNIT_CAN_BE_RENAMED | UNIT_CAN_BE_ABANDONED);
             setPowerType(POWER_FOCUS);
@@ -579,6 +583,9 @@ void Pet::RegenerateAll( uint32 update_diff )
 
     if (getPetType() != HUNTER_PET)
         return;
+
+	if (getPetType() != BATTLE_PET)
+        return;
 }
 
 bool Pet::CanTakeMoreActiveSpells(uint32 spellid)
@@ -705,6 +712,9 @@ void Pet::GivePetXP(uint32 xp)
     if(getPetType() != HUNTER_PET)
         return;
 
+	if(getPetType() != BATTLE_PET)
+        return;
+
     if ( xp < 1 )
         return;
 
@@ -740,7 +750,13 @@ void Pet::GivePetLevel(uint32 level)
     if (!level || level == getLevel())
         return;
 
-    if (getPetType()==HUNTER_PET)
+    if (getPetType()==BATTLE_PET)
+    {
+        SetUInt32Value(UNIT_FIELD_PETEXPERIENCE, 0);
+        SetUInt32Value(UNIT_FIELD_PETNEXTLEVELEXP, sObjectMgr.GetXPForPetLevel(level));
+    }
+	
+	if (getPetType()==HUNTER_PET)
     {
         SetUInt32Value(UNIT_FIELD_PETEXPERIENCE, 0);
         SetUInt32Value(UNIT_FIELD_PETNEXTLEVELEXP, sObjectMgr.GetXPForPetLevel(level));
@@ -827,6 +843,10 @@ bool Pet::InitStatsForLevel(uint32 petlevel, Unit* owner)
         case SUMMON_PET:
             SetByteValue(UNIT_FIELD_BYTES_0, 1, CLASS_MAGE);
 
+            // this enables popup window (pet dismiss, cancel)
+            SetUInt32Value(UNIT_FIELD_FLAGS, UNIT_FLAG_PVP_ATTACKABLE);
+            break;
+		case BATTLE_PET:
             // this enables popup window (pet dismiss, cancel)
             SetUInt32Value(UNIT_FIELD_FLAGS, UNIT_FLAG_PVP_ATTACKABLE);
             break;
@@ -988,7 +1008,21 @@ bool Pet::InitStatsForLevel(uint32 petlevel, Unit* owner)
             break;
         }
         case GUARDIAN_PET:
-        case PROTECTOR_PET:
+        case BATTLE_PET:
+            SetUInt32Value(UNIT_FIELD_PETEXPERIENCE, 0);
+            SetUInt32Value(UNIT_FIELD_PETNEXTLEVELEXP, 1000);
+
+            SetCreateMana(28 + 10*petlevel);
+            SetCreateHealth(28 + 30*petlevel);
+
+            // FIXME: this is wrong formula, possible each guardian pet have own damage formula
+            //these formula may not be correct; however, it is designed to be close to what it should be
+            //this makes dps 0.5 of pets level
+            SetBaseWeaponDamage(BASE_ATTACK, MINDAMAGE, float(petlevel - (petlevel / 4)));
+            //damage range is then petlevel / 2
+            SetBaseWeaponDamage(BASE_ATTACK, MAXDAMAGE, float(petlevel + (petlevel / 4)));
+            break;
+		case PROTECTOR_PET:
             SetUInt32Value(UNIT_FIELD_PETEXPERIENCE, 0);
             SetUInt32Value(UNIT_FIELD_PETNEXTLEVELEXP, 1000);
 
@@ -1924,6 +1958,8 @@ bool Pet::IsPermanentPetFor(Player* owner)
             }
         case HUNTER_PET:
             return true;
+		case BATTLE_PET:
+            return true;
         default:
             return false;
     }
@@ -2037,6 +2073,10 @@ void Pet::SynchronizeLevelWithOwner()
     {
         // always same level
         case SUMMON_PET:
+            GivePetLevel(owner->getLevel());
+            break;
+		// always same level
+        case BATTLE_PET:
             GivePetLevel(owner->getLevel());
             break;
         // can't be greater owner level
