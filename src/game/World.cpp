@@ -609,10 +609,14 @@ void World::LoadConfigSettings(bool reload)
 
     setConfigMinMax(CONFIG_UINT32_SKIP_CINEMATICS, "SkipCinematics", 0, 0, 2);
 
-    if (configNoReload(reload, CONFIG_UINT32_MAX_PLAYER_LEVEL, "MaxPlayerLevel", DEFAULT_MAX_LEVEL))
+    if (configNoReload(reload, CONFIG_UINT32_MAX_PLAYER_LEVEL_PANDAREN, "MaxPlayerLevelPandaren", DEFAULT_MAX_LEVEL_PANDAREN))
+        setConfigMinMax(CONFIG_UINT32_MAX_PLAYER_LEVEL_PANDAREN, "MaxPlayerLevelPandaren", DEFAULT_MAX_LEVEL_PANADREN, 1, DEFAULT_MAX_LEVEL_PANDAREN);
+	
+	if (configNoReload(reload, CONFIG_UINT32_MAX_PLAYER_LEVEL, "MaxPlayerLevel", DEFAULT_MAX_LEVEL))
         setConfigMinMax(CONFIG_UINT32_MAX_PLAYER_LEVEL, "MaxPlayerLevel", DEFAULT_MAX_LEVEL, 1, DEFAULT_MAX_LEVEL);
 
-    setConfigMinMax(CONFIG_UINT32_START_PLAYER_LEVEL, "StartPlayerLevel", 1, 1, getConfig(CONFIG_UINT32_MAX_PLAYER_LEVEL));
+    setConfigMinMax(CONFIG_UINT32_START_PLAYER_LEVEL_PANDAREN, "StartPlayerLevelPandaren", 10, 1, getConfig(CONFIG_UINT32_MAX_PLAYER_LEVEL_PANDAREN));
+	setConfigMinMax(CONFIG_UINT32_START_PLAYER_LEVEL, "StartPlayerLevel", 1, 1, getConfig(CONFIG_UINT32_MAX_PLAYER_LEVEL));
     setConfigMinMax(CONFIG_UINT32_START_HEROIC_PLAYER_LEVEL, "StartHeroicPlayerLevel", 55, 1, getConfig(CONFIG_UINT32_MAX_PLAYER_LEVEL));
 
     setConfigMinMax(CONFIG_UINT32_START_PLAYER_MONEY, "StartPlayerMoney", 0, 0, MAX_MONEY_AMOUNT);
