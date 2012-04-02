@@ -8578,6 +8578,31 @@ static WorldStatePair ZM_world_states[] =                   // Zangarmarsh
     { 0x0,   0x0 }
 };
 
+static WorldStatePair TP_world_states[] =
+{
+    { 0x0,   0x0 }
+};
+
+static WorldStatePair BG_world_states[] =
+{
+    { 0x0,   0x0 }
+};
+
+static WorldStatePair CF_world_states[] =
+{
+    { 0x0,   0x0 }
+};
+
+static WorldStatePair DM_world_states[] =
+{
+    { 0x0,   0x0 }
+};
+
+static WorldStatePair VP_world_states[] =
+{
+    { 0x0,   0x0 }
+};
+
 void Player::SendInitWorldStates(uint32 zoneid, uint32 areaid)
 {
     // data depends on zoneid/mapid...
@@ -8692,6 +8717,46 @@ void Player::SendInitWorldStates(uint32 zoneid, uint32 areaid)
             }
             break;
         case 3703:                                          // Shattrath City
+            break;
+		case 5031:                                          // TP
+            if (bg && bg->GetTypeID() == BATTLEGROUND_TP)
+                bg->FillInitialWorldStates(data, count);
+            else
+                FillInitialWorldState(data,count, TP_world_states);
+            break;
+		case 5108:                                          // BG
+            if (bg && bg->GetTypeID() == BATTLEGROUND_BG)
+                bg->FillInitialWorldStates(data, count);
+            else
+                FillInitialWorldState(data,count, BG_world_states);
+            break;
+		case 6112:                                          // CF
+            if (bg && bg->GetTypeID() == BATTLEGROUND_CF)
+                bg->FillInitialWorldStates(data, count);
+            else
+                FillInitialWorldState(data,count, CF_world_states);
+            break;
+		case 6126:                                          // DM
+            if (bg && bg->GetTypeID() == BATTLEGROUND_DM)
+                bg->FillInitialWorldStates(data, count);
+            else
+                FillInitialWorldState(data,count, DM_world_states);
+            break;
+		case 6215:                                          // VP
+            if (bg && bg->GetTypeID() == BATTLEGROUND_VP)
+                bg->FillInitialWorldStates(data, count);
+            else
+                FillInitialWorldState(data,count, VP_world_states);
+            break;
+		case 6300:                                          // Tol'Vir Arena
+            if (bg && bg->GetTypeID() == BATTLEGROUND_TA)
+                bg->FillInitialWorldStates(data, count);
+            else
+            {
+                FillInitialWorldState(data,count,0xbb8,0x0);// 3000 7 gold
+                FillInitialWorldState(data,count,0xbb9,0x0);// 3001 8 green
+                FillInitialWorldState(data,count,0xbba,0x0);// 3002 9 show
+            }
             break;
         default:
             FillInitialWorldState(data,count, 0x914, 0x0);  // 2324 7
@@ -8937,6 +9002,10 @@ uint8 Player::FindEquipSlot( ItemPrototype const* proto, uint32 slot, bool swap 
                     break;
                 case ITEM_SUBCLASS_ARMOR_SIGIL:
                     if (pClass == CLASS_DEATH_KNIGHT)
+                        slots[0] = EQUIPMENT_SLOT_RANGED;
+                    break;
+				case ITEM_SUBCLASS_ARMOR_RELIC:
+                    if (pClass == CLASS_MONK)
                         slots[0] = EQUIPMENT_SLOT_RANGED;
                     break;
             }

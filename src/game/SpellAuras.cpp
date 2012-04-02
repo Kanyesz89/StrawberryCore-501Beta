@@ -3560,6 +3560,9 @@ void Aura::HandleAuraTransform(bool apply, bool Real)
                         case RACE_DRAENEI:
                             target->SetDisplayId(target->getGender() == GENDER_MALE ? 25033 : 25044);
                             break;
+						case RACE_PANDAREN_NEUTRAL:
+                            target->SetDisplayId(target->getGender() == GENDER_MALE ? 38552 : 38551);
+                             break;
                     }
 
                     break;
@@ -3648,6 +3651,9 @@ void Aura::HandleAuraTransform(bool apply, bool Real)
                         case RACE_DRAENEI:
                             target->SetDisplayId(roll_chance_i(50) ? 25033 : 25044);
                             break;
+						case RACE_PANDAREN_NEUTRAL:
+                            target->SetDisplayId(roll_chance_i(50) ? 38552 : 38551);
+                             break;
                     }
 
                     break;

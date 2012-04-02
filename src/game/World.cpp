@@ -610,7 +610,7 @@ void World::LoadConfigSettings(bool reload)
     setConfigMinMax(CONFIG_UINT32_SKIP_CINEMATICS, "SkipCinematics", 0, 0, 2);
 
     if (configNoReload(reload, CONFIG_UINT32_MAX_PLAYER_LEVEL_PANDAREN, "MaxPlayerLevelPandaren", DEFAULT_MAX_LEVEL_PANDAREN))
-        setConfigMinMax(CONFIG_UINT32_MAX_PLAYER_LEVEL_PANDAREN, "MaxPlayerLevelPandaren", DEFAULT_MAX_LEVEL_PANADREN, 1, DEFAULT_MAX_LEVEL_PANDAREN);
+        setConfigMinMax(CONFIG_UINT32_MAX_PLAYER_LEVEL_PANDAREN, "MaxPlayerLevelPandaren", DEFAULT_MAX_LEVEL_PANDAREN, 1, DEFAULT_MAX_LEVEL_PANDAREN);
 	
 	if (configNoReload(reload, CONFIG_UINT32_MAX_PLAYER_LEVEL, "MaxPlayerLevel", DEFAULT_MAX_LEVEL))
         setConfigMinMax(CONFIG_UINT32_MAX_PLAYER_LEVEL, "MaxPlayerLevel", DEFAULT_MAX_LEVEL, 1, DEFAULT_MAX_LEVEL);

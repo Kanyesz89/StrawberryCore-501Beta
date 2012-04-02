@@ -25,6 +25,9 @@
 // also see MAX_LEVEL and STRONG_MAX_LEVEL define
 #define DEFAULT_MAX_LEVEL 90
 
+// use as max player level for pre faction choice pandaren
+#define DEFAULT_MAX_LEVEL_PANDAREN 10
+
 // client supported max level for player/pets/etc. Avoid overflow or client stability affected.
 // also see GT_MAX_LEVEL define
 #define MAX_LEVEL    100
