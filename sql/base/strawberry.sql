@@ -3323,6 +3323,24 @@ INSERT INTO `playercreateinfo` VALUES ('22', '5', '654', '4714', '-1451.53', '14
 INSERT INTO `playercreateinfo` VALUES ('22', '4', '654', '4714', '-1451.53', '1403.35', '35.5561', '0');
 INSERT INTO `playercreateinfo` VALUES ('22', '1', '654', '4714', '-1451.53', '1403.35', '35.5561', '0');
 INSERT INTO `playercreateinfo` VALUES ('22', '9', '654', '4714', '-1451.53', '1403.35', '35.5561', '0');
+INSERT INTO `playercreateinfo` VALUES ('1', '10', '0', '12', '-8914.57', '-133.909', '80.5378', '0');
+INSERT INTO `playercreateinfo` VALUES ('2', '10', '1', '14', '-618.518', '-4251.67', '38.718', '0');
+INSERT INTO `playercreateinfo` VALUES ('3', '10', '0', '1', '-6230.42', '330.232', '383.105', '6.17716');
+INSERT INTO `playercreateinfo` VALUES ('4', '10', '1', '141', '10311.3', '831.463', '1326.41', '5.69632');
+INSERT INTO `playercreateinfo` VALUES ('5', '10', '0', '85', '1699.85', '1706.56', '135.928', '2.70526');
+INSERT INTO `playercreateinfo` VALUES ('6', '10', '1', '215', '-2915.55', '-257.347', '59.2693', '0');
+INSERT INTO `playercreateinfo` VALUES ('7', '10', '0', '1', '-4983.42', '877.7', '274.31', '0');
+INSERT INTO `playercreateinfo` VALUES ('8', '10', '1', '14', '-1171.45', '-5263.65', '0.847728', '0');
+INSERT INTO `playercreateinfo` VALUES ('10', '10', '530', '3431', '10349.6', '-6357.29', '33.4026', '5.31605');
+INSERT INTO `playercreateinfo` VALUES ('11', '10', '530', '3526', '-3961.64', '-13931.2', '100.615', '2.08364');
+INSERT INTO `playercreateinfo` VALUES ('24', '1', '609', '4298', '2355.84', '-5662.21', '426.028', '0');
+INSERT INTO `playercreateinfo` VALUES ('24', '3', '609', '4298', '2355.84', '-5662.21', '426.028', '0');
+INSERT INTO `playercreateinfo` VALUES ('24', '4', '609', '4298', '2355.84', '-5662.21', '426.028', '0');
+INSERT INTO `playercreateinfo` VALUES ('24', '5', '609', '4298', '2355.84', '-5662.21', '426.028', '0');
+INSERT INTO `playercreateinfo` VALUES ('24', '7', '609', '4298', '2355.84', '-5662.21', '426.028', '0');
+INSERT INTO `playercreateinfo` VALUES ('24', '8', '609', '4298', '2355.84', '-5662.21', '426.028', '0');
+INSERT INTO `playercreateinfo` VALUES ('24', '10', '609', '4298', '2355.84', '-5662.21', '426.028', '0');
+
 
 -- ----------------------------
 -- Table structure for `playercreateinfo_action`
@@ -3773,6 +3791,28 @@ INSERT INTO `playercreateinfo_action` VALUES ('22', '8', '0', '133', '0');
 INSERT INTO `playercreateinfo_action` VALUES ('22', '9', '0', '686', '0');
 INSERT INTO `playercreateinfo_action` VALUES ('22', '9', '10', '10', '0');
 INSERT INTO `playercreateinfo_action` VALUES ('22', '11', '0', '5176', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '1', '72', '22627', '1');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '1', '73', '22625', '1');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '1', '81', '59752', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '1', '84', '6603', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '1', '96', '6603', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '1', '108', '6603', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '3', '0', '3044', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '3', '9', '59752', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '3', '10', '9', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '3', '11', '982', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '4', '0', '1752', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '4', '9', '59752', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '5', '0', '585', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '5', '9', '59752', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '7', '0', '403', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '7', '9', '33697', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '7', '72', '403', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '8', '0', '133', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '8', '9', '33702', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '10', '0', '100780', '0');
+INSERT INTO `playercreateinfo_action` VALUES ('24', '10', '9', '107079', '0');
+
 
 -- ----------------------------
 -- Table structure for `playercreateinfo_item`
