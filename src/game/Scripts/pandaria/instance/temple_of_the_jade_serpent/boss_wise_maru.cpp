@@ -8,8 +8,8 @@ EndScriptData */
 
 enum
 {
-	// Enums for the Script for a better Overview
-	SAY_ENTER_COMBAT = -1469003
+    // Enums for the Script for a better Overview
+    SAY_ENTER_COMBAT = -1469003
 };
 
 struct boss_wise_maru : public ScriptedAI
@@ -38,7 +38,7 @@ struct boss_wise_maru : public ScriptedAI
         m_uiPhase           = 0;
         m_uiPhaseTimer      = 0;
         m_uiSpellOneTimer   = 0;
-		m_uiSpellTwoTimer   = 0;
+        m_uiSpellTwoTimer   = 0;
         m_uiSpellThreeTimer = 0;
         m_uiBeserkTimer     = 0;
     }
@@ -50,7 +50,7 @@ struct boss_wise_maru : public ScriptedAI
         // Say some stuff
         DoScriptText(SAY_ENTER_COMBAT, m_creature, pWho);
 
-		// Can also cast any Spells/Buffs
+        // Can also cast any Spells/Buffs
     }
 
     // *** HANDLED FUNCTION ***

@@ -43,11 +43,11 @@
 #define GOSSIP_TEXT_ARENA               "Arena"
 #define GOSSIP_TEXT_EYEOFTHESTORM       "Eye of The Storm"
 #define GOSSIP_TEXT_STRANDOFANCIENT     "Strand of the Ancients"
-#define GOSSIP_TEXT_TWINPEAKS			"Twin Peaks"
+#define GOSSIP_TEXT_TWINPEAKS            "Twin Peaks"
 #define GOSSIP_TEXT_BATTLEFORGILNEAS    "Battle for Gilneas"
 #define GOSSIP_TEXT_STVDIAMMONDMINE     "STV Diamond Mine"
-#define GOSSIP_TEXT_CTF3				"CTF3"
-#define GOSSIP_TEXT_VALLEYOFPOWER	    "Valley of Power"
+#define GOSSIP_TEXT_CTF3                "CTF3"
+#define GOSSIP_TEXT_VALLEYOFPOWER        "Valley of Power"
 
 #define GOSSIP_TEXT_DEATH_KNIGHT        "Death Knight"
 #define GOSSIP_TEXT_DRUID               "Druid"
@@ -59,7 +59,7 @@
 #define GOSSIP_TEXT_SHAMAN              "Shaman"
 #define GOSSIP_TEXT_MAGE                "Mage"
 #define GOSSIP_TEXT_WARLOCK             "Warlock"
-#define GOSSIP_TEXT_MONK				"Monk"
+#define GOSSIP_TEXT_MONK                "Monk"
 
 #define GOSSIP_TEXT_ALCHEMY             "Alchemy"
 #define GOSSIP_TEXT_BLACKSMITHING       "Blacksmithing"
@@ -102,8 +102,8 @@ enum
     TRADESKILL_LEVEL_ARTISAN       = 4,
     TRADESKILL_LEVEL_MASTER        = 5,
     TRADESKILL_LEVEL_GRAND_MASTER  = 6,
-	TRADESKILL_LEVEL_ILLUSTRIOUS   = 7,
-	TRADESKILL_LEVEL_FANTASTIC	   = 8,
+    TRADESKILL_LEVEL_ILLUSTRIOUS   = 7,
+    TRADESKILL_LEVEL_FANTASTIC       = 8,
 
     // Gossip defines
     GOSSIP_ACTION_TRADE            = 1,
