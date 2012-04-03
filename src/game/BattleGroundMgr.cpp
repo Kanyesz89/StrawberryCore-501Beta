@@ -1368,12 +1368,12 @@ void BattleGroundMgr::BuildPvpLogDataPacket(WorldPacket *data, BattleGround *bg)
             case BATTLEGROUND_RV:                           // wotlk
             case BATTLEGROUND_IC:                           // wotlk
             case BATTLEGROUND_RB:                           // wotlk
-			case BATTLEGROUND_TP:                           // cata
-			case BATTLEGROUND_BG:                           // cata
-			case BATTLEGROUND_VP:                           // MoP
-			case BATTLEGROUND_CF:                           // MoP
-			case BATTLEGROUND_DM:                           // MoP
-			case BATTLEGROUND_TA:                           // MoP
+            case BATTLEGROUND_TP:                           // cata
+            case BATTLEGROUND_BG:                           // cata
+            case BATTLEGROUND_VP:                           // MoP
+            case BATTLEGROUND_CF:                           // MoP
+            case BATTLEGROUND_DM:                           // MoP
+            case BATTLEGROUND_TA:                           // MoP
                 *data << (int32)0;                          // 0
                 break;
             default:
@@ -1538,10 +1538,10 @@ BattleGround * BattleGroundMgr::CreateNewBattleGround(BattleGroundTypeId bgTypeI
         case BATTLEGROUND_SA:
             bg = new BattleGroundSA(*(BattleGroundSA*)bg_template);
             break;
-		case BATTLEGROUND_TP:
+        case BATTLEGROUND_TP:
             bg = new BattleGroundTP(*(BattleGroundTP*)bg_template);
             break;
-		case BATTLEGROUND_BG:
+        case BATTLEGROUND_BG:
             bg = new BattleGroundBG(*(BattleGroundBG*)bg_template);
             break;
         case BATTLEGROUND_DM:
@@ -1552,7 +1552,7 @@ BattleGround * BattleGroundMgr::CreateNewBattleGround(BattleGroundTypeId bgTypeI
             break;
         case BATTLEGROUND_TA:
             bg = new BattleGroundTA(*(BattleGroundTA*)bg_template);
-            break;		
+            break;        
         case BATTLEGROUND_DS:
             bg = new BattleGroundDS(*(BattleGroundDS*)bg_template);
             break;
@@ -1609,12 +1609,12 @@ uint32 BattleGroundMgr::CreateBattleGround(BattleGroundTypeId bgTypeId, bool IsA
         case BATTLEGROUND_RV: bg = new BattleGroundRV; break;
         case BATTLEGROUND_IC: bg = new BattleGroundIC; break;
         case BATTLEGROUND_RB: bg = new BattleGroundRB; break;
-		case BATTLEGROUND_TP: bg = new BattleGroundTP; break;
-		case BATTLEGROUND_BG: bg = new BattleGroundBG; break;
-		case BATTLEGROUND_VP: bg = new BattleGroundVP; break;
-		case BATTLEGROUND_CF: bg = new BattleGroundCF; break;
-		case BATTLEGROUND_DM: bg = new BattleGroundDM; break;
-		case BATTLEGROUND_TA: bg = new BattleGroundTA; break;
+        case BATTLEGROUND_TP: bg = new BattleGroundTP; break;
+        case BATTLEGROUND_BG: bg = new BattleGroundBG; break;
+        case BATTLEGROUND_VP: bg = new BattleGroundVP; break;
+        case BATTLEGROUND_CF: bg = new BattleGroundCF; break;
+        case BATTLEGROUND_DM: bg = new BattleGroundDM; break;
+        case BATTLEGROUND_TA: bg = new BattleGroundTA; break;
         default:bg = new BattleGround;   break;             // placeholder for non implemented BG
     }
 
@@ -1907,7 +1907,7 @@ bool BattleGroundMgr::IsArenaType(BattleGroundTypeId bgTypeId)
         case BATTLEGROUND_RL:
         case BATTLEGROUND_DS:
         case BATTLEGROUND_RV:
-		case BATTLEGROUND_TA:
+        case BATTLEGROUND_TA:
         case BATTLEGROUND_AA:
             return true;
         default:
@@ -1931,7 +1931,7 @@ BattleGroundQueueTypeId BattleGroundMgr::BGQueueTypeId(BattleGroundTypeId bgType
             return BATTLEGROUND_QUEUE_SA;
         case BATTLEGROUND_IC:
             return BATTLEGROUND_QUEUE_IC;
-		case BATTLEGROUND_TP:
+        case BATTLEGROUND_TP:
             return BATTLEGROUND_QUEUE_TP;
         case BATTLEGROUND_BG:
             return BATTLEGROUND_QUEUE_BG;
@@ -1949,7 +1949,7 @@ BattleGroundQueueTypeId BattleGroundMgr::BGQueueTypeId(BattleGroundTypeId bgType
         case BATTLEGROUND_BE:
         case BATTLEGROUND_DS:
         case BATTLEGROUND_RV:
-		case BATTLEGROUND_TA:
+        case BATTLEGROUND_TA:
             switch(arenaType)
             {
                 case ARENA_TYPE_2v2:
@@ -1982,7 +1982,7 @@ BattleGroundTypeId BattleGroundMgr::BGTemplateId(BattleGroundQueueTypeId bgQueue
             return BATTLEGROUND_SA;
         case BATTLEGROUND_QUEUE_IC:
             return BATTLEGROUND_IC;
-		case BATTLEGROUND_QUEUE_TP:
+        case BATTLEGROUND_QUEUE_TP:
             return BATTLEGROUND_TP;
         case BATTLEGROUND_QUEUE_BG:
             return BATTLEGROUND_BG;
@@ -2125,8 +2125,8 @@ HolidayIds BattleGroundMgr::BGTypeToWeekendHolidayId(BattleGroundTypeId bgTypeId
         case BATTLEGROUND_WS: return HOLIDAY_CALL_TO_ARMS_WS;
         case BATTLEGROUND_SA: return HOLIDAY_CALL_TO_ARMS_SA;
         case BATTLEGROUND_AB: return HOLIDAY_CALL_TO_ARMS_AB;
-		case BATTLEGROUND_TP: return HOLIDAY_CALL_TO_ARMS_TP;
-        case BATTLEGROUND_BG: return HOLIDAY_CALL_TO_ARMS_BG;		
+        case BATTLEGROUND_TP: return HOLIDAY_CALL_TO_ARMS_TP;
+        case BATTLEGROUND_BG: return HOLIDAY_CALL_TO_ARMS_BG;        
         default: return HOLIDAY_NONE;
     }
 }
@@ -2140,8 +2140,8 @@ BattleGroundTypeId BattleGroundMgr::WeekendHolidayIdToBGType(HolidayIds holiday)
         case HOLIDAY_CALL_TO_ARMS_WS: return BATTLEGROUND_WS;
         case HOLIDAY_CALL_TO_ARMS_SA: return BATTLEGROUND_SA;
         case HOLIDAY_CALL_TO_ARMS_AB: return BATTLEGROUND_AB;
-		case HOLIDAY_CALL_TO_ARMS_TP: return BATTLEGROUND_TP;
-		case HOLIDAY_CALL_TO_ARMS_BG: return BATTLEGROUND_BG;
+        case HOLIDAY_CALL_TO_ARMS_TP: return BATTLEGROUND_TP;
+        case HOLIDAY_CALL_TO_ARMS_BG: return BATTLEGROUND_BG;
         default: return BATTLEGROUND_TYPE_NONE;
     }
 }

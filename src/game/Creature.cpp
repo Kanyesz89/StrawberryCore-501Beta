@@ -700,7 +700,7 @@ void Creature::RegeneratePower()
         case POWER_FOCUS:
             addvalue = 24 * sWorld.getConfig(CONFIG_FLOAT_RATE_POWER_FOCUS);
             break;
-		case POWER_CHI:
+        case POWER_CHI:
             addvalue = 20 * sWorld.getConfig(CONFIG_FLOAT_RATE_POWER_CHI);
             break;
         default:
@@ -974,7 +974,7 @@ bool Creature::CanInteractWithBattleMaster(Player* pPlayer, bool msg) const
             case BATTLEGROUND_SA:
             case BATTLEGROUND_DS:
             case BATTLEGROUND_RV: pPlayer->PlayerTalkClass->SendGossipMenu(10024, GetObjectGuid()); break;
-			case BATTLEGROUND_BG:
+            case BATTLEGROUND_BG:
             case BATTLEGROUND_CF:
             case BATTLEGROUND_DM:
             case BATTLEGROUND_TA:

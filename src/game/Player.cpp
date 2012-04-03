@@ -2033,7 +2033,7 @@ void Player::RegenerateAll(uint32 diff)
 
     Regenerate(POWER_ENERGY, diff);
 
-	Regenerate(POWER_CHI, diff);
+    Regenerate(POWER_CHI, diff);
 
     Regenerate(POWER_MANA, diff);
 
@@ -2080,7 +2080,7 @@ void Player::Regenerate(Powers power, uint32 diff)
         case POWER_FOCUS:
             addvalue = 12;
             break;
-		case POWER_CHI:
+        case POWER_CHI:
             addvalue = 12;
             break;
         case POWER_ENERGY:                                  // Regenerate energy (rogue)
@@ -2581,7 +2581,7 @@ void Player::GiveLevel(uint32 level)
         SetHealth(GetMaxHealth());
     SetPower(POWER_MANA, GetMaxPower(POWER_MANA));
     SetPower(POWER_ENERGY, GetMaxPower(POWER_ENERGY));
-	 SetPower(POWER_CHI, GetMaxPower(POWER_CHI));
+     SetPower(POWER_CHI, GetMaxPower(POWER_CHI));
     if(GetPower(POWER_RAGE) > GetMaxPower(POWER_RAGE))
         SetPower(POWER_RAGE, GetMaxPower(POWER_RAGE));
     SetPower(POWER_FOCUS, 0);
@@ -2800,7 +2800,7 @@ void Player::InitStatsForLevel(bool reapplyMods)
     SetHealth(GetMaxHealth());
     SetPower(POWER_MANA, GetMaxPower(POWER_MANA));
     SetPower(POWER_ENERGY, GetMaxPower(POWER_ENERGY));
-	SetPower(POWER_CHI, GetMaxPower(POWER_CHI));
+    SetPower(POWER_CHI, GetMaxPower(POWER_CHI));
     if(GetPower(POWER_RAGE) > GetMaxPower(POWER_RAGE))
         SetPower(POWER_RAGE, GetMaxPower(POWER_RAGE));
     SetPower(POWER_FOCUS, 0);
@@ -8718,37 +8718,37 @@ void Player::SendInitWorldStates(uint32 zoneid, uint32 areaid)
             break;
         case 3703:                                          // Shattrath City
             break;
-		case 5031:                                          // TP
+        case 5031:                                          // TP
             if (bg && bg->GetTypeID() == BATTLEGROUND_TP)
                 bg->FillInitialWorldStates(data, count);
             else
                 FillInitialWorldState(data,count, TP_world_states);
             break;
-		case 5108:                                          // BG
+        case 5108:                                          // BG
             if (bg && bg->GetTypeID() == BATTLEGROUND_BG)
                 bg->FillInitialWorldStates(data, count);
             else
                 FillInitialWorldState(data,count, BG_world_states);
             break;
-		case 6112:                                          // CF
+        case 6112:                                          // CF
             if (bg && bg->GetTypeID() == BATTLEGROUND_CF)
                 bg->FillInitialWorldStates(data, count);
             else
                 FillInitialWorldState(data,count, CF_world_states);
             break;
-		case 6126:                                          // DM
+        case 6126:                                          // DM
             if (bg && bg->GetTypeID() == BATTLEGROUND_DM)
                 bg->FillInitialWorldStates(data, count);
             else
                 FillInitialWorldState(data,count, DM_world_states);
             break;
-		case 6215:                                          // VP
+        case 6215:                                          // VP
             if (bg && bg->GetTypeID() == BATTLEGROUND_VP)
                 bg->FillInitialWorldStates(data, count);
             else
                 FillInitialWorldState(data,count, VP_world_states);
             break;
-		case 6300:                                          // Tol'Vir Arena
+        case 6300:                                          // Tol'Vir Arena
             if (bg && bg->GetTypeID() == BATTLEGROUND_TA)
                 bg->FillInitialWorldStates(data, count);
             else
@@ -9004,7 +9004,7 @@ uint8 Player::FindEquipSlot( ItemPrototype const* proto, uint32 slot, bool swap 
                     if (pClass == CLASS_DEATH_KNIGHT)
                         slots[0] = EQUIPMENT_SLOT_RANGED;
                     break;
-				case ITEM_SUBCLASS_ARMOR_RELIC:
+                case ITEM_SUBCLASS_ARMOR_RELIC:
                     if (pClass == CLASS_MONK)
                         slots[0] = EQUIPMENT_SLOT_RANGED;
                     break;

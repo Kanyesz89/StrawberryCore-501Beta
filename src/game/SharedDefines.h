@@ -2977,7 +2977,7 @@ inline uint8 ClassByQuestSort(int32 QuestSort)
         case QUEST_SORT_PRIEST:         return CLASS_PRIEST;
         case QUEST_SORT_DRUID:          return CLASS_DRUID;
         case QUEST_SORT_DEATH_KNIGHT:   return CLASS_DEATH_KNIGHT;
-		case QUEST_SORT_PANDAREN_BREWMASTERS:   return CLASS_MONK;
+        case QUEST_SORT_PANDAREN_BREWMASTERS:   return CLASS_MONK;
     }
     return 0;
 }
@@ -3151,39 +3151,39 @@ enum SkillType
     SKILL_GENERAL_WARLOCK          = 802,
     SKILL_GENERAL_WARRIOR          = 803,
     SKILL_GENERAL_PRIEST           = 804,
-	SKILL_PET_WATER_ELEMENTAL	   = 805,
-	SKILL_PET_FOX				   = 808,
-	SKILL_ALL_GLYPH				   = 810,
-	SKILL_PET_DOG				   = 811,
-	SKILL_MONKEY				   = 815,
-	SKILL_SHALE_SPIDER			   = 817,
-	SKILL_BEETLE				   = 818,
-	SKILL_ALL_GUILD_PERKS		   = 821,
-	SKILL_HYDRA					   = 824,
-	SKILL_NEW_CLASS_EXPERIMENTAL   = 825,
-	SKILL_COMBOS				   = 826,
-	SKILL_FINISHERS				   = 827,
-	SKILL_MONK					   = 829,
-	SKILL_WARRIOR				   = 840,
-	SKILL_BLANK					   = 843,
-	SKILL_WARLOCK				   = 849,
-	SKILL_PANDAREN_RACIAL		   = 899,
-	SKILL_MAGE					   = 904,
-	SKILL_LANG_PANDAREN_NEUTRAL	   = 905,
-	SKILL_LANG_PANDAREN_ALLIANCE   = 906,
-	SKILL_LANG_PANDAREN_HORDE	   = 907,
-	SKILL_ROGUE					   = 921,
-	SKILL_SHAMAN				   = 924,
-	SKILL_FEL_IMP				   = 927,
-	SKILL_VOIDLORD				   = 928,
-	SKILL_SHIVARRA				   = 929,
-	SKILL_OBSERVER				   = 930,
-	SKILL_WRATHGUARD			   = 931,
-	SKILL_ALL_SPECILIZATIONS	   = 934,
-	SKILL_COOKING_WAY_OF_THE_WOK   = 953,
-	SKILL_RUNEFORGING2			   = 960,
-	SKILL_PET_PRIMAL_FIRE_ELEMENTAL = 962,
-	SKILL_PET_PRIMAL_EARTH_ELEMENTAL = 963
+    SKILL_PET_WATER_ELEMENTAL       = 805,
+    SKILL_PET_FOX                   = 808,
+    SKILL_ALL_GLYPH                   = 810,
+    SKILL_PET_DOG                   = 811,
+    SKILL_MONKEY                   = 815,
+    SKILL_SHALE_SPIDER               = 817,
+    SKILL_BEETLE                   = 818,
+    SKILL_ALL_GUILD_PERKS           = 821,
+    SKILL_HYDRA                       = 824,
+    SKILL_NEW_CLASS_EXPERIMENTAL   = 825,
+    SKILL_COMBOS                   = 826,
+    SKILL_FINISHERS                   = 827,
+    SKILL_MONK                       = 829,
+    SKILL_WARRIOR                   = 840,
+    SKILL_BLANK                       = 843,
+    SKILL_WARLOCK                   = 849,
+    SKILL_PANDAREN_RACIAL           = 899,
+    SKILL_MAGE                       = 904,
+    SKILL_LANG_PANDAREN_NEUTRAL       = 905,
+    SKILL_LANG_PANDAREN_ALLIANCE   = 906,
+    SKILL_LANG_PANDAREN_HORDE       = 907,
+    SKILL_ROGUE                       = 921,
+    SKILL_SHAMAN                   = 924,
+    SKILL_FEL_IMP                   = 927,
+    SKILL_VOIDLORD                   = 928,
+    SKILL_SHIVARRA                   = 929,
+    SKILL_OBSERVER                   = 930,
+    SKILL_WRATHGUARD               = 931,
+    SKILL_ALL_SPECILIZATIONS       = 934,
+    SKILL_COOKING_WAY_OF_THE_WOK   = 953,
+    SKILL_RUNEFORGING2               = 960,
+    SKILL_PET_PRIMAL_FIRE_ELEMENTAL = 962,
+    SKILL_PET_PRIMAL_EARTH_ELEMENTAL = 963
 };
 
 #define MAX_SKILL_TYPE               964
@@ -3308,7 +3308,7 @@ enum WeatherType
     WEATHER_TYPE_STORM      = 3,
     WEATHER_TYPE_THUNDERS   = 86,
     WEATHER_TYPE_BLACKRAIN  = 90,
-	WEATHER_TYPE_MIST		= 139
+    WEATHER_TYPE_MIST        = 139
 };
 
 #define MAX_WEATHER_TYPE 5
@@ -3667,7 +3667,7 @@ enum BattleGroundTypeId
     BATTLEGROUND_ICC           = 441,
     BATTLEGROUND_RS            = 443,
     BATTLEGROUND_EE            = 656,
-    BATTLEGROUND_VP            = 699,						// Valley of Power
+    BATTLEGROUND_VP            = 699,                        // Valley of Power
     BATTLEGROUND_CF            = 706,                       // CTF3
     BATTLEGROUND_DM            = 708,                       // STV Diamondmine BG
     BATTLEGROUND_TA            = 719                        // Tol'Vir Arena
