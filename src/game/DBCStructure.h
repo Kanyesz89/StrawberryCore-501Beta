@@ -502,7 +502,7 @@ struct AchievementCriteriaEntry
     //uint32 unk2;                                          // 16 all zeros
     //uint32 moreRequirement[3];                            // 17-19
     //uint32 moreRequirementValue[3];                       // 20-22
-	//uint32                                                // 23 5.0.1
+    //uint32                                                // 23 5.0.1
 
     // helpers
     bool IsExplicitlyStartedTimedCriteria() const

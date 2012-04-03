@@ -32,7 +32,7 @@ enum PetType
     GUARDIAN_PET            = 2,
     MINI_PET                = 3,
     PROTECTOR_PET           = 4,                            // work as defensive guardian with mini pet suffix in name
-	BATTLE_PET              = 5,
+    BATTLE_PET              = 5,
     MAX_PET_TYPE            = 6
 };
 

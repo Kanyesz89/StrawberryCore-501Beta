@@ -484,7 +484,7 @@ void World::LoadConfigSettings(bool reload)
     setConfigPos(CONFIG_FLOAT_RATE_POWER_RUNICPOWER_LOSS,"Rate.RunicPower.Loss",   1.0f);
     setConfig(CONFIG_FLOAT_RATE_POWER_FOCUS,             "Rate.Focus",  1.0f);
     setConfig(CONFIG_FLOAT_RATE_POWER_ENERGY,            "Rate.Energy", 1.0f);
-	setConfig(CONFIG_FLOAT_RATE_POWER_CHI,				 "Rate.Chi", 1.0f);
+    setConfig(CONFIG_FLOAT_RATE_POWER_CHI,                 "Rate.Chi", 1.0f);
     setConfigPos(CONFIG_FLOAT_RATE_SKILL_DISCOVERY,      "Rate.Skill.Discovery",      1.0f);
     setConfigPos(CONFIG_FLOAT_RATE_DROP_ITEM_POOR,       "Rate.Drop.Item.Poor",       1.0f);
     setConfigPos(CONFIG_FLOAT_RATE_DROP_ITEM_NORMAL,     "Rate.Drop.Item.Normal",     1.0f);
@@ -611,12 +611,12 @@ void World::LoadConfigSettings(bool reload)
 
     if (configNoReload(reload, CONFIG_UINT32_MAX_PLAYER_LEVEL_PANDAREN, "MaxPlayerLevelPandaren", DEFAULT_MAX_LEVEL_PANDAREN))
         setConfigMinMax(CONFIG_UINT32_MAX_PLAYER_LEVEL_PANDAREN, "MaxPlayerLevelPandaren", DEFAULT_MAX_LEVEL_PANDAREN, 1, DEFAULT_MAX_LEVEL_PANDAREN);
-	
-	if (configNoReload(reload, CONFIG_UINT32_MAX_PLAYER_LEVEL, "MaxPlayerLevel", DEFAULT_MAX_LEVEL))
+    
+    if (configNoReload(reload, CONFIG_UINT32_MAX_PLAYER_LEVEL, "MaxPlayerLevel", DEFAULT_MAX_LEVEL))
         setConfigMinMax(CONFIG_UINT32_MAX_PLAYER_LEVEL, "MaxPlayerLevel", DEFAULT_MAX_LEVEL, 1, DEFAULT_MAX_LEVEL);
 
     setConfigMinMax(CONFIG_UINT32_START_PLAYER_LEVEL_PANDAREN, "StartPlayerLevelPandaren", 10, 1, getConfig(CONFIG_UINT32_MAX_PLAYER_LEVEL_PANDAREN));
-	setConfigMinMax(CONFIG_UINT32_START_PLAYER_LEVEL, "StartPlayerLevel", 1, 1, getConfig(CONFIG_UINT32_MAX_PLAYER_LEVEL));
+    setConfigMinMax(CONFIG_UINT32_START_PLAYER_LEVEL, "StartPlayerLevel", 1, 1, getConfig(CONFIG_UINT32_MAX_PLAYER_LEVEL));
     setConfigMinMax(CONFIG_UINT32_START_HEROIC_PLAYER_LEVEL, "StartHeroicPlayerLevel", 55, 1, getConfig(CONFIG_UINT32_MAX_PLAYER_LEVEL));
 
     setConfigMinMax(CONFIG_UINT32_START_PLAYER_MONEY, "StartPlayerMoney", 0, 0, MAX_MONEY_AMOUNT);

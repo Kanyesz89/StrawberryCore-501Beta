@@ -145,7 +145,7 @@ void WorldSession::HandlePetAction(WorldPacket& recv_data)
                         Pet* p = (Pet*)pet;
                         if (p->getPetType() == HUNTER_PET)
                             p->Unsummon(PET_SAVE_AS_DELETED, _player);
-						if (p->getPetType() == BATTLE_PET)
+                        if (p->getPetType() == BATTLE_PET)
                             p->SetDeathState(CORPSE);
                         else
                             // dismissing a summoned pet is like killing them (this prevents returning a soulshard...)
@@ -490,7 +490,7 @@ void WorldSession::HandlePetRename(WorldPacket& recv_data)
         pet->GetOwnerGuid() != _player->GetObjectGuid() || !pet->GetCharmInfo())
         return;
 
-	if (!pet || pet->getPetType() != HUNTER_PET ||
+    if (!pet || pet->getPetType() != HUNTER_PET ||
         !pet->HasByteFlag(UNIT_FIELD_BYTES_2, 2, UNIT_CAN_BE_RENAMED) ||
         pet->GetOwnerGuid() != _player->GetObjectGuid() || !pet->GetCharmInfo())
         return;
