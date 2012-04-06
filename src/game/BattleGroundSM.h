@@ -51,12 +51,12 @@ enum BG_SM_CHECKPOINTS
 	BG_SM_CHECKPOINT_H4    				= 30,
 	BG_SM_CHECKPOINT_A5					= 40,
 	BG_SM_CHECKPOINT_H5    				= 40,
-	BG_SM_CHECKPOINT_WIN				= 50,
-	BG_SM_CHECKPOINT_WIN  				= 50,
+	BG_SM_CHECKPOINT_HWIN				= 50,
+	BG_SM_CHECKPOINT_AWIN  				= 50,
 };
 
 // id, x, y, z, o
-const float BG_SM_H_WAYPOINTS[50][5] = {          //Waypoints for H Mine Carts
+const float BG_SM_H_WAYPOINTS[50][5] = {          //Waypoints for H Mine Cart
     {1, 1185.71f, 1185.24f, -56.36f, 2.56f},      // 1
     {2, 990.75f, 1008.18f, -42.60f, 2.43f},       // 2
     {3, 817.66f, 843.34f, -56.54f, 3.01f},        // 3
@@ -66,7 +66,7 @@ const float BG_SM_H_WAYPOINTS[50][5] = {          //Waypoints for H Mine Carts
 };
 
 // id, x, y, z, o
-const float BG_SM_A_WAYPOINTS[50][5] = {          //Waypoints for A Mine Carts
+const float BG_SM_A_WAYPOINTS[50][5] = {          //Waypoints for A Mine Cart
     {1, 1185.71f, 1185.24f, -56.36f, 2.56f},      // 1
     {2, 990.75f, 1008.18f, -42.60f, 2.43f},       // 2
     {3, 817.66f, 843.34f, -56.54f, 3.01f},        // 3
