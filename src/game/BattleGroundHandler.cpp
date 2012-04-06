@@ -30,6 +30,7 @@
 #include "BattleGroundMgr.h"
 #include "BattleGroundWS.h"
 #include "BattleGroundTP.h"
+#include "BattleGroundBG.h"
 #include "BattleGround.h"
 #include "ArenaTeam.h"
 #include "Language.h"
@@ -315,6 +316,9 @@ void WorldSession::HandleBattleGroundPlayerPositionsOpcode( WorldPacket & /*recv
 
                 SendPacket(&data);
             }
+            break;
+		case BATTLEGROUND_BG:
+			//TODO : fix me!
             break;
         default:
             //maybe it is sent also in arena - do nothing

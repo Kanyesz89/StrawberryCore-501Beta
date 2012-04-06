@@ -645,10 +645,10 @@ enum StrawberryStrings
     LANG_BG_WS_F_PLACED                 = 613,
     LANG_BG_WS_ALLIANCE_FLAG_RESPAWNED  = 614,
     LANG_BG_WS_HORDE_FLAG_RESPAWNED     = 615,
-	LANG_BG_TP_START_ONE_MINUTE         = 616,
+    LANG_BG_TP_START_ONE_MINUTE         = 616,
     LANG_BG_TP_START_HALF_MINUTE        = 617,
     LANG_BG_TP_HAS_BEGUN                = 618,
-	LANG_BG_TP_CAPTURED_HF              = 619,
+    LANG_BG_TP_CAPTURED_HF              = 619,
     LANG_BG_TP_CAPTURED_AF              = 620,
     LANG_BG_TP_DROPPED_HF               = 621,
     LANG_BG_TP_DROPPED_AF               = 622,
@@ -983,7 +983,21 @@ enum StrawberryStrings
     LANG_NPC_EVENTAI_COMBAT             = 1508,
     // Room for more Level 2              1509-1599 not used
 
-    // FREE IDS                           1600-9999
+    // Battle For Gilneas
+	LANG_BG_BG_NODE_LIGHTHOUSE          = 1600,
+    LANG_BG_BG_NODE_WATERWORKS          = 1601,
+    LANG_BG_BG_NODE_MINES               = 1602,
+    LANG_BG_BG_NODE_TAKEN               = 1603,
+    LANG_BG_BG_NODE_DEFENDED            = 1604,
+    LANG_BG_BG_NODE_ASSAULTED           = 1605,
+    LANG_BG_BG_NODE_CLAIMED             = 1606,
+    LANG_BG_BG_START_ONE_MINUTE         = 1607,
+    LANG_BG_BG_START_HALF_MINUTE        = 1608,
+    LANG_BG_BG_HAS_BEGUN                = 1609,
+    LANG_BG_BG_A_NEAR_VICTORY           = 1610,
+    LANG_BG_BG_H_NEAR_VICTORY           = 1611,
+	
+	// FREE IDS                           1612-9999
 
     // Use for not-in-offcial-sources patches
     //                                    10000-10999

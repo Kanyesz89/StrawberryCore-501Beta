@@ -1374,6 +1374,10 @@ void BattleGroundMgr::BuildPvpLogDataPacket(WorldPacket *data, BattleGround *bg)
                 *data << (uint32)((BattleGroundTPScore*)itr->second)->FlagReturns;          // flag returns
                 break;
             case BATTLEGROUND_BG:                           // cata
+				*data << (uint32)0x00000002;                // count of next fields
+                *data << (uint32)((BattleGroundBGScore*)itr->second)->BasesAssaulted;       // bases asssulted
+                *data << (uint32)((BattleGroundBGScore*)itr->second)->BasesDefended;        // bases defended
+                break;
             case BATTLEGROUND_VP:                           // MoP
             case BATTLEGROUND_CF:                           // MoP
             case BATTLEGROUND_DM:                           // MoP
