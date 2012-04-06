@@ -2332,6 +2332,57 @@ void Aura::HandleAuraDummy(bool apply, bool Real)
                 }
                 break;
             }
+			case SPELLFAMILY_MONK:
+            {
+                switch(GetId())
+                {
+					case 103985:                             // Tiger Stance
+                    {
+                        if (target->GetTypeId() != TYPEID_UNIT)
+                            return;
+
+                        // Stance Cooldown
+                        target->CastSpell(target, 59526, true, NULL, this);
+
+                        // Tiger Aura
+                        target->CastSpell(target, 103985, true, NULL, this);
+
+                        // equipment
+                        //((Creature*)target)->SetVirtualItem(VIRTUAL_ITEM_SLOT_0, 0);
+                        return;
+                    }
+					case 115069:                             // Ox Stance
+                    {
+                        if (target->GetTypeId() != TYPEID_UNIT)
+                            return;
+
+                        // Stance Cooldown
+                        target->CastSpell(target, 59526, true, NULL, this);
+
+                        // Ox Aura
+                        target->CastSpell(target, 115069, true, NULL, this);
+
+                        // equipment
+                        //((Creature*)target)->SetVirtualItem(VIRTUAL_ITEM_SLOT_0, 0);
+                        return;
+                    }
+                    case 115070:                             // Serpent Stance
+                    {
+                        if (target->GetTypeId() != TYPEID_UNIT)
+                            return;
+
+                        // Stance Cooldown
+                        target->CastSpell(target, 59526, true, NULL, this);
+
+                        // Serpent Aura
+                        target->CastSpell(target, 115070, true, NULL, this);
+
+                        // equipment
+                        //((Creature*)target)->SetVirtualItem(VIRTUAL_ITEM_SLOT_0, 0);
+                        return;
+                    }
+                }
+            }
             case SPELLFAMILY_MAGE:
                 break;
             case SPELLFAMILY_HUNTER:
