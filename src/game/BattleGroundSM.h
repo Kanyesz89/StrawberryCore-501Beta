@@ -39,6 +39,42 @@ enum BG_SM_NPC
 	BG_SM_NPC_CART_H    				= 46485,
 };
 
+enum BG_SM_CHECKPOINTS
+{
+    BG_SM_CHECKPOINT_A1					= 5,
+	BG_SM_CHECKPOINT_H1    				= 5,
+	BG_SM_CHECKPOINT_A2					= 10,
+	BG_SM_CHECKPOINT_H2    				= 10,
+	BG_SM_CHECKPOINT_A3					= 20,
+	BG_SM_CHECKPOINT_H3    				= 20,
+	BG_SM_CHECKPOINT_A4					= 30,
+	BG_SM_CHECKPOINT_H4    				= 30,
+	BG_SM_CHECKPOINT_A5					= 40,
+	BG_SM_CHECKPOINT_H5    				= 40,
+	BG_SM_CHECKPOINT_WIN				= 50,
+	BG_SM_CHECKPOINT_WIN  				= 50,
+};
+
+// id, x, y, z, o
+const float BG_SM_H_WAYPOINTS[50][5] = {          //Waypoints for H Mine Carts
+    {1, 1185.71f, 1185.24f, -56.36f, 2.56f},      // 1
+    {2, 990.75f, 1008.18f, -42.60f, 2.43f},       // 2
+    {3, 817.66f, 843.34f, -56.54f, 3.01f},        // 3
+    {4, 807.46f, 1189.16f, 11.92f, 5.44f},        // 4
+    {5, 1146.62f, 816.94f, -98.49f, 6.14f},       // 5
+	//upto 50 waypoints for escorting travel
+};
+
+// id, x, y, z, o
+const float BG_SM_A_WAYPOINTS[50][5] = {          //Waypoints for A Mine Carts
+    {1, 1185.71f, 1185.24f, -56.36f, 2.56f},      // 1
+    {2, 990.75f, 1008.18f, -42.60f, 2.43f},       // 2
+    {3, 817.66f, 843.34f, -56.54f, 3.01f},        // 3
+    {4, 807.46f, 1189.16f, 11.92f, 5.44f},        // 4
+    {5, 1146.62f, 816.94f, -98.49f, 6.14f},       // 5
+	//upto 50 waypoints for escorting travel
+};
+
 class BattleGroundSMScore : public BattleGroundScore
 {
     public:
