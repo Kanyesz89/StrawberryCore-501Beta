@@ -2599,9 +2599,6 @@
     <ClCompile Include="..\..\src\game\BattleGroundCF.cpp">
       <Filter>World/Handlers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\game\BattleGroundDM.cpp">
-      <Filter>World/Handlers</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\game\BattleGroundTA.cpp">
       <Filter>World/Handlers</Filter>
     </ClCompile>
@@ -2609,6 +2606,9 @@
       <Filter>World/Handlers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\game\BattleGroundVP.cpp">
+      <Filter>World/Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\BattleGroundSM.cpp">
       <Filter>World/Handlers</Filter>
     </ClCompile>
   </ItemGroup>
@@ -3362,9 +3362,6 @@
     <ClInclude Include="..\..\src\game\BattleGroundCF.h">
       <Filter>World/Handlers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\game\BattleGroundDM.h">
-      <Filter>World/Handlers</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\game\BattleGroundTA.h">
       <Filter>World/Handlers</Filter>
     </ClInclude>
@@ -3372,6 +3369,9 @@
       <Filter>World/Handlers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\game\BattleGroundVP.h">
+      <Filter>World/Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\BattleGroundSM.h">
       <Filter>World/Handlers</Filter>
     </ClInclude>
   </ItemGroup>

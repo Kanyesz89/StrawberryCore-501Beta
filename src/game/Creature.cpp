@@ -976,7 +976,7 @@ bool Creature::CanInteractWithBattleMaster(Player* pPlayer, bool msg) const
             case BATTLEGROUND_RV: pPlayer->PlayerTalkClass->SendGossipMenu(10024, GetObjectGuid()); break;
             case BATTLEGROUND_BG:
             case BATTLEGROUND_CF:
-            case BATTLEGROUND_DM:
+            case BATTLEGROUND_SM:
             case BATTLEGROUND_TA:
             case BATTLEGROUND_TP:
             case BATTLEGROUND_VP:

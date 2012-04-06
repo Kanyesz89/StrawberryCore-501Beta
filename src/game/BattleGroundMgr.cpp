@@ -38,7 +38,7 @@
 #include "BattleGroundBG.h"
 #include "BattleGroundVP.h"
 #include "BattleGroundCF.h"
-#include "BattleGroundDM.h"
+#include "BattleGroundSM.h"
 #include "BattleGroundTA.h"
 #include "MapManager.h"
 #include "Map.h"
@@ -1380,7 +1380,7 @@ void BattleGroundMgr::BuildPvpLogDataPacket(WorldPacket *data, BattleGround *bg)
                 break;
             case BATTLEGROUND_VP:                           // MoP
             case BATTLEGROUND_CF:                           // MoP
-            case BATTLEGROUND_DM:                           // MoP
+            case BATTLEGROUND_SM:                           // MoP
             case BATTLEGROUND_TA:                           // MoP
                 *data << (int32)0;                          // 0
                 break;
@@ -1552,8 +1552,8 @@ BattleGround * BattleGroundMgr::CreateNewBattleGround(BattleGroundTypeId bgTypeI
         case BATTLEGROUND_BG:
             bg = new BattleGroundBG(*(BattleGroundBG*)bg_template);
             break;
-        case BATTLEGROUND_DM:
-            bg = new BattleGroundDM(*(BattleGroundDM*)bg_template);
+        case BATTLEGROUND_SM:
+            bg = new BattleGroundSM(*(BattleGroundSM*)bg_template);
             break;
         case BATTLEGROUND_CF:
             bg = new BattleGroundCF(*(BattleGroundCF*)bg_template);
@@ -1621,7 +1621,7 @@ uint32 BattleGroundMgr::CreateBattleGround(BattleGroundTypeId bgTypeId, bool IsA
         case BATTLEGROUND_BG: bg = new BattleGroundBG; break;
         case BATTLEGROUND_VP: bg = new BattleGroundVP; break;
         case BATTLEGROUND_CF: bg = new BattleGroundCF; break;
-        case BATTLEGROUND_DM: bg = new BattleGroundDM; break;
+        case BATTLEGROUND_SM: bg = new BattleGroundSM; break;
         case BATTLEGROUND_TA: bg = new BattleGroundTA; break;
         default:bg = new BattleGround;   break;             // placeholder for non implemented BG
     }
@@ -1947,7 +1947,7 @@ BattleGroundQueueTypeId BattleGroundMgr::BGQueueTypeId(BattleGroundTypeId bgType
             return BATTLEGROUND_QUEUE_VP;
         case BATTLEGROUND_CF:
             return BATTLEGROUND_QUEUE_CF;
-        case BATTLEGROUND_DM:
+        case BATTLEGROUND_SM:
             return BATTLEGROUND_QUEUE_DM;
         case BATTLEGROUND_RB:
             return BATTLEGROUND_QUEUE_NONE;
@@ -1999,7 +1999,7 @@ BattleGroundTypeId BattleGroundMgr::BGTemplateId(BattleGroundQueueTypeId bgQueue
         case BATTLEGROUND_QUEUE_CF:
             return BATTLEGROUND_CF;
         case BATTLEGROUND_QUEUE_DM:
-            return BATTLEGROUND_DM;
+            return BATTLEGROUND_SM;
         case BATTLEGROUND_QUEUE_2v2:
         case BATTLEGROUND_QUEUE_3v3:
         case BATTLEGROUND_QUEUE_5v5:

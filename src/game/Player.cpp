@@ -8749,7 +8749,7 @@ void Player::SendInitWorldStates(uint32 zoneid, uint32 areaid)
                 FillInitialWorldState(data,count, CF_world_states);
             break;
         case 6126:                                          // DM
-            if (bg && bg->GetTypeID() == BATTLEGROUND_DM)
+            if (bg && bg->GetTypeID() == BATTLEGROUND_SM)
                 bg->FillInitialWorldStates(data, count);
             else
                 FillInitialWorldState(data,count, DM_world_states);

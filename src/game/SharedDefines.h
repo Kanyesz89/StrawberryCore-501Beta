@@ -3672,7 +3672,7 @@ enum BattleGroundTypeId
     BATTLEGROUND_EE            = 656,
     BATTLEGROUND_VP            = 699,                        // Valley of Power
     BATTLEGROUND_CF            = 706,                       // CTF3
-    BATTLEGROUND_DM            = 708,                       // STV Diamondmine BG
+    BATTLEGROUND_SM            = 708,                       // STV Diamondmine BG
     BATTLEGROUND_TA            = 719                        // Tol'Vir Arena
 };
 

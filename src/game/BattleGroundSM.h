@@ -17,25 +17,42 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#ifndef __BATTLEGROUNDDM_H
-#define __BATTLEGROUNDDM_H
+#ifndef __BattleGroundSM_H
+#define __BattleGroundSM_H
 
 class BattleGround;
 
-class BattleGroundDMScore : public BattleGroundScore
+enum BG_SM_SPELLS
 {
-    public:
-        BattleGroundDMScore() {};
-        virtual ~BattleGroundDMScore() {};
+    BG_SM_CART_START_SPELL              = 111827,
+    BG_SM_CART_1_PLAYER_IN_RANGE_SPELL  = 115904,
+	BG_SM_CART_2_PLAYER_IN_RANGE_SPELL  = 116488,
+	BG_SM_CART_3_PLAYER_IN_RANGE_SPELL  = 116490,
+	BG_SM_CART_4_PLAYER_IN_RANGE_SPELL  = 116491,
+	BG_SM_CART_5_PLAYER_IN_RANGE_SPELL  = 116492,
+	BG_SM_CART_STOP_SPELL               = 111827,
 };
 
-class BattleGroundDM : public BattleGround
+enum BG_SM_NPC
+{
+    BG_SM_NPC_CART_A					= 28817,
+	BG_SM_NPC_CART_H    				= 23289,
+};
+
+class BattleGroundSMScore : public BattleGroundScore
+{
+    public:
+        BattleGroundSMScore() {};
+        virtual ~BattleGroundSMScore() {};
+};
+
+class BattleGroundSM : public BattleGround
 {
     friend class BattleGroundMgr;
 
     public:
-        BattleGroundDM();
-        ~BattleGroundDM();
+        BattleGroundSM();
+        ~BattleGroundSM();
         void Update(uint32 diff);
 
         /* inherited from BattlegroundClass */
