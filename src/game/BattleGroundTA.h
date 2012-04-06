@@ -16,9 +16,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
-
-#ifndef __BATTLEGROUNDTA_H
-#define __BATTLEGROUNDTA_H
+#ifndef __BattleGroundTA_H
+#define __BattleGroundTA_H
 
 class BattleGround;
 
@@ -27,6 +26,7 @@ class BattleGroundTAScore : public BattleGroundScore
     public:
         BattleGroundTAScore() {};
         virtual ~BattleGroundTAScore() {};
+        //TODO fix me
 };
 
 class BattleGroundTA : public BattleGround
@@ -45,11 +45,10 @@ class BattleGroundTA : public BattleGround
 
         void RemovePlayer(Player *plr, ObjectGuid guid);
         void HandleAreaTrigger(Player *Source, uint32 Trigger);
-        //bool SetupBattleGround();
-
-        /* Scorekeeping */
-        void UpdatePlayerScore(Player *Source, uint32 type, uint32 value);
-
-    private:
+        bool SetupBattleGround();
+        virtual void Reset();
+        virtual void FillInitialWorldStates(WorldPacket &d, uint32& count);
+        void HandleKillPlayer(Player* player, Player *killer);
+        bool HandlePlayerUnderMap(Player * plr);
 };
 #endif

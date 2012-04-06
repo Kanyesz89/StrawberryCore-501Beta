@@ -984,7 +984,7 @@ enum StrawberryStrings
     // Room for more Level 2              1509-1599 not used
 
     // Battle For Gilneas
-	LANG_BG_BG_NODE_LIGHTHOUSE          = 1600,
+    LANG_BG_BG_NODE_LIGHTHOUSE          = 1600,
     LANG_BG_BG_NODE_WATERWORKS          = 1601,
     LANG_BG_BG_NODE_MINES               = 1602,
     LANG_BG_BG_NODE_TAKEN               = 1603,
