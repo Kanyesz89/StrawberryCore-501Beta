@@ -389,7 +389,8 @@ Spell::Spell( Unit* caster, SpellEntry const *info, bool triggered, ObjectGuid o
     m_autoRepeat = IsAutoRepeatRangedSpell(m_spellInfo);
 
     m_runesState = 0;
-    m_powerCost = 0;                                        // setup to correct value in Spell::prepare, don't must be used before.
+	m_chiState = 0;
+	m_powerCost = 0;                                        // setup to correct value in Spell::prepare, don't must be used before.
     m_casttime = 0;                                         // setup to correct value in Spell::prepare, don't must be used before.
     m_timer = 0;                                            // will set to cast time in prepare
     m_duration = 0;
@@ -1654,6 +1655,7 @@ void Spell::SetTargetMap(SpellEffectIndex effIndex, uint32 targetMode, UnitList&
                     EffectChainTarget = 2;
             break;
         }
+		case SPELLFAMILY_MONK:
         case SPELLFAMILY_DRUID:
         {
             // Starfall
@@ -3122,6 +3124,7 @@ void Spell::cast(bool skipCheck)
                         AddTriggeredSpell(70849);           // Extra Charge!
             break;
         }
+		case SPELLFAMILY_MONK:
         case SPELLFAMILY_PRIEST:
         {
             // Power Word: Shield
@@ -3847,6 +3850,21 @@ void Spell::SendSpellStart()
         }
     }
 
+	if (castFlags & CAST_FLAG_PREDICTED_CHI)                // predicted chi
+    {
+        uint8 v1 = 0;//m_chiState;
+        uint8 v2 = 0;//((Player*)m_caster)->GetChiState();
+        data << uint8(v1);                                  // chi state before
+        data << uint8(v2);                                  // chi state after
+        for(uint8 i = 0; i < MAX_CHI; ++i)
+        {
+            uint8 m = (1 << i);
+            if(m & v1)                                      // usable before...
+                if(!(m & v2))                               // ...but on cooldown now...
+                    data << uint8(0);                       // some unknown byte (time?)
+        }
+    }
+
     if (castFlags & CAST_FLAG_AMMO)                         // projectile info
         WriteAmmoToPacket(&data);
 
@@ -4379,6 +4397,12 @@ void Spell::TakePower()
     if(powerType == POWER_RUNES)
     {
         CheckOrTakeRunePower(true);
+        return;
+    }
+
+	if(powerType == POWER_CHI)
+    {
+        CheckOrTakeChiPower(true);
         return;
     }
 

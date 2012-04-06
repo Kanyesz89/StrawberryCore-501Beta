@@ -1217,6 +1217,7 @@ SpellAuraProcResult Unit::HandleDummyAuraProc(Unit *pVictim, uint32 damage, Aura
             }
             break;
         }
+		case SPELLFAMILY_MONK:
         case SPELLFAMILY_WARLOCK:
         {
             // Seed of Corruption
@@ -3085,6 +3086,7 @@ SpellAuraProcResult Unit::HandleProcTriggerSpellAuraProc(Unit *pVictim, uint32 d
             else if (auraSpellInfo->Id == 50421)            // Scent of Blood
                 trigger_spell_id = 50422;
             break;
+		case SPELLFAMILY_MONK:
         case SPELLFAMILY_WARLOCK:
         {
             // Drain Soul

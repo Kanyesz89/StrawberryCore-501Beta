@@ -2047,6 +2047,7 @@ struct SpellRuneCostEntry
 
     bool NoRuneCost() const { return RuneCost[0] == 0 && RuneCost[1] == 0 && RuneCost[2] == 0; }
     bool NoRunicPowerGain() const { return runePowerGain == 0; }
+
 };
 
 struct SpellShapeshiftFormEntry

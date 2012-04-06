@@ -385,6 +385,36 @@ struct Runes
     }
 };
 
+#define MAX_CHI       4
+#define CHI_COOLDOWN   (2*5*IN_MILLISECONDS)                // msec
+
+enum ChiType
+{
+    NORMAL          = 0,
+    NUM_CHI_TYPES   = 1
+};
+
+struct ChiInfo
+{
+    uint8  BaseChi;
+    uint8  CurrentChi;
+    uint16 Cooldown;                                        // msec
+};
+
+struct Chi
+{
+    ChiInfo Chis[MAX_CHI];
+    uint8 chiState;                                        // mask of available chi
+
+    void SetChiState(uint8 index, bool set = true)
+    {
+        if(set)
+            chiState |= (1 << index);                      // usable
+        else
+            chiState &= ~(1 << index);                     // on cooldown
+    }
+};
+
 struct EnchantDuration
 {
     EnchantDuration() : item(NULL), slot(MAX_ENCHANTMENT_SLOT), leftduration(0) {};
@@ -2580,6 +2610,7 @@ class Player : public Unit
 
         DeclinedName *m_declinedname;
         Runes *m_runes;
+		Chi *m_chi;
         EquipmentSets m_EquipmentSets;
 
         /// class dependent melee diminishing constant for dodge/parry/missed chances

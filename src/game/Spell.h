@@ -62,6 +62,7 @@ enum SpellCastFlags
     CAST_FLAG_VISUAL_CHAIN      = 0x00080000,               // wotlk
     CAST_FLAG_UNKNOWN21         = 0x00100000,
     CAST_FLAG_PREDICTED_RUNES   = 0x00200000,               // wotlk, rune cooldown list
+	CAST_FLAG_PREDICTED_CHI     = 0x00400000,               // mop, chi cooldown list
     CAST_FLAG_IMMUNITY          = 0x04000000                // spell cast school imminity info
 };
 
@@ -382,6 +383,7 @@ class Spell
         SpellCastResult CheckRange(bool strict);
         SpellCastResult CheckPower();
         SpellCastResult CheckOrTakeRunePower(bool take);
+		SpellCastResult CheckOrTakeChiPower(bool take);
         SpellCastResult CheckCasterAuras() const;
 
         int32 CalculateDamage(SpellEffectIndex i, Unit* target) { return m_caster->CalculateSpellDamage(target, m_spellInfo, i, &m_currentBasePoints[i]); }
@@ -526,6 +528,7 @@ class Spell
         uint8 m_spellFlags;                                 // for spells whose target was changed in cast i.e. due to reflect
         bool m_autoRepeat;
         uint8 m_runesState;
+		uint8 m_chiState;
 
         uint8 m_delayAtDamageCount;
         bool isDelayableNoMore()

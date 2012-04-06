@@ -471,6 +471,7 @@ SpellSpecific GetSpellSpecific(uint32 spellId)
 
             break;
         }
+		case SPELLFAMILY_MONK:
         case SPELLFAMILY_WARLOCK:
         {
             // only warlock curses have this
@@ -2058,7 +2059,8 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
 
                     break;
                 }
-                case SPELLFAMILY_DRUID:
+                case SPELLFAMILY_MONK:
+				case SPELLFAMILY_DRUID:
                 {
                     // Scroll of Stamina and Leader of the Pack (multi-family check)
                     if (spellInfo_1->SpellIconID == 312 && spellInfo_1->SpellVisual[0] == 216 && spellInfo_2->Id == 24932)
@@ -2227,6 +2229,16 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
             // Bloodlust and Bloodthirst (multi-family check)
             if (spellInfo_2->Id == 2825 && spellInfo_1->SpellIconID == 38 && spellInfo_1->SpellVisual[0] == 0)
                 return false;
+
+            break;
+		case SPELLFAMILY_MONK:
+            if (classOptions2 && classOptions1->SpellFamilyName == SPELLFAMILY_WARRIOR )
+            {
+                // Tiger/Ox/Serpent stance aura can not stack (needed for dummy auras)
+                if (((classOptions1->SpellFamilyFlags & UI64LIT(0x800000)) && (classOptions2->SpellFamilyFlags & UI64LIT(0x800000))) ||
+                    ((classOptions2->SpellFamilyFlags & UI64LIT(0x800000)) && (classOptions1->SpellFamilyFlags & UI64LIT(0x800000))))
+                    return true;
+            }
 
             break;
         case SPELLFAMILY_PRIEST:
@@ -4485,6 +4497,7 @@ DiminishingGroup GetDiminishingReturnsGroupForSpell(SpellEntry const* spellproto
                 return DIMINISHING_LIMITONLY;
             break;
         }
+		case SPELLFAMILY_MONK:
         case SPELLFAMILY_PRIEST:
         {
             // Shackle Undead

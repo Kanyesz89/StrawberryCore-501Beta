@@ -1465,6 +1465,10 @@ void Player::SetDeathState(DeathState s)
         // restore default warrior stance
         if(getClass()== CLASS_WARRIOR)
             CastSpell(this,SPELL_ID_PASSIVE_BATTLE_STANCE,true);
+
+		// restore default monk stance
+        if(getClass()== CLASS_MONK)
+            CastSpell(this,SPELL_ID_PASSIVE_TIGER_STANCE,true);
     }
 }
 
@@ -2033,12 +2037,13 @@ void Player::RegenerateAll(uint32 diff)
 
     Regenerate(POWER_ENERGY, diff);
 
-    Regenerate(POWER_CHI, diff);
-
     Regenerate(POWER_MANA, diff);
 
     if (getClass() == CLASS_DEATH_KNIGHT)
         Regenerate(POWER_RUNES, diff);
+
+	if (getClass() == CLASS_MONK)
+        Regenerate(POWER_CHI, diff);
 
     if (getClass() == CLASS_HUNTER)
         Regenerate(POWER_FOCUS, diff);
@@ -2080,9 +2085,6 @@ void Player::Regenerate(Powers power, uint32 diff)
         case POWER_FOCUS:
             addvalue = 12;
             break;
-        case POWER_CHI:
-            addvalue = 12;
-            break;
         case POWER_ENERGY:                                  // Regenerate energy (rogue)
         {
             float EnergyRate = sWorld.getConfig(CONFIG_FLOAT_RATE_POWER_ENERGY);
@@ -2111,6 +2113,16 @@ void Player::Regenerate(Powers power, uint32 diff)
 
                     SetRuneCooldown(rune, (cd < cd_diff) ? 0 : cd - cd_diff);
                 }
+            }
+        }   break;
+		case POWER_CHI:
+        {
+            if (getClass() != CLASS_MONK)
+                break;
+
+            for(uint32 chi = 0; chi < MAX_CHI; ++chi)
+            {
+                //TOFIX
             }
         }   break;
         case POWER_HEALTH:
@@ -16206,6 +16218,9 @@ void Player::_LoadAuras(QueryResult *result, uint32 timediff)
 
     if(getClass() == CLASS_WARRIOR && !HasAuraType(SPELL_AURA_MOD_SHAPESHIFT))
         CastSpell(this,SPELL_ID_PASSIVE_BATTLE_STANCE,true);
+
+	if(getClass() == CLASS_MONK && !HasAuraType(SPELL_AURA_MOD_SHAPESHIFT))
+        CastSpell(this,SPELL_ID_PASSIVE_TIGER_STANCE,true);
 }
 
 void Player::_LoadGlyphs(QueryResult *result)

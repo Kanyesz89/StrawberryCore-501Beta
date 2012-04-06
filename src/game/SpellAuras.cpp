@@ -1721,6 +1721,7 @@ void Aura::TriggerSpell()
 //                }
 //                break;
 //            }
+			case SPELLFAMILY_MONK:
             case SPELLFAMILY_HUNTER:
             {
                 switch (auraId)
@@ -3379,6 +3380,9 @@ void Aura::HandleAuraModShapeshift(bool apply, bool Real)
             case FORM_DEFENSIVESTANCE:
                 PowerType = POWER_RAGE;
                 break;
+			case FORM_TIGERSTANCE:
+            case FORM_OXSTANCE:
+            case FORM_SERPENTSTANCE:
             default:
                 break;
         }
@@ -3447,6 +3451,9 @@ void Aura::HandleAuraModShapeshift(bool apply, bool Real)
                         target->SetPower(POWER_RAGE, Rage_val);
                     break;
                 }
+				case FORM_TIGERSTANCE:
+                case FORM_OXSTANCE:
+                case FORM_SERPENTSTANCE:
                 default:
                     break;
             }
@@ -5456,6 +5463,7 @@ void Aura::HandlePeriodicDamage(bool apply, bool Real)
                 }
                 break;
             }
+			case SPELLFAMILY_MONK:
             case SPELLFAMILY_DRUID:
             {
                 // Rip
@@ -6583,6 +6591,14 @@ void Aura::HandleShapeshiftBoosts(bool apply)
         case FORM_STEALTH:
         case FORM_CREATURECAT:
         case FORM_CREATUREBEAR:
+		case FORM_TIGERSTANCE:
+			spellId1 = 103985;
+			break;
+        case FORM_OXSTANCE:
+			spellId1 = 115069;
+			break;
+        case FORM_SERPENTSTANCE:
+			spellId1 = 115070;
             break;
     }
 
@@ -8842,6 +8858,7 @@ void SpellAuraHolder::_RemoveSpellAuraHolder()
                 if (m_spellProto->IsFitToFamilyMask(UI64LIT(0x0004000000000000)))
                     removeState = AURA_STATE_WARRIOR_VICTORY_RUSH; // Victorious
                 break;
+			case SPELLFAMILY_MONK:
             case SPELLFAMILY_ROGUE:
                 if (m_spellProto->IsFitToFamilyMask(UI64LIT(0x0000000000010000)))
                     removeState = AURA_STATE_DEADLY_POISON; // Deadly poison aura state
@@ -9252,6 +9269,7 @@ void SpellAuraHolder::HandleSpellSpecificBoosts(bool apply)
             }
             break;
         }
+		case SPELLFAMILY_MONK:
         case SPELLFAMILY_WARLOCK:
         {
             // Fear (non stacking)

@@ -446,6 +446,7 @@ void Spell::EffectSchoolDMG(SpellEffectEntry const* effect)
                 }
                 break;
             }
+			case SPELLFAMILY_MONK:
             case SPELLFAMILY_WARLOCK:
             {
                 // Incinerate Rank 1 & 2
@@ -2741,6 +2742,7 @@ void Spell::EffectDummy(SpellEffectEntry const* effect)
             }
             break;
         }
+		case SPELLFAMILY_MONK:
         case SPELLFAMILY_WARLOCK:
         {
             SpellClassOptionsEntry const* wrlClassOptions = m_spellInfo->GetSpellClassOptions();
@@ -6005,6 +6007,7 @@ void Spell::EffectWeaponDmg(SpellEffectEntry const* effect)
             }
             break;
         }
+		case SPELLFAMILY_MONK:
         case SPELLFAMILY_ROGUE:
         {
             // Mutilate (for each hand)
