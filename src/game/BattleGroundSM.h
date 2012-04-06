@@ -30,13 +30,13 @@ enum BG_SM_SPELLS
 	BG_SM_CART_3_PLAYER_IN_RANGE_SPELL  = 116490,
 	BG_SM_CART_4_PLAYER_IN_RANGE_SPELL  = 116491,
 	BG_SM_CART_5_PLAYER_IN_RANGE_SPELL  = 116492,
-	BG_SM_CART_STOP_SPELL               = 111827,
+	BG_SM_CART_CONTROL_SPELL            = 115815,
 };
 
 enum BG_SM_NPC
 {
-    BG_SM_NPC_CART_A					= 28817,
-	BG_SM_NPC_CART_H    				= 23289,
+    BG_SM_NPC_CART_A					= 39329,
+	BG_SM_NPC_CART_H    				= 46485,
 };
 
 class BattleGroundSMScore : public BattleGroundScore

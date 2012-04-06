@@ -22,6 +22,18 @@
 
 class BattleGround;
 
+enum BG_VP_SPELLS
+{
+    BG_VP_PICKUP_POWERBALL_SPELL        = 112839,
+	BG_VP_DROP_POWERBALL_SPELL          = 112839,
+	BG_VP_HOLDING_POWERBALL_SPELL       = 112839,
+};
+
+enum BG_VP_NPC
+{
+    BG_SM_NPC_POWERBALL					= 29265,
+};
+
 class BattleGroundVPScore : public BattleGroundScore
 {
     public:
