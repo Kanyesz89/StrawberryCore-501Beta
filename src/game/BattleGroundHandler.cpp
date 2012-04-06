@@ -29,6 +29,7 @@
 #include "Chat.h"
 #include "BattleGroundMgr.h"
 #include "BattleGroundWS.h"
+#include "BattleGroundTP.h"
 #include "BattleGround.h"
 #include "ArenaTeam.h"
 #include "Language.h"
@@ -274,6 +275,44 @@ void WorldSession::HandleBattleGroundPlayerPositionsOpcode( WorldPacket & /*recv
                 WorldPacket data(MSG_BATTLEGROUND_PLAYER_POSITIONS, (4+4));
                 data << uint32(0);
                 data << uint32(0);
+                SendPacket(&data);
+            }
+            break;
+		case BATTLEGROUND_TP:
+            {
+                uint32 count1 = 0;                          // always constant zero?
+                uint32 count2 = 0;                          // count of next fields
+
+                Player *ali_plr = sObjectMgr.GetPlayer(((BattleGroundTP*)bg)->GetAllianceFlagPickerGuid());
+                if (ali_plr)
+                    ++count2;
+
+                Player *horde_plr = sObjectMgr.GetPlayer(((BattleGroundTP*)bg)->GetHordeFlagPickerGuid());
+                if (horde_plr)
+                    ++count2;
+
+                WorldPacket data(MSG_BATTLEGROUND_PLAYER_POSITIONS, (4+4+16*count1+16*count2));
+                data << count1;                             // alliance flag holders count - obsolete, now always 0
+                /*for(uint8 i = 0; i < count1; ++i)
+                {
+                    data << ObjectGuid(0);                  // guid
+                    data << (float)0;                       // x
+                    data << (float)0;                       // y
+                }*/
+                data << count2;                             // horde flag holders count - obsolete, now count of next fields
+                if (ali_plr)
+                {
+                    data << ObjectGuid(ali_plr->GetObjectGuid());
+                    data << float(ali_plr->GetPositionX());
+                    data << float(ali_plr->GetPositionY());
+                }
+                if (horde_plr)
+                {
+                    data << ObjectGuid(horde_plr->GetObjectGuid());
+                    data << float(horde_plr->GetPositionX());
+                    data << float(horde_plr->GetPositionY());
+                }
+
                 SendPacket(&data);
             }
             break;

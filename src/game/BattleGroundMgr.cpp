@@ -1369,6 +1369,10 @@ void BattleGroundMgr::BuildPvpLogDataPacket(WorldPacket *data, BattleGround *bg)
             case BATTLEGROUND_IC:                           // wotlk
             case BATTLEGROUND_RB:                           // wotlk
             case BATTLEGROUND_TP:                           // cata
+                *data << (uint32)0x00000002;                // count of next fields
+                *data << (uint32)((BattleGroundTPScore*)itr->second)->FlagCaptures;         // flag captures
+                *data << (uint32)((BattleGroundTPScore*)itr->second)->FlagReturns;          // flag returns
+                break;
             case BATTLEGROUND_BG:                           // cata
             case BATTLEGROUND_VP:                           // MoP
             case BATTLEGROUND_CF:                           // MoP

@@ -43,7 +43,7 @@
 #define GOSSIP_TEXT_ARENA               "Arena"
 #define GOSSIP_TEXT_EYEOFTHESTORM       "Eye of The Storm"
 #define GOSSIP_TEXT_STRANDOFANCIENT     "Strand of the Ancients"
-#define GOSSIP_TEXT_TWINPEAKS            "Twin Peaks"
+#define GOSSIP_TEXT_TWINPEAKS           "Twin Peaks"
 #define GOSSIP_TEXT_BATTLEFORGILNEAS    "Battle for Gilneas"
 #define GOSSIP_TEXT_STVDIAMMONDMINE     "STV Diamond Mine"
 #define GOSSIP_TEXT_CTF3                "CTF3"

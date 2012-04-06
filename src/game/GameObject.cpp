@@ -1484,7 +1484,7 @@ void GameObject::Use(Unit* user)
                 if (!bg)
                     return;
                 // BG flag dropped
-                // WS:
+                // WS & TP:
                 // 179785 - Silverwing Flag
                 // 179786 - Warsong Flag
                 // EotS:
@@ -1496,11 +1496,11 @@ void GameObject::Use(Unit* user)
                     {
                         case 179785:                        // Silverwing Flag
                             // check if it's correct bg
-                            if (bg->GetTypeID() == BATTLEGROUND_WS)
+                            if (bg->GetTypeID() == BATTLEGROUND_WS || bg->GetTypeID() == BATTLEGROUND_TP)
                                 bg->EventPlayerClickedOnFlag(player, this);
                             break;
                         case 179786:                        // Warsong Flag
-                            if (bg->GetTypeID() == BATTLEGROUND_WS)
+                            if (bg->GetTypeID() == BATTLEGROUND_WS || bg->GetTypeID() == BATTLEGROUND_TP)
                                 bg->EventPlayerClickedOnFlag(player, this);
                             break;
                         case 184142:                        // Netherstorm Flag
