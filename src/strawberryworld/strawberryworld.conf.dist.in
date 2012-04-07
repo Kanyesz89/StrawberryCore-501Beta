@@ -1291,6 +1291,11 @@ Visibility.AIRelocationNotifyDelay = 1000
 #        Mining Rates (Mining.Amount changes minimum/maximum usetimes of a deposit,
 #        Mining.Next changes chance to have next use of a deposit)
 #
+#    Rate.Archaeology.Amount
+#    Rate.Archaeology.Next
+#        Archaeology Rates (Archaeology.Amount changes minimum/maximum usetimes of a deposit,
+#        Archaeology.Next changes chance to have next use of a deposit)
+#
 #    Rate.Talent
 #        Talent Point rates
 #        Default: 1
@@ -1326,8 +1331,9 @@ Visibility.AIRelocationNotifyDelay = 1000
 #        Default: 100-75-25-0
 #
 #    SkillChance.MiningSteps
+#    SkillChance.ArchaeologySteps
 #    SkillChance.SkinningSteps
-#         For skinning and Mining chance decrease with skill level.
+#         For skinning, Mining and Archaeology chance decrease with skill level.
 #         Default: 0  - no decrease
 #                  75 - in 2 times each 75 skill points
 #
@@ -1420,6 +1426,8 @@ Auction.Deposit.Min               = 100
 Rate.Honor                        = 1
 Rate.Mining.Amount                = 1
 Rate.Mining.Next                  = 1
+Rate.Archaeology.Amount           = 1
+Rate.Archaeology.Next             = 1
 Rate.Talent                       = 1
 Rate.Reputation.Gain              = 1
 Rate.Reputation.LowLevel.Kill     = 1
@@ -1434,6 +1442,7 @@ SkillChance.Yellow                = 75
 SkillChance.Green                 = 25
 SkillChance.Grey                  = 0
 SkillChance.MiningSteps           = 0
+SkillChance.ArchaeologySteps      = 0
 SkillChance.SkinningSteps         = 0
 SkillFail.Loot.Fishing            = 1
 SkillFail.Gain.Fishing            = 1

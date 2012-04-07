@@ -75,6 +75,7 @@
 #define GOSSIP_TEXT_SKINNING            "Skinning"
 #define GOSSIP_TEXT_JEWELCRAFTING       "Jewelcrafting"
 #define GOSSIP_TEXT_INSCRIPTION         "Inscription"
+#define GOSSIP_TEXT_ARCHAEOLOGY         "Archaeology"
 
 enum
 {
@@ -94,6 +95,7 @@ enum
     TRADESKILL_SKINNING            = 13,
     TRADESKILL_JEWLCRAFTING        = 14,
     TRADESKILL_INSCRIPTION         = 15,
+	TRADESKILL_ARCHAEOLOGY         = 16,
 
     TRADESKILL_LEVEL_NONE          = 0,
     TRADESKILL_LEVEL_APPRENTICE    = 1,
@@ -103,7 +105,7 @@ enum
     TRADESKILL_LEVEL_MASTER        = 5,
     TRADESKILL_LEVEL_GRAND_MASTER  = 6,
     TRADESKILL_LEVEL_ILLUSTRIOUS   = 7,
-    TRADESKILL_LEVEL_FANTASTIC       = 8,
+    TRADESKILL_LEVEL_FANTASTIC     = 8,
 
     // Gossip defines
     GOSSIP_ACTION_TRADE            = 1,

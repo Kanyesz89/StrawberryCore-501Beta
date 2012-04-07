@@ -2595,6 +2595,7 @@ uint32 SpellMgr::GetProfessionSpellMinLevel(uint32 spellId)
             return s2l[rank][2];
         case SKILL_HERBALISM:
         case SKILL_MINING:
+		case SKILL_ARCHAEOLOGY:
         case SKILL_SKINNING:
             return s2l[rank][0];
         default:
