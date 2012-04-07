@@ -1511,7 +1511,7 @@ void GameObject::Use(Unit* user)
                             if (bg->GetTypeID() == BATTLEGROUND_EY)
                                 bg->EventPlayerClickedOnFlag(player, this);
                             break;
-						case 200000:                        // ORB OF POWER
+						case 500084:                        // ORB OF POWER
                             if (bg->GetTypeID() == BATTLEGROUND_TK)
                                 bg->EventPlayerClickedOnOrb(player, this);
 							break;

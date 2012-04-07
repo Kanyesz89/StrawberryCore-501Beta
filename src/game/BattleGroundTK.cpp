@@ -107,18 +107,37 @@ void BattleGroundTK::EventPlayerDroppedOrb(Player *Source)
         if (!IsAllianceOrbPickedup())
 			return;
 
-		if (!IsHordeOrbPickedup())
-			return;
+		if (Source->GetTeam() == ALLIANCE)
+        {
+		    Source->RemoveAurasDueToSpell(BG_TK_SPELL_ORB);
+		    Source->RemoveAurasDueToSpell(BG_TK_SPELL_ORB1);
+		    Source->RemoveAurasDueToSpell(BG_TK_SPELL_ORB2);
+		    m_OrbState[BG_TEAM_ALLIANCE] = BG_TK_ORB_STATE_ON_GROUND;
+		    Source->CastSpell(Source, BG_TK_SPELL_ORB_DROPPED, true);
+		    UpdateOrbState(Source->GetTeam(), 1);
+		    SendMessageToAll(LANG_BG_TK_DROPPED, CHAT_MSG_BG_SYSTEM_ALLIANCE, Source);
+		    UpdateWorldState(BG_TK_ICON_A, uint32(-1));            
+	    }
     }
 
-    Source->RemoveAurasDueToSpell(BG_TK_SPELL_ORB);
-    m_OrbState[BG_TEAM_HORDE] = BG_TK_ORB_STATE_ON_GROUND;
-    Source->CastSpell(Source, BG_TK_SPELL_ORB_DROPPED, true);
-    UpdateOrbState(Source->GetTeam(), 1);
-	SendMessageToAll(LANG_BG_TK_DROPPED, CHAT_MSG_BG_SYSTEM_HORDE, Source);
-	SendMessageToAll(LANG_BG_TK_DROPPED, CHAT_MSG_BG_SYSTEM_ALLIANCE, Source);
-    UpdateWorldState(BG_TK_ICON_H, uint32(-1));            
-    UpdateWorldState(BG_TK_ICON_A, uint32(-1));
+    if (GetStatus() != STATUS_IN_PROGRESS)
+    {
+        if (!IsHordeOrbPickedup())
+			return;
+
+		if (Source->GetTeam() == HORDE)
+        {
+		    Source->RemoveAurasDueToSpell(BG_TK_SPELL_ORB);
+		    Source->RemoveAurasDueToSpell(BG_TK_SPELL_ORB1);
+		    Source->RemoveAurasDueToSpell(BG_TK_SPELL_ORB2);
+		    m_OrbState[BG_TEAM_HORDE] = BG_TK_ORB_STATE_ON_GROUND;
+		    Source->CastSpell(Source, BG_TK_SPELL_ORB_DROPPED, true);
+		    UpdateOrbState(Source->GetTeam(), 1);
+		    SendMessageToAll(LANG_BG_TK_DROPPED, CHAT_MSG_BG_SYSTEM_HORDE, Source);
+		    UpdateWorldState(BG_TK_ICON_H, uint32(-1));            
+	    }
+    }
+	
 }
 
 void BattleGroundTK::EventPlayerClickedOnOrb(Player *Source, GameObject* target_obj)

@@ -123,6 +123,10 @@ enum BG_TK_Events
     TK_EVENT_SPIRITGUIDES_SPAWN   = 2
 };
 
+//tick point according to which zone
+const uint32 BG_TK_TickPoints[3] = {2, 4, 6};
+const uint32 BG_TK_TickIntervals[2] = {0, 5};
+
 class BattleGroundTK : public BattleGround
 {
     friend class BattleGroundMgr;
