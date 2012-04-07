@@ -4120,6 +4120,8 @@ SpellCastResult SpellMgr::GetSpellAllowedInLocationError(SpellEntry const *spell
             BattleGround* bg = player->GetBattleGround();
             return bg && !bg->isArena() ? SPELL_CAST_OK : SPELL_FAILED_ONLY_BATTLEGROUNDS;
         }
+		case 116524:                                         // Orb of Power
+            return map_id == 998 && player && player->InBattleGround() ? SPELL_CAST_OK : SPELL_FAILED_REQUIRES_AREA;
     }
 
     return SPELL_CAST_OK;

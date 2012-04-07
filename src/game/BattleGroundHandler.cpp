@@ -30,6 +30,7 @@
 #include "BattleGroundMgr.h"
 #include "BattleGroundWS.h"
 #include "BattleGroundTP.h"
+#include "BattleGroundTK.h"
 #include "BattleGroundBG.h"
 #include "BattleGround.h"
 #include "ArenaTeam.h"

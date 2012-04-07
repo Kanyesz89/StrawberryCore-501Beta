@@ -48,6 +48,7 @@
 #include "BattleGroundEY.h"
 #include "BattleGroundWS.h"
 #include "BattleGroundTP.h"
+#include "BattleGroundTK.h"
 #include "Language.h"
 #include "SocialMgr.h"
 #include "VMapFactory.h"

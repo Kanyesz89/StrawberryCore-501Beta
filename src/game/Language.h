@@ -1011,7 +1011,14 @@ enum StrawberryStrings
     LANG_BG_SM_A_NEAR_VICTORY           = 1622,
     LANG_BG_SM_H_NEAR_VICTORY           = 1623,
 
-	// FREE IDS                           1624-9999
+	// Temple of Kotmogu
+    LANG_BG_TK_START_ONE_MINUTE         = 1624,
+    LANG_BG_TK_START_HALF_MINUTE        = 1625,
+    LANG_BG_TK_HAS_BEGUN                = 1626,
+    LANG_BG_TK_DROPPED                  = 1627,
+    LANG_BG_TK_PICKEDUP                 = 1628,
+    LANG_BG_TK_O_PLACED                 = 1629,
+	// FREE IDS                           1630-9999
 
     // Use for not-in-offcial-sources patches
     //                                    10000-10999

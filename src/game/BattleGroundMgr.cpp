@@ -1379,6 +1379,9 @@ void BattleGroundMgr::BuildPvpLogDataPacket(WorldPacket *data, BattleGround *bg)
                 *data << (uint32)((BattleGroundBGScore*)itr->second)->BasesDefended;        // bases defended
                 break;
             case BATTLEGROUND_TK:                           // MoP
+				*data << (uint32)0x00000002;                // count of next fields
+                *data << (uint32)((BattleGroundTKScore*)itr->second)->OrbHandles;         // orb handles
+                break;
             case BATTLEGROUND_CF:                           // MoP
             case BATTLEGROUND_SM:                           // MoP
 				*data << (uint32)0x00000002;                // count of next fields

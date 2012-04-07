@@ -1455,7 +1455,9 @@ void GameObject::Use(Unit* user)
                 // 15004
                 // 15005
                 bg->EventPlayerClickedOnFlag(player, this);
-                return;                                     //we don't need to delete flag ... it is despawned!
+				return;                                     //we don't need to delete flag ... it is despawned!
+				bg->EventPlayerClickedOnOrb(player, this);
+                return;                                     //we don't need to delete orb ... it is despawned!
             }
             break;
         }
@@ -1489,6 +1491,8 @@ void GameObject::Use(Unit* user)
                 // 179786 - Warsong Flag
                 // EotS:
                 // 184142 - Netherstorm Flag
+				// TK
+				// 200000 - Orb of Power
                 GameObjectInfo const* info = GetGOInfo();
                 if (info)
                 {
@@ -1507,6 +1511,10 @@ void GameObject::Use(Unit* user)
                             if (bg->GetTypeID() == BATTLEGROUND_EY)
                                 bg->EventPlayerClickedOnFlag(player, this);
                             break;
+						case 200000:                        // ORB OF POWER
+                            if (bg->GetTypeID() == BATTLEGROUND_TK)
+                                bg->EventPlayerClickedOnOrb(player, this);
+							break;
                     }
                 }
                 //this cause to call return, all flags must be deleted here!!

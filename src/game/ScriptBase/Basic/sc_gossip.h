@@ -47,7 +47,7 @@
 #define GOSSIP_TEXT_BATTLEFORGILNEAS    "Battle for Gilneas"
 #define GOSSIP_TEXT_STVDIAMMONDMINE     "STV Diamond Mine"
 #define GOSSIP_TEXT_CTF3                "CTF3"
-#define GOSSIP_TEXT_VALLEYOFPOWER        "Valley of Power"
+#define GOSSIP_TEXT_TEMPLEOFKOTMOGU     "Temple of Kotmogu"
 
 #define GOSSIP_TEXT_DEATH_KNIGHT        "Death Knight"
 #define GOSSIP_TEXT_DRUID               "Druid"

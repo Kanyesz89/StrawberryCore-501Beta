@@ -22,23 +22,75 @@
 
 class BattleGround;
 
-enum BG_TK_SPELLS
-{
-    BG_TK_PICKUP_POWERBALL_SPELL        = 112839,
-	BG_TK_DROP_POWERBALL_SPELL          = 112839,
-	BG_TK_HOLDING_POWERBALL_SPELL       = 112839,
-};
-
 enum BG_TK_NPC
 {
     BG_SM_NPC_POWERBALL					= 29265,
 };
 
+#define BG_TK_MAX_TEAM_SCORE      1600
+#define BG_TK_ORB_POINTS_MAX      1600
+#define BG_TK_FLAG_RESPAWN_TIME   (23*IN_MILLISECONDS)
+#define BG_TK_FLAG_DROP_TIME      (10*IN_MILLISECONDS)
+#define BG_TK_TIME_LIMIT          (25*MINUTE*IN_MILLISECONDS)
+#define BG_TK_EVENT_START_BATTLE  8563
+
+enum BG_TK_Sound
+{
+    BG_TK_SOUND_ORB_PLACED        = 8232,
+    BG_TK_SOUND_A_ORB_PICKED_UP   = 8174,
+	BG_TK_SOUND_H_ORB_PICKED_UP   = 8174,
+    BG_TK_SOUND_ORB_RESPAWNED     = 8232
+};
+
+enum BG_TK_SpellId
+{
+    BG_TK_SPELL_ORB               = 116524,
+	BG_TK_SPELL_ORB1              = 121175,
+	BG_TK_SPELL_ORB2              = 112055,
+	BG_TK_SPELL_ORB_DROPPED       = 112839,
+};
+
+enum BG_TK_WorldStates
+{
+    BG_TK_ICON_A                  = 6308,
+	BG_TK_ICON_H                  = 6307,
+	BG_TK_ORB_POINTS_A            = 6303,
+	BG_TK_ORB_POINTS_H            = 6304,
+    BG_TK_ORB_STATE               = 6309,
+    BG_TK_TIME_ENABLED            = 4247,
+    BG_TK_TIME_REMAINING          = 4248
+};
+
+enum BG_TK_OrbState
+{
+    BG_TK_ORB_STATE_ON_BASE       = 0,
+    BG_TK_ORB_STATE_WAIT_RESPAWN  = 1,
+    BG_TK_ORB_STATE_ON_PLAYER     = 2,
+    BG_TK_ORB_STATE_ON_GROUND     = 3
+};
+
+enum BG_TK_Graveyards
+{
+    TK_GRAVEYARD_RECTANGLEA1      = 3552,
+    TK_GRAVEYARD_RECTANGLEA2      = 4058,
+    TK_GRAVEYARD_RECTANGLEH1      = 3553,
+    TK_GRAVEYARD_RECTANGLEH2      = 4057,
+};
+
 class BattleGroundTKScore : public BattleGroundScore
 {
     public:
-        BattleGroundTKScore() {};
+        BattleGroundTKScore() : OrbHandles(0) {};
         virtual ~BattleGroundTKScore() {};
+        uint32 OrbHandles;
+};
+
+
+enum BG_TK_Events
+{
+    TK_EVENT_ORB                  = 0,
+    // spiritguides will spawn (same moment, like TP_EVENT_DOOR_OPEN)
+    TK_EVENT_SPIRITGUIDES_SPAWN   = 2
 };
 
 class BattleGroundTK : public BattleGround
@@ -46,6 +98,7 @@ class BattleGroundTK : public BattleGround
     friend class BattleGroundMgr;
 
     public:
+        /* Construction */
         BattleGroundTK();
         ~BattleGroundTK();
         void Update(uint32 diff);
@@ -55,13 +108,53 @@ class BattleGroundTK : public BattleGround
         virtual void StartingEventCloseDoors();
         virtual void StartingEventOpenDoors();
 
+        /* BG Orbs */
+        void SetAllianceOrbPicker(ObjectGuid guid) { m_OrbKeepers[BG_TEAM_ALLIANCE] = guid; }
+		void SetHordeOrbPicker(ObjectGuid guid)    { m_OrbKeepers[BG_TEAM_HORDE] = guid; }
+        void ClearAllianceOrbPicker()              { m_OrbKeepers[BG_TEAM_ALLIANCE].Clear(); }
+        void ClearHordeOrbPicker()                 { m_OrbKeepers[BG_TEAM_HORDE].Clear(); }
+        bool IsAllianceOrbPickedup() const         { return !m_OrbKeepers[BG_TEAM_ALLIANCE].IsEmpty(); }
+		bool IsHordeOrbPickedup() const            { return !m_OrbKeepers[BG_TEAM_HORDE].IsEmpty(); }
+        uint8 GetOrbState(Team team)             { return m_OrbState[GetTeamIndexByTeamId(team)]; }
+
+        /* Battleground Events */
+        virtual void EventPlayerDroppedOrb(Player *Source);
+        virtual void EventPlayerClickedOnOrb(Player *Source, GameObject* target_obj);
+
         void RemovePlayer(Player *plr, ObjectGuid guid);
         void HandleAreaTrigger(Player *Source, uint32 Trigger);
-        //bool SetupBattleGround();
+        void HandleKillPlayer(Player *player, Player *killer);
+        bool SetupBattleGround();
+        virtual void Reset();
+        void EndBattleGround(Team winner);
+        virtual WorldSafeLocsEntry const* GetClosestGraveYard(Player* player);
+        uint32 GetRemainingTimeInMinutes() { return m_EndTimer ? (m_EndTimer-1) / (MINUTE * IN_MILLISECONDS) + 1 : 0; }
+
+        void UpdateOrbState(Team team, uint32 value);
+        void UpdateTeamScore(Team team);
+        void UpdatePlayerScore(Player *Source, uint32 type, uint32 value);
+        void SetDroppedOrbGuid(ObjectGuid guid, Team team)  { m_DroppedOrbGuid[GetTeamIndexByTeamId(team)] = guid;}
+        void ClearDroppedOrbGuid(Team team)  { m_DroppedOrbGuid[GetTeamIndexByTeamId(team)].Clear();}
+        ObjectGuid const& GetDroppedOrbGuid(Team team) const { return m_DroppedOrbGuid[GetTeamIndexByTeamId(team)];}
+        virtual void FillInitialWorldStates(WorldPacket& data, uint32& count);
 
         /* Scorekeeping */
-        void UpdatePlayerScore(Player *Source, uint32 type, uint32 value);
-
+        uint32 GetTeamScore(Team team) const            { return m_TeamScores[GetTeamIndexByTeamId(team)]; }
+        void AddPoint(Team team, uint32 Points = 1)     { m_TeamScores[GetTeamIndexByTeamId(team)] += Points; }
+        void SetTeamPoint(Team team, uint32 Points = 0) { m_TeamScores[GetTeamIndexByTeamId(team)] = Points; }
+        void RemovePoint(Team team, uint32 Points = 1)  { m_TeamScores[GetTeamIndexByTeamId(team)] -= Points; }
     private:
+        ObjectGuid m_OrbKeepers[BG_TEAMS_COUNT];
+
+        ObjectGuid m_DroppedOrbGuid[BG_TEAMS_COUNT];
+        uint8 m_OrbState[BG_TEAMS_COUNT];
+        int32 m_OrbsTimer[BG_TEAMS_COUNT];
+        int32 m_OrbsDropTimer[BG_TEAMS_COUNT];
+
+        uint32 m_ReputationCapture;
+        uint32 m_HonorWinKills;
+        uint32 m_HonorEndKills;
+        uint32 m_EndTimer;
+        Team   m_LastCapturedOrbTeam;
 };
 #endif

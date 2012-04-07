@@ -201,7 +201,9 @@ enum ScoreType
     SCORE_TOWERS_DEFENDED       = 14,
     SCORE_SECONDARY_OBJECTIVES  = 15,
 	//SM
-    SCORE_CARTS_HELPED          = 16
+    SCORE_CARTS_HELPED          = 16,
+	//TK
+	SCORE_ORB_HANDLES           = 17
 };
 
 enum BattleGroundType
@@ -479,6 +481,8 @@ class BattleGround
         /* Battleground events */
         virtual void EventPlayerDroppedFlag(Player* /*player*/) {}
         virtual void EventPlayerClickedOnFlag(Player* /*player*/, GameObject* /*target_obj*/) {}
+		virtual void EventPlayerDroppedOrb(Player* /*player*/) {}
+        virtual void EventPlayerClickedOnOrb(Player* /*player*/, GameObject* /*target_obj*/) {}
         virtual void EventPlayerCapturedFlag(Player* /*player*/) {}
         void EventPlayerLoggedIn(Player* player, ObjectGuid plr_guid);
         void EventPlayerLoggedOut(Player* player);
