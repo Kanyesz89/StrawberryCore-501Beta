@@ -359,8 +359,8 @@
     <ClCompile Include="..\..\src\game\BattleGroundSA.cpp" />
     <ClCompile Include="..\..\src\game\BattleGroundSM.cpp" />
     <ClCompile Include="..\..\src\game\BattleGroundTA.cpp" />
+    <ClCompile Include="..\..\src\game\BattleGroundTK.cpp" />
     <ClCompile Include="..\..\src\game\BattleGroundTP.cpp" />
-    <ClCompile Include="..\..\src\game\BattleGroundVP.cpp" />
     <ClCompile Include="..\..\src\game\BattleGroundWS.cpp" />
     <ClCompile Include="..\..\src\game\CalendarHandler.cpp" />
     <ClCompile Include="..\..\src\game\Channel.cpp" />
@@ -1107,8 +1107,8 @@
     <ClInclude Include="..\..\src\game\BattleGroundSA.h" />
     <ClInclude Include="..\..\src\game\BattleGroundSM.h" />
     <ClInclude Include="..\..\src\game\BattleGroundTA.h" />
+    <ClInclude Include="..\..\src\game\BattleGroundTK.h" />
     <ClInclude Include="..\..\src\game\BattleGroundTP.h" />
-    <ClInclude Include="..\..\src\game\BattleGroundVP.h" />
     <ClInclude Include="..\..\src\game\BattleGroundWS.h" />
     <ClInclude Include="..\..\src\game\Cell.h" />
     <ClInclude Include="..\..\src\game\CellImpl.h" />

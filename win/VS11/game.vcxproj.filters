@@ -2602,13 +2602,13 @@
     <ClCompile Include="..\..\src\game\BattleGroundTP.cpp">
       <Filter>World/Handlers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\game\BattleGroundVP.cpp">
-      <Filter>World/Handlers</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\game\BattleGroundTA.cpp">
       <Filter>World/Handlers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\game\BattleGroundSM.cpp">
+      <Filter>World/Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\BattleGroundTK.cpp">
       <Filter>World/Handlers</Filter>
     </ClCompile>
   </ItemGroup>
@@ -3365,13 +3365,13 @@
     <ClInclude Include="..\..\src\game\BattleGroundTP.h">
       <Filter>World/Handlers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\game\BattleGroundVP.h">
-      <Filter>World/Handlers</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\game\BattleGroundTA.h">
       <Filter>World/Handlers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\game\BattleGroundSM.h">
+      <Filter>World/Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\BattleGroundTK.h">
       <Filter>World/Handlers</Filter>
     </ClInclude>
   </ItemGroup>

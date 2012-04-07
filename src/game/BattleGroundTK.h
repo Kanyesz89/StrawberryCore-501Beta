@@ -17,37 +17,37 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#ifndef __BATTLEGROUNDVP_H
-#define __BATTLEGROUNDVP_H
+#ifndef __BattleGroundTK_H
+#define __BattleGroundTK_H
 
 class BattleGround;
 
-enum BG_VP_SPELLS
+enum BG_TK_SPELLS
 {
-    BG_VP_PICKUP_POWERBALL_SPELL        = 112839,
-	BG_VP_DROP_POWERBALL_SPELL          = 112839,
-	BG_VP_HOLDING_POWERBALL_SPELL       = 112839,
+    BG_TK_PICKUP_POWERBALL_SPELL        = 112839,
+	BG_TK_DROP_POWERBALL_SPELL          = 112839,
+	BG_TK_HOLDING_POWERBALL_SPELL       = 112839,
 };
 
-enum BG_VP_NPC
+enum BG_TK_NPC
 {
     BG_SM_NPC_POWERBALL					= 29265,
 };
 
-class BattleGroundVPScore : public BattleGroundScore
+class BattleGroundTKScore : public BattleGroundScore
 {
     public:
-        BattleGroundVPScore() {};
-        virtual ~BattleGroundVPScore() {};
+        BattleGroundTKScore() {};
+        virtual ~BattleGroundTKScore() {};
 };
 
-class BattleGroundVP : public BattleGround
+class BattleGroundTK : public BattleGround
 {
     friend class BattleGroundMgr;
 
     public:
-        BattleGroundVP();
-        ~BattleGroundVP();
+        BattleGroundTK();
+        ~BattleGroundTK();
         void Update(uint32 diff);
 
         /* inherited from BattlegroundClass */

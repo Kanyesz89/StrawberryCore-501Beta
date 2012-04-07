@@ -997,7 +997,21 @@ enum StrawberryStrings
     LANG_BG_BG_A_NEAR_VICTORY           = 1610,
     LANG_BG_BG_H_NEAR_VICTORY           = 1611,
 	
-	// FREE IDS                           1612-9999
+	// Silvershard Mines
+	LANG_BG_SM_CART_1                   = 1612,
+    LANG_BG_SM_CART_2                   = 1613,
+    LANG_BG_SM_CART_3                   = 1614,
+    LANG_BG_SM_CART_TAKEN               = 1615,
+    LANG_BG_SM_CART_DEFENDED            = 1616,
+    LANG_BG_SM_CART_ASSAULTED           = 1617,
+    LANG_BG_SM_CART_CLAIMED             = 1618,
+	LANG_BG_SM_START_ONE_MINUTE         = 1619,
+    LANG_BG_SM_START_HALF_MINUTE        = 1620,
+    LANG_BG_SM_HAS_BEGUN                = 1621,
+    LANG_BG_SM_A_NEAR_VICTORY           = 1622,
+    LANG_BG_SM_H_NEAR_VICTORY           = 1623,
+
+	// FREE IDS                           1624-9999
 
     // Use for not-in-offcial-sources patches
     //                                    10000-10999

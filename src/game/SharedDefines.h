@@ -3670,7 +3670,7 @@ enum BattleGroundTypeId
     BATTLEGROUND_ICC           = 441,
     BATTLEGROUND_RS            = 443,
     BATTLEGROUND_EE            = 656,
-    BATTLEGROUND_VP            = 699,                       // Valley of Power
+    BATTLEGROUND_TK            = 699,                       // Temple of Kotmogu
     BATTLEGROUND_CF            = 706,                       // CTF3
     BATTLEGROUND_SM            = 708,                       // Silvershard Mines
     BATTLEGROUND_TA            = 719                        // Tol'Vir Arena

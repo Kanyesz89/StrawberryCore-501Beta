@@ -19,10 +19,10 @@
 
 #include "Player.h"
 #include "BattleGround.h"
-#include "BattleGroundVP.h"
+#include "BattleGroundTK.h"
 #include "Language.h"
 
-BattleGroundVP::BattleGroundVP()
+BattleGroundTK::BattleGroundTK()
 {
     //TODO FIX ME!
     m_StartMessageIds[BG_STARTING_EVENT_FIRST]  = 0;
@@ -31,46 +31,46 @@ BattleGroundVP::BattleGroundVP()
     m_StartMessageIds[BG_STARTING_EVENT_FOURTH] = LANG_BG_WS_HAS_BEGUN;
 }
 
-BattleGroundVP::~BattleGroundVP()
+BattleGroundTK::~BattleGroundTK()
 {
 
 }
 
-void BattleGroundVP::Update(uint32 diff)
+void BattleGroundTK::Update(uint32 diff)
 {
     BattleGround::Update(diff);
 }
 
-void BattleGroundVP::StartingEventCloseDoors()
+void BattleGroundTK::StartingEventCloseDoors()
 {
 }
 
-void BattleGroundVP::StartingEventOpenDoors()
+void BattleGroundTK::StartingEventOpenDoors()
 {
 }
 
-void BattleGroundVP::AddPlayer(Player *plr)
+void BattleGroundTK::AddPlayer(Player *plr)
 {
     BattleGround::AddPlayer(plr);
     //create score and add it to map, default values are set in constructor
-    BattleGroundVPScore* sc = new BattleGroundVPScore;
+    BattleGroundTKScore* sc = new BattleGroundTKScore;
 
     m_PlayerScores[plr->GetObjectGuid()] = sc;
 }
 
-void BattleGroundVP::RemovePlayer(Player* /*plr*/, ObjectGuid /*guid*/)
+void BattleGroundTK::RemovePlayer(Player* /*plr*/, ObjectGuid /*guid*/)
 {
 
 }
 
-void BattleGroundVP::HandleAreaTrigger(Player * /*Source*/, uint32 /*Trigger*/)
+void BattleGroundTK::HandleAreaTrigger(Player * /*Source*/, uint32 /*Trigger*/)
 {
     // this is wrong way to implement these things. On official it done by gameobject spell cast.
     if (GetStatus() != STATUS_IN_PROGRESS)
         return;
 }
 
-void BattleGroundVP::UpdatePlayerScore(Player* Source, uint32 type, uint32 value)
+void BattleGroundTK::UpdatePlayerScore(Player* Source, uint32 type, uint32 value)
 {
 
     BattleGroundScoreMap::iterator itr = m_PlayerScores.find(Source->GetObjectGuid());

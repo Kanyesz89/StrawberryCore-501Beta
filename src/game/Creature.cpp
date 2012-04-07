@@ -979,7 +979,7 @@ bool Creature::CanInteractWithBattleMaster(Player* pPlayer, bool msg) const
             case BATTLEGROUND_SM:
             case BATTLEGROUND_TA:
             case BATTLEGROUND_TP:
-            case BATTLEGROUND_VP:
+            case BATTLEGROUND_TK:
             default: break;
         }
         return false;
