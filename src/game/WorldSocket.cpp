@@ -69,14 +69,13 @@ struct ServerPktHeader
         
         header[headerIndex++] = 0xFF & cmd;
         header[headerIndex++] = 0xFF & (cmd >> 8);
-        header[headerIndex++] = 0xFF & (cmd >> 16);
-        header[headerIndex++] = 0xFF & (cmd >> 24);
+ 
     }
 
     uint8 getHeaderLength()
     {
-        // cmd = 4 bytes, size = 2 || 3 bytes
-        return 4 + (isLargePacket() ? 3 : 2);
+        // cmd = 2 bytes, size = 2 || 3 bytes
+        return 2 + (isLargePacket() ? 3 : 2);
     }
 
     bool isLargePacket()
@@ -85,7 +84,7 @@ struct ServerPktHeader
     }
      
     const uint32 size;
-    uint8 header[7];
+    uint8 header[5];
 };
 
 struct ClientPktHeader
@@ -171,7 +170,7 @@ int WorldSocket::SendPacket(const WorldPacket& pct)
     // Dump outgoing packet.
     sLog.outWorldPacketDump(uint32(get_handle()), pct.GetOpcode(), LookupOpcodeName(pct.GetOpcode()), &pct, false);
    
-    ServerPktHeader header(pct.size()+4, pct.GetOpcode());
+    ServerPktHeader header(pct.size()+2, pct.GetOpcode());
     m_Crypt.EncryptSend((uint8*)header.header, header.getHeaderLength());
 
     if (m_OutBuffer->space() >= pct.size() + header.getHeaderLength() && msg_queue()->is_empty())
