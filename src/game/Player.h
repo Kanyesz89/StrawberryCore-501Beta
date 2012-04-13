@@ -668,17 +668,18 @@ enum PlayerSlots
 
 enum EquipmentSlots                                         // 20 slots
 {
-    EQUIPMENT_SLOT_AMMO		    = 0,
+    EQUIPMENT_SLOT_START        = 00,
+	EQUIPMENT_SLOT_AMMO		    = 0,
     EQUIPMENT_SLOT_HEAD 		= 1,
     EQUIPMENT_SLOT_NECK		    = 2,
-    EQUIPMENT_SLOT_SHOULDER	    = 3,
+    EQUIPMENT_SLOT_SHOULDERS    = 3,
     EQUIPMENT_SLOT_BODY		    = 4,
     EQUIPMENT_SLOT_CHEST		= 5,
     EQUIPMENT_SLOT_WAIST		= 6,
     EQUIPMENT_SLOT_LEGS		    = 7,
     EQUIPMENT_SLOT_FEET		    = 8,
-    EQUIPMENT_SLOT_WRIST		= 9,
-    EQUIPMENT_SLOT_HAND		    = 10,
+    EQUIPMENT_SLOT_WRISTS		= 9,
+    EQUIPMENT_SLOT_HANDS	    = 10,
     EQUIPMENT_SLOT_FINGER1		= 11,
     EQUIPMENT_SLOT_FINGER2		= 12,
     EQUIPMENT_SLOT_TRINKET1	    = 13,
