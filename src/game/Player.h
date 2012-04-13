@@ -666,29 +666,29 @@ enum PlayerSlots
 
 #define INVENTORY_SLOT_BAG_0    255
 
-enum EquipmentSlots                                         // 19 slots
+enum EquipmentSlots                                         // 20 slots
 {
-    EQUIPMENT_SLOT_START        = 0,
-    EQUIPMENT_SLOT_HEAD         = 0,
-    EQUIPMENT_SLOT_NECK         = 1,
-    EQUIPMENT_SLOT_SHOULDERS    = 2,
-    EQUIPMENT_SLOT_BODY         = 3,
-    EQUIPMENT_SLOT_CHEST        = 4,
-    EQUIPMENT_SLOT_WAIST        = 5,
-    EQUIPMENT_SLOT_LEGS         = 6,
-    EQUIPMENT_SLOT_FEET         = 7,
-    EQUIPMENT_SLOT_WRISTS       = 8,
-    EQUIPMENT_SLOT_HANDS        = 9,
-    EQUIPMENT_SLOT_FINGER1      = 10,
-    EQUIPMENT_SLOT_FINGER2      = 11,
-    EQUIPMENT_SLOT_TRINKET1     = 12,
-    EQUIPMENT_SLOT_TRINKET2     = 13,
-    EQUIPMENT_SLOT_BACK         = 14,
-    EQUIPMENT_SLOT_MAINHAND     = 15,
-    EQUIPMENT_SLOT_OFFHAND      = 16,
-    EQUIPMENT_SLOT_RANGED       = 17,
-    EQUIPMENT_SLOT_TABARD       = 18,
-    EQUIPMENT_SLOT_END          = 19
+    EQUIPMENT_SLOT_AMMO		    = 0,
+    EQUIPMENT_SLOT_HEAD 		= 1,
+    EQUIPMENT_SLOT_NECK		    = 2,
+    EQUIPMENT_SLOT_SHOULDER	    = 3,
+    EQUIPMENT_SLOT_BODY		    = 4,
+    EQUIPMENT_SLOT_CHEST		= 5,
+    EQUIPMENT_SLOT_WAIST		= 6,
+    EQUIPMENT_SLOT_LEGS		    = 7,
+    EQUIPMENT_SLOT_FEET		    = 8,
+    EQUIPMENT_SLOT_WRIST		= 9,
+    EQUIPMENT_SLOT_HAND		    = 10,
+    EQUIPMENT_SLOT_FINGER1		= 11,
+    EQUIPMENT_SLOT_FINGER2		= 12,
+    EQUIPMENT_SLOT_TRINKET1	    = 13,
+    EQUIPMENT_SLOT_TRINKET2	    = 14,
+    EQUIPMENT_SLOT_BACK		    = 15,
+    EQUIPMENT_SLOT_MAINHAND	    = 16,
+    EQUIPMENT_SLOT_OFFHAND		= 17,
+    EQUIPMENT_SLOT_RANGED		= 18,
+    EQUIPMENT_SLOT_TABARD		= 19,
+	EQUIPMENT_SLOT_END          = 19
 };
 
 enum InventorySlots                                         // 4 slots

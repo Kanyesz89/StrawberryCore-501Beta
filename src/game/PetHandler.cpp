@@ -163,7 +163,7 @@ void WorldSession::HandlePetAction(WorldPacket& recv_data)
             {
                 case REACT_PASSIVE:                         // passive
                 case REACT_DEFENSIVE:                       // recovery
-                case REACT_AGGRESSIVE:                      // activete
+                case REACT_AGGRESSIVE:                      // activate
                     charmInfo->SetReactState(ReactStates(spellid));
                     break;
             }

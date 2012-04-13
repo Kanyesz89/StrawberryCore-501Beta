@@ -323,6 +323,8 @@
     <ClCompile Include="..\..\src\game\BattleGroundTK.cpp" />
     <ClCompile Include="..\..\src\game\BattleGroundTP.cpp" />
     <ClCompile Include="..\..\src\game\BattleGroundWS.cpp" />
+    <ClCompile Include="..\..\src\game\BPet.cpp" />
+    <ClCompile Include="..\..\src\game\BPetAI.cpp" />
     <ClCompile Include="..\..\src\game\CalendarHandler.cpp" />
     <ClCompile Include="..\..\src\game\Channel.cpp" />
     <ClCompile Include="..\..\src\game\ChannelHandler.cpp" />
@@ -1071,6 +1073,8 @@
     <ClInclude Include="..\..\src\game\BattleGroundTK.h" />
     <ClInclude Include="..\..\src\game\BattleGroundTP.h" />
     <ClInclude Include="..\..\src\game\BattleGroundWS.h" />
+    <ClInclude Include="..\..\src\game\BPet.h" />
+    <ClInclude Include="..\..\src\game\BPetAI.h" />
     <ClInclude Include="..\..\src\game\Cell.h" />
     <ClInclude Include="..\..\src\game\CellImpl.h" />
     <ClInclude Include="..\..\src\game\Channel.h" />

@@ -74,9 +74,12 @@ enum BG_TK_Sound
 
 enum BG_TK_SpellId
 {
-    BG_TK_SPELL_ORB               = 116524,         //ZONE1
-	BG_TK_SPELL_ORB1              = 121175,			//ZONE2
-	BG_TK_SPELL_ORB2              = 112055,         //ZONE3
+    BG_TK_SPELL_ORB               = 116524,         //ZONE1 GREEN
+	BG_TK_SPELL_ORB_AURA          = 121220,         //ZONE1 GREEN
+	BG_TK_SPELL_ORB1              = 121175,			//ZONE2 YELLOW
+	BG_TK_SPELL_ORB1_AURA         = 121217,			//ZONE2 YELLOW
+	BG_TK_SPELL_ORB2              = 112055,         //ZONE3 RED
+	BG_TK_SPELL_ORB2_AURA         = 121221,         //ZONE3 RED
 	BG_TK_SPELL_ORB_DROPPED       = 112839,
 };
 

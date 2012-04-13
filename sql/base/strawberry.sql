@@ -2952,7 +2952,7 @@ DROP TABLE IF EXISTS `opcodes`;
 CREATE TABLE `opcodes` (
   `OpcodeName` varchar(255) NOT NULL DEFAULT '',
   `OpcodeValue` int(10) NOT NULL DEFAULT '0',
-  `ClientBuild` mediumint(5) NOT NULL DEFAULT '15050',
+  `ClientBuild` mediumint(5) NOT NULL DEFAULT '15589',
   `StructureBuild` mediumint(5) NOT NULL,
   PRIMARY KEY (`OpcodeName`,`OpcodeValue`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -2960,20 +2960,20 @@ CREATE TABLE `opcodes` (
 -- ----------------------------
 -- Records of opcodes
 -- ----------------------------
-INSERT INTO `opcodes` VALUES ('CMSG_AUTH_CONTINUED_SESSION', '1815', '15544', '0');
-INSERT INTO `opcodes` VALUES ('CMSG_AUTH_SESSION', '1847', '15544', '15544');
-INSERT INTO `opcodes` VALUES ('CMSG_REQUEST_CHARACTER_CREATE', '466', '15544', '15544');
-INSERT INTO `opcodes` VALUES ('CMSG_REQUEST_CHARACTER_ENUM', '2910', '15544', '15544');
-INSERT INTO `opcodes` VALUES ('MSG_WOW_CONNECTION', '20311', '15544', '15544');
-INSERT INTO `opcodes` VALUES ('SMSG_ADDON_INFO', '244', '15544', '15544');
-INSERT INTO `opcodes` VALUES ('SMSG_AUTH_CHALLENGE', '3988', '15544', '15544');
-INSERT INTO `opcodes` VALUES ('SMSG_AUTH_RESPONSE', '2855', '15544', '15544');
-INSERT INTO `opcodes` VALUES ('SMSG_CHAR_DELETE', '727', '15544', '15544');
-INSERT INTO `opcodes` VALUES ('SMSG_CLIENTCACHE_VERSION', '2884', '15544', '15544');
-INSERT INTO `opcodes` VALUES ('SMSG_RESPONSE_CHARACTER_CREATE', '2164', '15544', '15544');
-INSERT INTO `opcodes` VALUES ('SMSG_RESPONSE_CHARACTER_ENUM', '2048', '15544', '15544');
-INSERT INTO `opcodes` VALUES ('SMSG_TUTORIAL_FLAGS', '886', '15544', '15544');
-INSERT INTO `opcodes` VALUES ('SMSG_WARDEN_DATA', '101', '15544', '0');
+INSERT INTO `opcodes` VALUES ('CMSG_AUTH_CONTINUED_SESSION', '1815', '15589', '0');
+INSERT INTO `opcodes` VALUES ('CMSG_AUTH_SESSION', '1847', '15589', '15589');
+INSERT INTO `opcodes` VALUES ('CMSG_REQUEST_CHARACTER_CREATE', '466', '15589', '15589');
+INSERT INTO `opcodes` VALUES ('CMSG_REQUEST_CHARACTER_ENUM', '2910', '15589', '15589');
+INSERT INTO `opcodes` VALUES ('MSG_WOW_CONNECTION', '20311', '15589', '15589');
+INSERT INTO `opcodes` VALUES ('SMSG_ADDON_INFO', '244', '15589', '15589');
+INSERT INTO `opcodes` VALUES ('SMSG_AUTH_CHALLENGE', '3988', '15589', '15589');
+INSERT INTO `opcodes` VALUES ('SMSG_AUTH_RESPONSE', '2855', '15589', '15589');
+INSERT INTO `opcodes` VALUES ('SMSG_CHAR_DELETE', '727', '15589', '15589');
+INSERT INTO `opcodes` VALUES ('SMSG_CLIENTCACHE_VERSION', '2884', '15589', '15589');
+INSERT INTO `opcodes` VALUES ('SMSG_RESPONSE_CHARACTER_CREATE', '2164', '15589', '15589');
+INSERT INTO `opcodes` VALUES ('SMSG_RESPONSE_CHARACTER_ENUM', '2048', '15589', '15589');
+INSERT INTO `opcodes` VALUES ('SMSG_TUTORIAL_FLAGS', '886', '15589', '15589');
+INSERT INTO `opcodes` VALUES ('SMSG_WARDEN_DATA', '101', '15589', '0');
 
 -- ----------------------------
 -- Table structure for `page_text`
@@ -26019,7 +26019,7 @@ INSERT INTO `script_texts` VALUES ('-1603094', 'Hodir begins to cast Flash Freez
 INSERT INTO `script_texts` VALUES ('-1603095', 'Hodir gains Frozen Blows!', null, null, null, null, null, null, null, null, '0', '3', '0', '0', 'hodir EMOTE_FROZEN_BLOWS');
 INSERT INTO `script_texts` VALUES ('-1603096', 'Your destruction will herald a new age of suffering!', null, null, null, null, null, null, null, null, '15542', '1', '0', '0', 'vezax SAY_AGGRO');
 INSERT INTO `script_texts` VALUES ('-1603097', 'You thought to stand before the legions of death... and survive?', null, null, null, null, null, null, null, null, '15543', '1', '0', '0', 'vezax SAY_SLAY_1');
-INSERT INTO `script_texts` VALUES ('-1603098', 'Defiance... a flaw of mortality.', null, null, null, null, null, null, null, null, '15544', '1', '0', '0', 'vezax SAY_SLAY_2');
+INSERT INTO `script_texts` VALUES ('-1603098', 'Defiance... a flaw of mortality.', null, null, null, null, null, null, null, null, '15589', '1', '0', '0', 'vezax SAY_SLAY_2');
 INSERT INTO `script_texts` VALUES ('-1603099', 'The black blood of Yogg-Saron courses through me! I. AM. UNSTOPPABLE!', null, null, null, null, null, null, null, null, '15545', '1', '0', '0', 'vezaz SAY_SURGE');
 INSERT INTO `script_texts` VALUES ('-1603100', 'Oh, what horrors await....', null, null, null, null, null, null, null, null, '15546', '1', '0', '0', 'vezax SAY_DEATH');
 INSERT INTO `script_texts` VALUES ('-1603101', 'Your defeat was inevitable!', null, null, null, null, null, null, null, null, '15547', '1', '0', '0', 'vezax SAY_ENRAGE');
@@ -26084,7 +26084,7 @@ INSERT INTO `script_texts` VALUES ('-1603159', 'Hostile entities detected. Threa
 INSERT INTO `script_texts` VALUES ('-1603160', 'Threat assessment routine modified. Current target threat level: zero. Acquiring new target.', null, null, null, null, null, null, null, null, '15521', '1', '0', '0', 'leviathan SAY_SLAY');
 INSERT INTO `script_texts` VALUES ('-1603161', 'Total systems failure. Defense protocols breached. Leviathan Unit shutting down.', null, null, null, null, null, null, null, null, '15520', '1', '0', '0', 'leviathan SAY_DEATH');
 INSERT INTO `script_texts` VALUES ('-1603162', 'Threat re-evaluated. Target assessment complete. Changing course.', null, null, null, null, null, null, null, null, '15507', '1', '0', '0', 'leviathan SAY_CHANGE_1');
-INSERT INTO `script_texts` VALUES ('-1603163', 'Pursuit objective modified. Changing course.', null, null, null, null, null, null, null, null, '15544', '1', '0', '0', 'leviathan SAY_CHANGE_2');
+INSERT INTO `script_texts` VALUES ('-1603163', 'Pursuit objective modified. Changing course.', null, null, null, null, null, null, null, null, '15589', '1', '0', '0', 'leviathan SAY_CHANGE_2');
 INSERT INTO `script_texts` VALUES ('-1603164', 'Hostile entity stratagem predicted. Rerouting battle function. Changing course.', null, null, null, null, null, null, null, null, '15509', '1', '0', '0', 'leviathan SAY_CHANGE_3');
 INSERT INTO `script_texts` VALUES ('-1603165', 'Unauthorized entity attempting circuit overload. Activating anti-personnel countermeasures.', null, null, null, null, null, null, null, null, '15516', '1', '0', '0', 'leviathan SAY_PLAYER_RIDE');
 INSERT INTO `script_texts` VALUES ('-1603166', 'System malfunction. Diverting power to support systems.', null, null, null, null, null, null, null, null, '15517', '1', '0', '0', 'leviathan SAY_OVERLOAD_1');
