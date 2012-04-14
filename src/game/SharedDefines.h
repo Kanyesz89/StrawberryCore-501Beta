@@ -3285,6 +3285,7 @@ enum TotemCategory
     TC_RUNED_ELEMENTIUM_ROD        = 209,
     TC_HIGH_POWERED_BOLT_GUN       = 210,
     TC_RUNED_TRILLIUM_ROD          = 230
+	//TC_RUNED_GHOST_IRON_ROD        = 231
 };
 
 enum UnitDynFlags
