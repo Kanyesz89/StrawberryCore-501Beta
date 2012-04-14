@@ -7573,8 +7573,15 @@ bool PlayerCondition::Meets(Player const * player) const
         {
             Unit::SpellAuraHolderMap const& auras = player->GetSpellAuraHolderMap();
             for (Unit::SpellAuraHolderMap::const_iterator itr = auras.begin(); itr != auras.end(); ++itr)
-                if ((itr->second->GetSpellProto()->Attributes & 0x1000010) && itr->second->GetSpellProto()->SpellVisual[0]==3580)
+            {
+                SpellMiscEntry const* spellMisc = itr->second->GetSpellProto()->GetSpellMiscs();
+                if (!spellMisc)
+                    continue;
+
+                if ((spellMisc->Attributes & 0x1000010) && spellMisc->SpellVisual[0] == 3580)
                     return true;
+            }
+
             return false;
         }
         case CONDITION_NO_AURA:

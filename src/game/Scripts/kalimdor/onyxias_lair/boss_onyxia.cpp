@@ -445,8 +445,10 @@ struct boss_onyxiaAI : public ScriptedAI
         if (pTarget->GetTypeId() != TYPEID_PLAYER || !m_pInstance)
             return;
 
+        SpellMiscEntry const* spellMisc = pSpell->GetSpellMiscs();
+
         // All and only the Onyxia Deep Breath Spells have these visuals
-        if (pSpell->SpellVisual[0] == SPELL_VISUAL_BREATH_A || pSpell->SpellVisual[0] == SPELL_VISUAL_BREATH_B)
+        if (spellMisc->SpellVisual[0] == SPELL_VISUAL_BREATH_A || spellMisc->SpellVisual[0] == SPELL_VISUAL_BREATH_B)
             m_pInstance->SetData(TYPE_ONYXIA, DATA_PLAYER_TOASTED);
     }
 };

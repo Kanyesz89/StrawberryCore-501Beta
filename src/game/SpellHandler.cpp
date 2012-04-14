@@ -364,11 +364,13 @@ void WorldSession::HandleCastSpellOpcode(WorldPacket& recvPacket)
         return;
     }
 
+    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+
     //  Players on vehicles may cast many simple spells (like knock) from self
 
     Unit* mover = NULL;
 
-    if (spellInfo->AttributesEx6 & SPELL_ATTR_EX6_UNK12 && _mover->IsCharmerOrOwnerPlayerOrPlayerItself())
+    if (spellMisc->AttributesEx6 & SPELL_ATTR_EX6_UNK12 && _mover->IsCharmerOrOwnerPlayerOrPlayerItself())
         mover = _mover->GetCharmerOrOwnerPlayerOrPlayerItself();
     else
         mover = _mover;
@@ -472,7 +474,9 @@ void WorldSession::HandleCancelAuraOpcode( WorldPacket& recvPacket)
     if (!spellInfo)
         return;
 
-    if (spellInfo->Attributes & SPELL_ATTR_CANT_CANCEL)
+    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+
+    if (spellMisc->Attributes & SPELL_ATTR_CANT_CANCEL)
         return;
 
     if (IsPassiveSpell(spellInfo))

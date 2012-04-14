@@ -1887,8 +1887,9 @@ valid examples:
                     // verify the link name
                     if (linkedSpell)
                     {
+                        SpellMiscEntry const* spellMisc = linkedSpell->GetSpellMiscs();
                         // spells with that flag have a prefix of "$PROFESSION: "
-                        if (linkedSpell->Attributes & SPELL_ATTR_TRADESPELL)
+                        if (spellMisc->Attributes & SPELL_ATTR_TRADESPELL)
                         {
                             // lookup skillid
                             SkillLineAbilityMapBounds bounds = sSpellMgr.GetSkillLineAbilityMapBounds(linkedSpell->Id);

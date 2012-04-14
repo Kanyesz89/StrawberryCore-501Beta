@@ -1366,7 +1366,8 @@ void LoadLootTemplates_Spell()
     for(uint32 spell_id = 1; spell_id < sSpellStore.GetNumRows(); ++spell_id)
     {
         SpellEntry const* spellInfo = sSpellStore.LookupEntry (spell_id);
-        if(!spellInfo)
+        SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+        if(!spellInfo || !spellMisc)
             continue;
 
         // possible cases
@@ -1377,7 +1378,7 @@ void LoadLootTemplates_Spell()
         {
             // not report about not trainable spells (optionally supported by DB)
             // ignore 61756 (Northrend Inscription Research (FAST QA VERSION) for example
-            if (!(spellInfo->Attributes & SPELL_ATTR_NOT_SHAPESHIFT) || (spellInfo->Attributes & SPELL_ATTR_TRADESPELL))
+            if (!(spellMisc->Attributes & SPELL_ATTR_NOT_SHAPESHIFT) || (spellMisc->Attributes & SPELL_ATTR_TRADESPELL))
             {
                 LootTemplates_Spell.ReportNotExistedId(spell_id);
             }

@@ -3340,17 +3340,21 @@ bool Player::addSpell(uint32 spell_id, bool active, bool learning, bool dependen
 bool Player::IsNeedCastPassiveLikeSpellAtLearn(SpellEntry const* spellInfo) const
 {
     ShapeshiftForm form = GetShapeshiftForm();
+    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    if (!spellMisc)
+        return false;
 
     if (IsNeedCastSpellAtFormApply(spellInfo, form))        // SPELL_ATTR_PASSIVE | SPELL_ATTR_UNK7 spells
         return true;                                        // all stance req. cases, not have auarastate cases
 
-    if (!(spellInfo->Attributes & SPELL_ATTR_PASSIVE))
+    if (!(spellMisc->Attributes & SPELL_ATTR_PASSIVE))
         return false;
 
     // note: form passives activated with shapeshift spells be implemented by HandleShapeshiftBoosts instead of spell_learn_spell
     // talent dependent passives activated at form apply have proper stance data
     SpellShapeshiftEntry const* shapeShift = spellInfo->GetSpellShapeshift();
-    bool need_cast = (!shapeShift || !shapeShift->Stances || (!form && (spellInfo->AttributesEx2 & SPELL_ATTR_EX2_NOT_NEED_SHAPESHIFT)));
+
+    bool need_cast = (!shapeShift || !shapeShift->Stances || (!form && (spellMisc->AttributesEx2 & SPELL_ATTR_EX2_NOT_NEED_SHAPESHIFT)));
 
     // Check CasterAuraStates
     SpellAuraRestrictionsEntry const* auraRestrictions = spellInfo->GetSpellAuraRestrictions();
@@ -5979,6 +5983,8 @@ bool Player::IsActionButtonDataValid(uint8 button, uint32 action, uint8 type, Pl
         case ACTION_BUTTON_SPELL:
         {
             SpellEntry const* spellProto = sSpellStore.LookupEntry(action);
+            SpellMiscEntry const* spellMisc = spellProto->GetSpellMiscs();
+
             if(!spellProto)
             {
                 if (msg)
@@ -6007,7 +6013,7 @@ bool Player::IsActionButtonDataValid(uint8 button, uint32 action, uint8 type, Pl
                 }
                 // current range for button of totem bar is from ACTION_BUTTON_SHAMAN_TOTEMS_BAR to (but not including) ACTION_BUTTON_SHAMAN_TOTEMS_BAR + 12
                 else if(button >= ACTION_BUTTON_SHAMAN_TOTEMS_BAR && button < (ACTION_BUTTON_SHAMAN_TOTEMS_BAR + 12)
-                    && !(spellProto->AttributesEx7 & SPELL_ATTR_EX7_TOTEM_SPELL))
+                    && !(spellMisc->AttributesEx7 & SPELL_ATTR_EX7_TOTEM_SPELL))
                 {
                     if (msg)
                         sLog.outError( "Spell action %u not added into button %u for player %s: attempt to add non totem spell to totem bar", action, button, player->GetName() );
@@ -19202,8 +19208,10 @@ void Player::ProhibitSpellSchool(SpellSchoolMask idSchoolMask, uint32 unTimeMs )
             continue;
         }
 
+        SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+
         // Not send cooldown for this spells
-        if (spellInfo->Attributes & SPELL_ATTR_DISABLED_WHILE_ACTIVE)
+        if (spellMisc->Attributes & SPELL_ATTR_DISABLED_WHILE_ACTIVE)
             continue;
 
         if((idSchoolMask & GetSpellSchoolMask(spellInfo)) && GetSpellCooldownDelay(unSpellId) < unTimeMs )
@@ -20998,8 +21006,12 @@ bool Player::HasItemFitToSpellReqirements(SpellEntry const* spellInfo, Item cons
 
 bool Player::CanNoReagentCast(SpellEntry const* spellInfo) const
 {
+    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    if (!spellMisc)
+        return false;
+
     // don't take reagents for spells with SPELL_ATTR_EX5_NO_REAGENT_WHILE_PREP
-    if (spellInfo->AttributesEx5 & SPELL_ATTR_EX5_NO_REAGENT_WHILE_PREP &&
+    if (spellMisc->AttributesEx5 & SPELL_ATTR_EX5_NO_REAGENT_WHILE_PREP &&
         HasFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_PREPARATION))
         return true;
 
@@ -21054,8 +21066,12 @@ uint32 Player::GetResurrectionSpellId()
     AuraList const& dummyAuras = GetAurasByType(SPELL_AURA_DUMMY);
     for(AuraList::const_iterator itr = dummyAuras.begin(); itr != dummyAuras.end(); ++itr)
     {
+        SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+        if (!spellMisc)
+            continue;
+
         // Soulstone Resurrection                           // prio: 3 (max, non death persistent)
-        if( prio < 2 && (*itr)->GetSpellProto()->SpellVisual[0] == 99 && (*itr)->GetSpellProto()->SpellIconID == 92 )
+        if( prio < 2 && spellMisc->SpellVisual[0] == 99 && spellMisc->SpellIconID == 92 )
         {
             switch((*itr)->GetId())
             {

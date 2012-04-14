@@ -474,6 +474,7 @@ class Aura
         SpellModifier *m_spellmod;
 
         SpellEffectEntry const* m_spellEffect;
+        SpellMiscEntry const* m_spellMisc;
         time_t m_applyTime;
 
         int32 m_currentBasePoints;                          // cache SpellEntry::CalculateSimpleValue and use for set custom base points

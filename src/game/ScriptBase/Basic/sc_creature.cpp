@@ -218,9 +218,10 @@ SpellEntry const* ScriptedAI::SelectSpell(Unit* pTarget, int32 uiSchool, int32 i
     for (uint8 i = 0; i < 4; ++i)
     {
         pTempSpell = GetSpellStore()->LookupEntry(m_creature->m_spells[i]);
+        SpellMiscEntry const* spellMisc = pTempSpell->GetSpellMiscs();
 
         //This spell doesn't exist
-        if (!pTempSpell)
+        if (!pTempSpell || !spellMisc)
             continue;
 
         // Targets and Effects checked first as most used restrictions
@@ -233,7 +234,7 @@ SpellEntry const* ScriptedAI::SelectSpell(Unit* pTarget, int32 uiSchool, int32 i
             continue;
 
         //Check for school if specified
-        if (uiSchool >= 0 && pTempSpell->SchoolMask & uiSchool)
+        if (uiSchool >= 0 && spellMisc->SchoolMask & uiSchool)
             continue;
 
         //Check for spell mechanic if specified
@@ -252,7 +253,7 @@ SpellEntry const* ScriptedAI::SelectSpell(Unit* pTarget, int32 uiSchool, int32 i
         //    continue;
 
         //Get the Range
-        pTempRange = GetSpellRangeStore()->LookupEntry(pTempSpell->rangeIndex);
+        pTempRange = GetSpellRangeStore()->LookupEntry(spellMisc->rangeIndex);
 
         //Spell has invalid range store so we can't use it
         if (!pTempRange)
@@ -295,7 +296,8 @@ bool ScriptedAI::CanCast(Unit* pTarget, SpellEntry const* pSpellEntry, bool bTri
     //if (!bTriggered && m_creature->GetPower((Powers)pSpellEntry->powerType) < pSpellEntry->GetManaCost())
     //    return false;
 
-    SpellRangeEntry const* pTempRange = GetSpellRangeStore()->LookupEntry(pSpellEntry->rangeIndex);
+    SpellMiscEntry const* spellMisc = pSpellEntry->GetSpellMiscs();
+    SpellRangeEntry const* pTempRange = GetSpellRangeStore()->LookupEntry(spellMisc->rangeIndex);
 
     //Spell has invalid range store so we can't use it
     if (!pTempRange)

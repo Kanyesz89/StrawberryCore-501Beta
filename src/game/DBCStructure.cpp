@@ -89,6 +89,11 @@ SpellLevelsEntry const* SpellEntry::GetSpellLevels() const
     return SpellLevelsId ? sSpellLevelsStore.LookupEntry(SpellLevelsId) : NULL;
 }
 
+SpellMiscEntry const* SpellEntry::GetSpellMiscs() const
+{
+    return SpellMiscId ? sSpellMiscStore.LookupEntry(SpellMiscId) : NULL;
+}
+
 SpellPowerEntry const* SpellEntry::GetSpellPower() const
 {
     return NULL;//SpellPowerId ? sSpellPowerStore.LookupEntry(SpellPowerId) : NULL;

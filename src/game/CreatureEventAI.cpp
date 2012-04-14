@@ -1121,6 +1121,7 @@ void CreatureEventAI::MoveInLineOfSight(Unit *who)
 
 void CreatureEventAI::SpellHit(Unit* pUnit, const SpellEntry* pSpell)
 {
+    SpellMiscEntry const* spellMisc = pSpell->GetSpellMiscs();
 
     if (m_bEmptyList)
         return;
@@ -1129,7 +1130,7 @@ void CreatureEventAI::SpellHit(Unit* pUnit, const SpellEntry* pSpell)
         if ((*i).Event.event_type == EVENT_T_SPELLHIT)
             //If spell id matches (or no spell id) & if spell school matches (or no spell school)
             if (!(*i).Event.spell_hit.spellId || pSpell->Id == (*i).Event.spell_hit.spellId)
-                if (pSpell->SchoolMask & (*i).Event.spell_hit.schoolMask)
+                if (spellMisc->SchoolMask & (*i).Event.spell_hit.schoolMask)
                     ProcessEvent(*i, pUnit);
 }
 
@@ -1385,8 +1386,9 @@ bool CreatureEventAI::CanCast(Unit* Target, SpellEntry const *Spell, bool Trigge
     //    return false;
 
     SpellRangeEntry const *TempRange = NULL;
+    SpellMiscEntry const* spellMisc = Spell->GetSpellMiscs();
 
-    TempRange = GetSpellRangeStore()->LookupEntry(Spell->rangeIndex);
+    TempRange = GetSpellRangeStore()->LookupEntry(spellMisc->rangeIndex);
 
     //Spell has invalid range store so we can't use it
     if (!TempRange)

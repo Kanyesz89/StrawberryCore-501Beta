@@ -316,7 +316,8 @@ struct boss_strawmanAI : public ScriptedAI
 
     void SpellHit(Unit* caster, const SpellEntry *Spell)
     {
-        if ((Spell->SchoolMask == SPELL_SCHOOL_MASK_FIRE) && !urand(0, 1))
+        SpellMiscEntry const* spellMisc = Spell->GetSpellMiscs();
+        if ((spellMisc->SchoolMask == SPELL_SCHOOL_MASK_FIRE) && !urand(0, 1))
         {
             /*
                 if (not direct damage(aoe,dot))
