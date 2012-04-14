@@ -30,7 +30,6 @@ class Creature;
 class DynamicObject;
 class GameObject;
 class Pet;
-class BPet;
 class Player;
 class Camera;
 

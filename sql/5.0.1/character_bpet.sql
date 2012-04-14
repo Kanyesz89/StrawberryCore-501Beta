@@ -7,12 +7,9 @@ CREATE TABLE `character_bpet` (
   `petID` int(11) unsigned NOT NULL DEFAULT '0',
   `ownerID` int(11) unsigned NOT NULL DEFAULT '0',
   `Name` varchar(100) DEFAULT 'BPet',
-  `Ability1Active` int(11) unsigned NOT NULL DEFAULT '0', -- 0= not lvl req
-  `Ability2Active` int(11) unsigned NOT NULL DEFAULT '0', -- 1= active in actionbar
-  `Ability3Active` int(11) unsigned NOT NULL DEFAULT '0', -- 2= not in actionbar
-  `Ability4Active` int(11) unsigned NOT NULL DEFAULT '0', -- 3= not in current weather/area
-  `Ability5Active` int(11) unsigned NOT NULL DEFAULT '0', -- 4= ability disabled
-  `Ability6Active` int(11) unsigned NOT NULL DEFAULT '0',
+  `Ability1` int(11) unsigned NOT NULL DEFAULT '0', -- 0= not lvl req
+  `Ability2` int(11) unsigned NOT NULL DEFAULT '0', -- 1= active in actionbar
+  `Ability3` int(11) unsigned NOT NULL DEFAULT '0', -- 2= not in actionbar
   `Level` int(11) unsigned NOT NULL DEFAULT '1',
   `Xp` int(11) unsigned NOT NULL DEFAULT '1',
   `Health` int(11) unsigned NOT NULL DEFAULT '0',
