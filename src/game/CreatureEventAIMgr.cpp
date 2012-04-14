@@ -339,7 +339,7 @@ void CreatureEventAIMgr::LoadCreatureEventAI_Scripts()
                             continue;
                         }
 
-                        SpellMiscEntry const* spellMisc = pSpell->GetSpellMiscs();
+                        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(pSpell->Id);
 
                         if ((temp.spell_hit.schoolMask & spellMisc->SchoolMask) != spellMisc->SchoolMask)
                             sLog.outErrorDb("CreatureEventAI:  Creature %u has param1(spellId %u) but param2 is not -1 and not equal to spell's school mask. Event %u can never trigger.", temp.creature_id, temp.spell_hit.schoolMask, i);

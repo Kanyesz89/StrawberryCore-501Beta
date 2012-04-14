@@ -320,7 +320,7 @@ void Player::UpdateAttackPowerAndDamage(bool ranged )
                         Unit::AuraList const& mDummy = GetAurasByType(SPELL_AURA_DUMMY);
                         for(Unit::AuraList::const_iterator itr = mDummy.begin(); itr != mDummy.end(); ++itr)
                         {
-                            SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+                            SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*itr)->GetSpellProto()->Id);
                             if (!spellMisc)
                                 continue;
 

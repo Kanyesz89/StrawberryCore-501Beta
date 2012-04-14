@@ -1887,7 +1887,7 @@ valid examples:
                     // verify the link name
                     if (linkedSpell)
                     {
-                        SpellMiscEntry const* spellMisc = linkedSpell->GetSpellMiscs();
+                        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(linkedSpell->Id);
                         // spells with that flag have a prefix of "$PROFESSION: "
                         if (spellMisc->Attributes & SPELL_ATTR_TRADESPELL)
                         {

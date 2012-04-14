@@ -218,7 +218,7 @@ SpellEntry const* ScriptedAI::SelectSpell(Unit* pTarget, int32 uiSchool, int32 i
     for (uint8 i = 0; i < 4; ++i)
     {
         pTempSpell = GetSpellStore()->LookupEntry(m_creature->m_spells[i]);
-        SpellMiscEntry const* spellMisc = pTempSpell->GetSpellMiscs();
+        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(pTempSpell->Id);
 
         //This spell doesn't exist
         if (!pTempSpell || !spellMisc)
@@ -296,7 +296,7 @@ bool ScriptedAI::CanCast(Unit* pTarget, SpellEntry const* pSpellEntry, bool bTri
     //if (!bTriggered && m_creature->GetPower((Powers)pSpellEntry->powerType) < pSpellEntry->GetManaCost())
     //    return false;
 
-    SpellMiscEntry const* spellMisc = pSpellEntry->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(pSpellEntry->Id);
     SpellRangeEntry const* pTempRange = GetSpellRangeStore()->LookupEntry(spellMisc->rangeIndex);
 
     //Spell has invalid range store so we can't use it

@@ -1706,14 +1706,15 @@ SpellEntry const *Creature::ReachWithSpellAttack(Unit *pVictim)
         if(!m_spells[i])
             continue;
 
-        SpellEntry const *spellInfo = sSpellStore.LookupEntry(m_spells[i] );
-        if(!spellInfo)
+        SpellEntry const *spellInfo = sSpellStore.LookupEntry(m_spells[i]);
+        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spells[i]);
+
+        if(!spellInfo || !spellMisc)
         {
             sLog.outError("WORLD: unknown spell id %i", m_spells[i]);
             continue;
         }
 
-        SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
 
         bool bcontinue = true;
         for(int j = 0; j < MAX_EFFECT_INDEX; ++j)
@@ -1765,14 +1766,14 @@ SpellEntry const *Creature::ReachWithSpellCure(Unit *pVictim)
     {
         if(!m_spells[i])
             continue;
-        SpellEntry const *spellInfo = sSpellStore.LookupEntry(m_spells[i] );
-        if(!spellInfo)
+        SpellEntry const *spellInfo = sSpellStore.LookupEntry(m_spells[i]);
+        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spells[i]);
+
+        if(!spellInfo || !spellMisc)
         {
             sLog.outError("WORLD: unknown spell id %i", m_spells[i]);
             continue;
         }
-
-        SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
 
         bool bcontinue = true;
 
@@ -2059,13 +2060,6 @@ bool Creature::LoadCreatureAddon(bool reload)
             }
 
             SpellEntry const* spellInfo = sSpellStore.LookupEntry(*cAura);  // Already checked on load
-            SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
-
-            // Get Difficulty mode for initial case (npc not yet added to world)
-            if (spellMisc->SpellDifficultyId && !reload && GetMap()->IsDungeon())
-                if (SpellEntry const* spellEntry = GetSpellEntryByDifficulty(spellMisc->SpellDifficultyId, GetMap()->GetDifficulty(), GetMap()->IsRaid()))
-                    spellInfo = spellEntry;
-
             CastSpell(this, spellInfo, true);
         }
     }
@@ -2121,7 +2115,7 @@ void Creature::SetInCombatWithZone()
 
 bool Creature::MeetsSelectAttackingRequirement(Unit* pTarget, SpellEntry const* pSpellInfo, uint32 selectFlags) const
 {
-    SpellMiscEntry const* spellMisc = pSpellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(pSpellInfo->Id);
 
     if (selectFlags & SELECT_FLAG_PLAYER && pTarget->GetTypeId() != TYPEID_PLAYER)
         return false;
@@ -2143,7 +2137,7 @@ bool Creature::MeetsSelectAttackingRequirement(Unit* pTarget, SpellEntry const* 
     if (selectFlags & SELECT_FLAG_IN_LOS && !IsWithinLOSInMap(pTarget))
         return false;
 
-    if (pSpellInfo)
+    if (pSpellInfo || spellMisc)
     {
         switch (spellMisc->rangeIndex)
         {

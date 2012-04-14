@@ -452,12 +452,12 @@ class Spell
         void ReSetTimer() { m_timer = m_casttime > 0 ? m_casttime : 0; }
         bool IsNextMeleeSwingSpell() const
         {
-            SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+            SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
             return spellMisc->Attributes & (SPELL_ATTR_ON_NEXT_SWING_1|SPELL_ATTR_ON_NEXT_SWING_2);
         }
         bool IsRangedSpell() const
         {
-            SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+            SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
             return spellMisc->Attributes & SPELL_ATTR_RANGED;
         }
         bool IsChannelActive() const { return m_caster->GetUInt32Value(UNIT_CHANNEL_SPELL) != 0; }
@@ -766,7 +766,7 @@ namespace Strawberry
 
             for(typename GridRefManager<T>::iterator itr = m.begin(); itr != m.end(); ++itr)
             {
-                SpellMiscEntry const* spellMisc = i_spell.m_spellInfo->GetSpellMisc();
+                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(i_spell.m_spellInfo->Id);
                 if (!spellMisc)
                     continue;
 

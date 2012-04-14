@@ -64,7 +64,7 @@ TotemAI::UpdateAI(const uint32 /*diff*/)
     if (!spellInfo)
         return;
 
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
 
     // Get spell rangy
     SpellRangeEntry const* srange = sSpellRangeStore.LookupEntry(spellMisc->rangeIndex);

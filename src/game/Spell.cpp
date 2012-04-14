@@ -321,17 +321,8 @@ Spell::Spell( Unit* caster, SpellEntry const *info, bool triggered, ObjectGuid o
     STRAWBERRY_ASSERT( caster != NULL && info != NULL );
     STRAWBERRY_ASSERT( info == sSpellStore.LookupEntry( info->Id ) && "`info` must be pointer to sSpellStore element");
 
-    SpellMiscEntry const* spellMisc = info->GetSpellMiscs();
-
-    if (spellMisc->SpellDifficultyId && caster->IsInWorld() && caster->GetMap()->IsDungeon())
-    {
-        if (SpellEntry const* spellEntry = GetSpellEntryByDifficulty(spellMisc->SpellDifficultyId, caster->GetMap()->GetDifficulty(), caster->GetMap()->IsRaid()))
-            m_spellInfo = spellEntry;
-        else
-            m_spellInfo = info;
-    }
-    else
-        m_spellInfo = info;
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(info->Id);
+    m_spellInfo = info;
 
     m_triggeredBySpellInfo = triggeredBy;
 
@@ -436,7 +427,7 @@ Spell::~Spell()
 template<typename T>
 WorldObject* Spell::FindCorpseUsing()
 {
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
     // non-standard target selection
     SpellRangeEntry const* srange = sSpellRangeStore.LookupEntry(spellMisc->rangeIndex);
     float max_range = GetSpellMaxRange(srange);
@@ -700,7 +691,7 @@ void Spell::FillTargetMap()
 
 void Spell::prepareDataForTriggerSystem()
 {
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     //==========================================================================================
     // Now fill data for trigger system, need know:
@@ -827,7 +818,7 @@ void Spell::CleanupTargetList()
 
 void Spell::AddUnitTarget(Unit* pVictim, SpellEffectIndex effIndex)
 {
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
     SpellEffectEntry const *spellEffect = m_spellInfo->GetSpellEffect(effIndex);
     if (!spellEffect || spellEffect->Effect == 0)
         return;
@@ -910,7 +901,7 @@ void Spell::AddUnitTarget(ObjectGuid unitGuid, SpellEffectIndex effIndex)
 
 void Spell::AddGOTarget(GameObject* pVictim, SpellEffectIndex effIndex)
 {
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
     SpellEffectEntry const* spellEffect = m_spellInfo->GetSpellEffect(effIndex);
     if (!spellEffect || spellEffect->Effect == 0)
         return;
@@ -1026,7 +1017,7 @@ void Spell::DoAllEffectOnTarget(TargetInfo *target)
         procVictim   = PROC_FLAG_NONE;
     }
 
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     if (spellMisc->speed > 0)
     {
@@ -1195,7 +1186,7 @@ void Spell::DoSpellHitOnUnit(Unit *unit, uint32 effectMask)
         return;
 
     Unit* realCaster = GetAffectiveCaster();
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     // Recheck immune (only for delayed spells)
     if (spellMisc->speed && (
@@ -1579,7 +1570,7 @@ void Spell::SetTargetMap(SpellEffectIndex effIndex, uint32 targetMode, UnitList&
 {
     SpellEffectEntry const* spellEffect = m_spellInfo->GetSpellEffect(effIndex);
     SpellClassOptionsEntry const* classOpt = m_spellInfo->GetSpellClassOptions();
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     float radius;
     if (spellEffect && spellEffect->EffectRadiusIndex)
@@ -2045,7 +2036,7 @@ void Spell::SetTargetMap(SpellEffectIndex effIndex, uint32 targetMode, UnitList&
             }
             else
             {
-                SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
                 // remove not targetable units if spell has no script targets
                 for (UnitList::iterator itr = targetUnitMap.begin(); itr != targetUnitMap.end(); )
@@ -3300,7 +3291,7 @@ void Spell::cast(bool skipCheck)
     if (!procTarget)
         procTarget = m_caster;
 
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     // Okay, everything is prepared. Now we need to distinguish between immediate and evented delayed spells
     if (spellMisc->speed > 0.0f)
@@ -3484,7 +3475,7 @@ void Spell::SendSpellCooldown()
         return;
     }
 
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     // (1) have infinity cooldown but set at aura apply, (2) passive cooldown at triggering
     if(spellMisc->Attributes & (SPELL_ATTR_DISABLED_WHILE_ACTIVE | SPELL_ATTR_PASSIVE))
@@ -3700,7 +3691,7 @@ void Spell::finish(bool ok)
     if(!m_TriggerSpells.empty())
         CastTriggerSpells();
 
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     // Stop Attack for some spells
     if( spellMisc->Attributes & SPELL_ATTR_STOP_ATTACK_TARGET )
@@ -4720,7 +4711,7 @@ void Spell::CastPreCastSpells(Unit* target)
 
 SpellCastResult Spell::CheckCast(bool strict)
 {
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     // check cooldowns to prevent cheating (ignore passive spells, that client side visual only)
     if (m_caster->GetTypeId()==TYPEID_PLAYER && !(spellMisc->Attributes & SPELL_ATTR_PASSIVE) &&
@@ -6037,7 +6028,7 @@ SpellCastResult Spell::CheckCasterAuras() const
     uint32 mechanic_immune = 0;
     uint32 dispel_immune = 0;
 
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     // Check if the spell grants school or mechanic immunity.
     // We use bitmasks so the loop is done only once and not on every aura check below.
@@ -6127,7 +6118,7 @@ SpellCastResult Spell::CheckCasterAuras() const
             {
                 SpellAuraHolder *holder = itr->second;
                 SpellEntry const* pEntry = holder->GetSpellProto();
-                SpellMiscEntry const* pSpellMisc = pEntry->GetSpellMiscs();
+                SpellMiscEntry const* pSpellMisc = sSpellMiscStore.LookupEntry(pEntry->Id);
 
                 if ((GetSpellSchoolMask(pEntry) & school_immune) && !(pSpellMisc->AttributesEx & SPELL_ATTR_EX_UNAFFECTED_BY_SCHOOL_IMMUNE))
                     continue;
@@ -6224,7 +6215,7 @@ bool Spell::CanAutoCast(Unit* target)
 SpellCastResult Spell::CheckRange(bool strict)
 {
     Unit *target = m_targets.getUnitTarget();
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     // special range cases
     switch(spellMisc->rangeIndex)
@@ -6297,7 +6288,7 @@ uint32 Spell::CalculatePowerCost(SpellEntry const* spellInfo, Unit* caster, Spel
     if (castItem)
         return 0;
 
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
 
     // Spell drain all exist power on cast (Only paladin lay of Hands)
     if (spellMisc->AttributesEx & SPELL_ATTR_EX_DRAIN_ALL_POWER)
@@ -7158,7 +7149,7 @@ bool Spell::CheckTarget( Unit* target, SpellEffectIndex eff )
 
 bool Spell::IsNeedSendToClient() const
 {
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     return spellMisc->SpellVisual[0] || spellMisc->SpellVisual[1] || IsChanneledSpell(m_spellInfo) ||
         spellMisc->speed > 0.0f || (!m_triggeredByAuraSpell && !m_IsTriggeredSpell);

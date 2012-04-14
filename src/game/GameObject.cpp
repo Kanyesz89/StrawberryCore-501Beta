@@ -863,7 +863,7 @@ void GameObject::TriggerLinkedGameObject(Unit* target)
 
     if (trapSpell)                                          // checked at load already
     {
-        SpellMiscEntry const* spellMisc = trapSpell->GetSpellMiscs();
+        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(trapSpell->Id);
         range = GetSpellMaxRange(sSpellRangeStore.LookupEntry(spellMisc->rangeIndex));
     }
 

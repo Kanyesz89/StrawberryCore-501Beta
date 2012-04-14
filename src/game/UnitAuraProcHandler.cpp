@@ -570,8 +570,8 @@ SpellAuraProcResult Unit::HandleDummyAuraProc(Unit *pVictim, uint32 damage, Aura
     SpellEffectEntry const* dummySpellEffect = dummySpell->GetSpellEffect(effIndex);
     SpellClassOptionsEntry const* dummyClassOptions = dummySpell->GetSpellClassOptions();
     SpellClassOptionsEntry const* procClassOptions = procSpell->GetSpellClassOptions();
-    SpellMiscEntry const* spellMisc = dummySpell->GetSpellMiscs();
-    SpellMiscEntry const* pSpellMisc = procSpell->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(dummySpell->Id);
+    SpellMiscEntry const* pSpellMisc = sSpellMiscStore.LookupEntry(procSpell->Id);
 
     int32  triggerAmount = triggeredByAura->GetModifier()->m_amount;
 
@@ -2816,8 +2816,8 @@ SpellAuraProcResult Unit::HandleProcTriggerSpellAuraProc(Unit *pVictim, uint32 d
 {
     // Get triggered aura spell info
     SpellEntry const* auraSpellInfo = triggeredByAura->GetSpellProto();
-    SpellMiscEntry const* spellMisc = auraSpellInfo->GetSpellMiscs();
-    SpellMiscEntry const* pProcSpell = procSpell->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(auraSpellInfo->Id);
+    SpellMiscEntry const* pProcSpell = sSpellMiscStore.LookupEntry(procSpell->Id);
     SpellClassOptionsEntry const* auraClassOptions = auraSpellInfo->GetSpellClassOptions();
     SpellClassOptionsEntry const* procClassOptions = procSpell->GetSpellClassOptions();
 
@@ -3101,7 +3101,7 @@ SpellAuraProcResult Unit::HandleProcTriggerSpellAuraProc(Unit *pVictim, uint32 d
                 Unit::AuraList const& mDummyAura = GetAurasByType(SPELL_AURA_DUMMY);
                 for(Unit::AuraList::const_iterator i = mDummyAura.begin(); i != mDummyAura.end(); ++i)
                 {
-                    SpellMiscEntry const* spellMisc = (*i)->GetSpellProto()->GetSpellMiscs();
+                    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*i)->GetSpellProto()->Id);
                     if (!spellMisc)
                         continue;
 
@@ -3577,7 +3577,7 @@ SpellAuraProcResult Unit::HandleProcTriggerSpellAuraProc(Unit *pVictim, uint32 d
             AuraList const& dummyAuras = owner->GetAurasByType(SPELL_AURA_DUMMY);
             for (AuraList::const_iterator i = dummyAuras.begin(); i != dummyAuras.end(); ++i)
             {
-                SpellMiscEntry const* spellMisc = (*i)->GetSpellProto()->GetSpellMiscs();
+                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*i)->GetSpellProto()->Id);
                 if (!spellMisc)
                     continue;
 
@@ -3706,7 +3706,7 @@ SpellAuraProcResult Unit::HandleProcTriggerSpellAuraProc(Unit *pVictim, uint32 d
 SpellAuraProcResult Unit::HandleProcTriggerDamageAuraProc(Unit *pVictim, uint32 damage, Aura* triggeredByAura, SpellEntry const *procSpell, uint32 procFlags, uint32 procEx, uint32 cooldown)
 {
     SpellEntry const *spellInfo = triggeredByAura->GetSpellProto();
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
     DEBUG_FILTER_LOG(LOG_FILTER_SPELL_CAST, "ProcDamageAndSpell: doing %u damage from spell id %u (triggered by auratype %u of spell %u)",
         triggeredByAura->GetModifier()->m_amount, spellInfo->Id, triggeredByAura->GetModifier()->m_auraname, triggeredByAura->GetId());
     SpellNonMeleeDamage damageInfo(this, pVictim, spellInfo->Id, SpellSchoolMask(spellMisc->SchoolMask));
@@ -3733,7 +3733,7 @@ SpellAuraProcResult Unit::HandleOverrideClassScriptAuraProc(Unit *pVictim, uint3
 
     uint32 triggered_spell_id = 0;
 
-    SpellMiscEntry const* spellMisc = procSpell->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(procSpell->Id);
 
     switch(scriptId)
     {
@@ -3839,7 +3839,7 @@ SpellAuraProcResult Unit::HandleMendingAuraProc( Unit* /*pVictim*/, uint32 /*dam
 {
     // aura can be deleted at casts
     SpellEntry const* spellProto = triggeredByAura->GetSpellProto();
-    SpellMiscEntry const* spellMisc = spellProto->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellProto->Id);
     SpellEffectIndex effIdx = triggeredByAura->GetEffIndex();
     int32 heal = triggeredByAura->GetModifier()->m_amount;
     ObjectGuid caster_guid = triggeredByAura->GetCasterGuid();
@@ -3903,14 +3903,14 @@ SpellAuraProcResult Unit::HandleModCastingSpeedNotStackAuraProc(Unit* /*pVictim*
 
 SpellAuraProcResult Unit::HandleReflectSpellsSchoolAuraProc(Unit* /*pVictim*/, uint32 /*damage*/, Aura* triggeredByAura, SpellEntry const* procSpell, uint32 /*procFlag*/, uint32 /*procEx*/, uint32 /*cooldown*/)
 {
-    SpellMiscEntry const* spellMisc = procSpell->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(procSpell->Id);
     // Skip Melee hits and spells ws wrong school
     return !(procSpell == NULL || (triggeredByAura->GetModifier()->m_miscvalue & spellMisc->SchoolMask) == 0) ? SPELL_AURA_PROC_OK : SPELL_AURA_PROC_FAILED;
 }
 
 SpellAuraProcResult Unit::HandleModPowerCostSchoolAuraProc(Unit* /*pVictim*/, uint32 /*damage*/, Aura* triggeredByAura, SpellEntry const* procSpell, uint32 /*procFlag*/, uint32 /*procEx*/, uint32 /*cooldown*/)
 {
-    SpellMiscEntry const* spellMisc = procSpell->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(procSpell->Id);
     // Skip melee hits and spells ws wrong school or zero cost
     return !(procSpell == NULL ||
             (procSpell->GetManaCost() == 0 && procSpell->GetManaCostPercentage() == 0) || // Cost check
@@ -4006,7 +4006,7 @@ SpellAuraProcResult Unit::HandleAddPctModifierAuraProc(Unit* /*pVictim*/, uint32
 SpellAuraProcResult Unit::HandleModDamagePercentDoneAuraProc(Unit* /*pVictim*/, uint32 /*damage*/, Aura* triggeredByAura, SpellEntry const *procSpell, uint32 /*procFlag*/, uint32 procEx, uint32 cooldown)
 {
     SpellEntry const *spellInfo = triggeredByAura->GetSpellProto();
-    SpellMiscEntry const* spellMisc = procSpell->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(procSpell->Id);
 
     Item* castItem = triggeredByAura->GetCastItemGuid() && GetTypeId()==TYPEID_PLAYER
         ? ((Player*)this)->GetItemByGuid(triggeredByAura->GetCastItemGuid()) : NULL;

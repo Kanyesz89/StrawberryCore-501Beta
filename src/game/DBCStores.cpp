@@ -187,7 +187,6 @@ DBCStorage <SpellTotemsEntry> sSpellTotemsStore(SpellTotemsEntryfmt);
 SpellEffectMap sSpellEffectMap;
 
 DBCStorage <SpellCastTimesEntry> sSpellCastTimesStore(SpellCastTimefmt);
-DBCStorage <SpellDifficultyEntry> sSpellDifficultyStore(SpellDifficultyfmt);
 DBCStorage <SpellDurationEntry> sSpellDurationStore(SpellDurationfmt);
 DBCStorage <SpellFocusObjectEntry> sSpellFocusObjectStore(SpellFocusObjectfmt);
 DBCStorage <SpellRadiusEntry> sSpellRadiusStore(SpellRadiusfmt);
@@ -553,6 +552,7 @@ void LoadDBCStores(const std::string& dataPath)
     LoadDBC(availableDbcLocales,bar,bad_dbc_files,sSpellEquippedItemsStore,  dbcPath,"SpellEquippedItems.dbc");
     LoadDBC(availableDbcLocales,bar,bad_dbc_files,sSpellInterruptsStore,     dbcPath,"SpellInterrupts.dbc");
     LoadDBC(availableDbcLocales,bar,bad_dbc_files,sSpellLevelsStore,         dbcPath,"SpellLevels.dbc");
+    LoadDBC(availableDbcLocales,bar,bad_dbc_files,sSpellMiscStore,           dbcPath,"SpellMisc.dbc");
     LoadDBC(availableDbcLocales,bar,bad_dbc_files,sSpellPowerStore,          dbcPath,"SpellPower.dbc");
     LoadDBC(availableDbcLocales,bar,bad_dbc_files,sSpellReagentsStore,       dbcPath,"SpellReagents.dbc");
     LoadDBC(availableDbcLocales,bar,bad_dbc_files,sSpellScalingStore,        dbcPath,"SpellScaling.dbc");
@@ -563,14 +563,15 @@ void LoadDBCStores(const std::string& dataPath)
     for (uint32 j = 0; j < sSkillLineAbilityStore.GetNumRows(); ++j)
     {
         SkillLineAbilityEntry const *skillLine = sSkillLineAbilityStore.LookupEntry(j);
-
         if(!skillLine)
             continue;
 
         SpellEntry const* spellInfo = sSpellStore.LookupEntry(skillLine->spellId);
-        SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(skillLine->spellId);
+        if (!spellMisc)
+            continue;
 
-        if(spellInfo && (spellMisc->Attributes & 0x1D0) == 0x1D0)
+        if(spellInfo && spellMisc->Attributes & 0x1D0 == 0x1D0)
         {
             for (unsigned int i = 1; i < sCreatureFamilyStore.GetNumRows(); ++i)
             {
@@ -588,7 +589,6 @@ void LoadDBCStores(const std::string& dataPath)
 
     LoadDBC(availableDbcLocales,bar,bad_dbc_files,sSpellCastTimesStore,      dbcPath,"SpellCastTimes.dbc");
     LoadDBC(availableDbcLocales,bar,bad_dbc_files,sSpellDurationStore,       dbcPath,"SpellDuration.dbc");
-    LoadDBC(availableDbcLocales,bar,bad_dbc_files,sSpellDifficultyStore,     dbcPath,"SpellDifficulty.dbc");
     LoadDBC(availableDbcLocales,bar,bad_dbc_files,sSpellFocusObjectStore,    dbcPath,"SpellFocusObject.dbc");
     //LoadDBC(availableDbcLocales,bar,bad_dbc_files,sSpellItemEnchantmentStore,dbcPath,"SpellItemEnchantment.dbc");
     LoadDBC(availableDbcLocales,bar,bad_dbc_files,sSpellItemEnchantmentConditionStore,dbcPath,"SpellItemEnchantmentCondition.dbc");

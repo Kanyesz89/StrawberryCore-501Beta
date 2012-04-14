@@ -284,7 +284,7 @@ inline bool IsPassiveSpellStackableWithRanks(SpellEntry const* spellProto)
 inline bool IsSpellRemoveAllMovementAndControlLossEffects(SpellEntry const* spellProto)
 {
     SpellEffectEntry const* spellEffect0 = spellProto->GetSpellEffect(EFFECT_INDEX_0);
-    SpellMiscEntry const* spellMisc = spellProto->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellProto->Id);
     if (!spellMisc || !spellEffect0)
         return false;
 
@@ -300,7 +300,7 @@ inline bool IsSpellRemoveAllMovementAndControlLossEffects(SpellEntry const* spel
 
 inline bool IsDeathOnlySpell(SpellEntry const *spellInfo)
 {
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
     if (!spellMisc)
         return false;
 
@@ -310,7 +310,7 @@ inline bool IsDeathOnlySpell(SpellEntry const *spellInfo)
 
 inline bool IsDeathPersistentSpell(SpellEntry const *spellInfo)
 {
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
     if (!spellMisc)
         return false;
 
@@ -319,7 +319,7 @@ inline bool IsDeathPersistentSpell(SpellEntry const *spellInfo)
 
 inline bool IsNonCombatSpell(SpellEntry const *spellInfo)
 {
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
     if (!spellMisc)
         return false;
 
@@ -527,7 +527,7 @@ inline bool IsDispelSpell(SpellEntry const *spellInfo)
 
 inline bool isSpellBreakStealth(SpellEntry const* spellInfo)
 {
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
     if (!spellMisc)
         return false;
 
@@ -536,7 +536,7 @@ inline bool isSpellBreakStealth(SpellEntry const* spellInfo)
 
 inline bool IsAutoRepeatRangedSpell(SpellEntry const* spellInfo)
 {
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
     if (!spellMisc)
         return false;
 
@@ -552,7 +552,7 @@ SpellCastResult GetErrorAtShapeshiftedCast (SpellEntry const *spellInfo, uint32 
 
 inline bool IsChanneledSpell(SpellEntry const* spellInfo)
 {
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
     if (!spellMisc)
         return false;
 
@@ -561,7 +561,7 @@ inline bool IsChanneledSpell(SpellEntry const* spellInfo)
 
 inline bool IsNeedCastSpellAtFormApply(SpellEntry const* spellInfo, ShapeshiftForm form)
 {
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
     if (!spellMisc)
         return false;
 
@@ -579,7 +579,7 @@ inline bool IsNeedCastSpellAtFormApply(SpellEntry const* spellInfo, ShapeshiftFo
 
 inline bool NeedsComboPoints(SpellEntry const* spellInfo)
 {
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
     if (!spellMisc)
         return false;
 
@@ -588,7 +588,7 @@ inline bool NeedsComboPoints(SpellEntry const* spellInfo)
 
 inline SpellSchoolMask GetSpellSchoolMask(SpellEntry const* spellInfo)
 {
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
     if (!spellMisc)
         return SPELL_SCHOOL_MASK_NONE;
 
@@ -658,8 +658,6 @@ DiminishingGroup GetDiminishingReturnsGroupForSpell(SpellEntry const* spellproto
 bool IsDiminishingReturnsGroupDurationLimited(DiminishingGroup group);
 DiminishingReturnsType GetDiminishingReturnsGroupType(DiminishingGroup group);
 int32 GetDiminishingReturnsLimitDuration(DiminishingGroup group, SpellEntry const* spellproto);
-
-SpellEntry const* GetSpellEntryByDifficulty(uint32 id, Difficulty difficulty, bool isRaid);
 
 // Spell proc event related declarations (accessed using SpellMgr functions)
 enum ProcFlags

@@ -39,7 +39,7 @@ float ThreatCalcHelper::CalcThreat(Unit* pHatedUnit, Unit* /*pHatingUnit*/, floa
 
     if (pThreatSpell)
     {
-        SpellMiscEntry const* spellMisc = pThreatSpell->GetSpellMiscs();
+        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(pThreatSpell->Id);
 
         if (spellMisc->AttributesEx & SPELL_ATTR_EX_NO_THREAT)
             return 0.0f;

@@ -3340,7 +3340,7 @@ bool Player::addSpell(uint32 spell_id, bool active, bool learning, bool dependen
 bool Player::IsNeedCastPassiveLikeSpellAtLearn(SpellEntry const* spellInfo) const
 {
     ShapeshiftForm form = GetShapeshiftForm();
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
     if (!spellMisc)
         return false;
 
@@ -5983,7 +5983,7 @@ bool Player::IsActionButtonDataValid(uint8 button, uint32 action, uint8 type, Pl
         case ACTION_BUTTON_SPELL:
         {
             SpellEntry const* spellProto = sSpellStore.LookupEntry(action);
-            SpellMiscEntry const* spellMisc = spellProto->GetSpellMiscs();
+            SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(action);
 
             if(!spellProto)
             {
@@ -19208,7 +19208,7 @@ void Player::ProhibitSpellSchool(SpellSchoolMask idSchoolMask, uint32 unTimeMs )
             continue;
         }
 
-        SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
 
         // Not send cooldown for this spells
         if (spellMisc->Attributes & SPELL_ATTR_DISABLED_WHILE_ACTIVE)
@@ -21006,7 +21006,7 @@ bool Player::HasItemFitToSpellReqirements(SpellEntry const* spellInfo, Item cons
 
 bool Player::CanNoReagentCast(SpellEntry const* spellInfo) const
 {
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
     if (!spellMisc)
         return false;
 
@@ -21066,7 +21066,7 @@ uint32 Player::GetResurrectionSpellId()
     AuraList const& dummyAuras = GetAurasByType(SPELL_AURA_DUMMY);
     for(AuraList::const_iterator itr = dummyAuras.begin(); itr != dummyAuras.end(); ++itr)
     {
-        SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*itr)->GetSpellProto()->Id);
         if (!spellMisc)
             continue;
 

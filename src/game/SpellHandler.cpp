@@ -364,7 +364,7 @@ void WorldSession::HandleCastSpellOpcode(WorldPacket& recvPacket)
         return;
     }
 
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
 
     //  Players on vehicles may cast many simple spells (like knock) from self
 
@@ -474,7 +474,7 @@ void WorldSession::HandleCancelAuraOpcode( WorldPacket& recvPacket)
     if (!spellInfo)
         return;
 
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
 
     if (spellMisc->Attributes & SPELL_ATTR_CANT_CANCEL)
         return;

@@ -316,7 +316,7 @@ struct boss_strawmanAI : public ScriptedAI
 
     void SpellHit(Unit* caster, const SpellEntry *Spell)
     {
-        SpellMiscEntry const* spellMisc = Spell->GetSpellMiscs();
+        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(Spell->Id);
         if ((spellMisc->SchoolMask == SPELL_SCHOOL_MASK_FIRE) && !urand(0, 1))
         {
             /*

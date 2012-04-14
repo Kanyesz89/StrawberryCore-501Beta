@@ -381,7 +381,7 @@ m_isPersistent(false), m_in_use(0), m_spellAuraHolder(holder)
     STRAWBERRY_ASSERT(spellproto && spellproto == sSpellStore.LookupEntry( spellproto->Id ) && "`info` must be pointer to sSpellStore element");
 
     m_spellEffect = spellproto->GetSpellEffect(m_effIndex);
-    m_spellMisc = spellproto->GetSpellMiscs();
+    m_spellMisc = sSpellMiscStore.LookupEntry(spellproto->Id);
 
     STRAWBERRY_ASSERT(m_spellEffect);                           // need testing...
 
@@ -1027,7 +1027,7 @@ void Aura::HandleAddModifier(bool apply, bool Real)
     {
         SpellEntry const* spellProto = GetSpellProto();
         SpellEffectEntry const* spellEffect = GetSpellEffect();
-        SpellMiscEntry const* spellMisc = spellProto->GetSpellMiscs();
+        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellProto->Id);
 
         // Add custom charges for some mod aura
         switch (spellProto->Id)
@@ -2314,7 +2314,7 @@ void Aura::HandleAuraDummy(bool apply, bool Real)
                     Unit::AuraList const& modifierAuras = caster->GetAurasByType(SPELL_AURA_ADD_FLAT_MODIFIER);
                     for(Unit::AuraList::const_iterator itr = modifierAuras.begin(); itr != modifierAuras.end(); ++itr)
                     {
-                        SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+                        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*itr)->GetSpellProto()->Id);
                         if (!spellMisc)
                             continue;
 
@@ -2743,7 +2743,7 @@ void Aura::HandleAuraDummy(bool apply, bool Real)
         }
     }
 
-    SpellMiscEntry const* spellMisc = GetSpellProto()->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(GetSpellProto()->Id);
 
     switch(GetSpellProto()->GetSpellFamilyName())
     {
@@ -3334,7 +3334,7 @@ void Aura::HandleAuraModShapeshift(bool apply, bool Real)
             for (Unit::AuraList::const_iterator iter = slowingAuras.begin(); iter != slowingAuras.end();)
             {
                 SpellEntry const* aurSpellInfo = (*iter)->GetSpellProto();
-                SpellMiscEntry const* spellMisc = (*iter)->GetSpellProto()->GetSpellMiscs();
+                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*iter)->GetSpellProto()->Id);
                 if (!spellMisc)
                     continue;
 
@@ -3413,7 +3413,7 @@ void Aura::HandleAuraModShapeshift(bool apply, bool Real)
                     Unit::AuraList const& mDummy = target->GetAurasByType(SPELL_AURA_DUMMY);
                     for (Unit::AuraList::const_iterator i = mDummy.begin(); i != mDummy.end(); ++i)
                     {
-                        SpellMiscEntry const* spellMisc = (*i)->GetSpellProto()->GetSpellMiscs();
+                        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*i)->GetSpellProto()->Id);
                         if (!spellMisc)
                             continue;
 
@@ -3455,7 +3455,7 @@ void Aura::HandleAuraModShapeshift(bool apply, bool Real)
                         {
                             if(itr->second.state == PLAYERSPELL_REMOVED) continue;
                             SpellEntry const *spellInfo = sSpellStore.LookupEntry(itr->first);
-                            SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+                            SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
                             if (!spellMisc)
                                 continue;
 
@@ -3531,7 +3531,7 @@ void Aura::HandleAuraModShapeshift(bool apply, bool Real)
 void Aura::HandleAuraTransform(bool apply, bool Real)
 {
     Unit *target = GetTarget();
-    SpellMiscEntry const* spellMisc = GetSpellProto()->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(GetSpellProto()->Id);
 
     if (apply)
     {
@@ -4551,7 +4551,7 @@ void Aura::HandleModStealth(bool apply, bool Real)
                 Unit::AuraList const& mDummyAuras = target->GetAurasByType(SPELL_AURA_DUMMY);
                 for(Unit::AuraList::const_iterator i = mDummyAuras.begin();i != mDummyAuras.end(); ++i)
                 {
-                    SpellMiscEntry const* spellMisc = (*i)->GetSpellProto()->GetSpellMiscs();
+                    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*i)->GetSpellProto()->Id);
                     if (!spellMisc)
                         continue;
 
@@ -4598,7 +4598,7 @@ void Aura::HandleModStealth(bool apply, bool Real)
             Unit::AuraList const& mDummyAuras = target->GetAurasByType(SPELL_AURA_DUMMY);
             for(Unit::AuraList::const_iterator i = mDummyAuras.begin();i != mDummyAuras.end(); ++i)
             {
-                SpellMiscEntry const* spellMisc = (*i)->GetSpellProto()->GetSpellMiscs();
+                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*i)->GetSpellProto()->Id);
                 if (!spellMisc)
                     continue;
 
@@ -4914,7 +4914,7 @@ void Aura::HandleAuraModIncreaseMountedSpeed(bool apply, bool Real)
 
     target->UpdateSpeed(MOVE_RUN, true);
 
-    SpellMiscEntry const* spellMisc = GetSpellProto()->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(GetSpellProto()->Id);
 
     // Festive Holiday Mount
     if (apply && spellMisc->SpellIconID != 1794 && target->HasAura(62061))
@@ -4929,7 +4929,7 @@ void Aura::HandleAuraModIncreaseFlightSpeed(bool apply, bool Real)
         return;
 
     Unit *target = GetTarget();
-    SpellMiscEntry const* spellMisc = GetSpellProto()->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(GetSpellProto()->Id);
 
     // Enable Fly mode for flying mounts
     if (m_modifier.m_auraname == SPELL_AURA_MOD_FLIGHT_SPEED_MOUNTED)
@@ -5048,7 +5048,7 @@ void Aura::HandleModMechanicImmunity(bool apply, bool /*Real*/)
 
     Unit *target = GetTarget();
 
-    SpellMiscEntry const* spellMisc = GetSpellProto()->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(GetSpellProto()->Id);
 
     if (apply && spellMisc->AttributesEx & SPELL_ATTR_EX_DISPEL_AURAS_ON_IMMUNITY)
     {
@@ -5073,7 +5073,7 @@ void Aura::HandleModMechanicImmunity(bool apply, bool /*Real*/)
             Unit::AuraList const& dummyAuras = owner->GetAurasByType(SPELL_AURA_MOD_DAMAGE_PERCENT_DONE);
             for(Unit::AuraList::const_iterator i = dummyAuras.begin(); i != dummyAuras.end(); ++i)
             {
-                SpellMiscEntry const* spellMisc = (*i)->GetSpellProto()->GetSpellMiscs();
+                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*i)->GetSpellProto()->Id);
                 if (!spellMisc)
                     continue;
 
@@ -5097,7 +5097,7 @@ void Aura::HandleModMechanicImmunityMask(bool apply, bool /*Real*/)
 {
     uint32 mechanic  = m_modifier.m_miscvalue;
 
-    SpellMiscEntry const* spellMisc = GetSpellProto()->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(GetSpellProto()->Id);
 
     if(apply && spellMisc->AttributesEx & SPELL_ATTR_EX_DISPEL_AURAS_ON_IMMUNITY)
         GetTarget()->RemoveAurasAtMechanicImmunity(mechanic,GetId());
@@ -5123,7 +5123,7 @@ void Aura::HandleAuraModEffectImmunity(bool apply, bool /*Real*/)
 
 void Aura::HandleAuraModStateImmunity(bool apply, bool Real)
 {
-    SpellMiscEntry const* spellMisc = GetSpellProto()->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(GetSpellProto()->Id);
 
     if(apply && Real && spellMisc->AttributesEx & SPELL_ATTR_EX_DISPEL_AURAS_ON_IMMUNITY)
     {
@@ -5148,7 +5148,7 @@ void Aura::HandleAuraModSchoolImmunity(bool apply, bool Real)
     Unit* target = GetTarget();
     target->ApplySpellImmune(GetId(), IMMUNITY_SCHOOL, m_modifier.m_miscvalue, apply);
 
-    SpellMiscEntry const* spellMisc = GetSpellProto()->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(GetSpellProto()->Id);
 
     // remove all flag auras (they are positive, but they must be removed when you are immune)
     if( spellMisc->AttributesEx & SPELL_ATTR_EX_DISPEL_AURAS_ON_IMMUNITY
@@ -5167,7 +5167,7 @@ void Aura::HandleAuraModSchoolImmunity(bool apply, bool Real)
             next = iter;
             ++next;
             SpellEntry const *spell = iter->second->GetSpellProto();
-            SpellMiscEntry const* spellMisc = spell->GetSpellMiscs();
+            SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spell->Id);
             if (!spellMisc)
                 continue;
 
@@ -5407,7 +5407,7 @@ void Aura::HandlePeriodicHeal(bool apply, bool /*Real*/)
         if (!caster)
             return;
 
-        SpellMiscEntry const* spellMisc = GetSpellProto()->GetSpellMiscs();
+        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(GetSpellProto()->Id);
 
         // Gift of the Naaru (have diff spellfamilies)
         if (spellMisc->SpellIconID == 329 && spellMisc->SpellVisual[0] == 7625)
@@ -5474,7 +5474,7 @@ void Aura::HandlePeriodicDamage(bool apply, bool Real)
     Unit *target = GetTarget();
     SpellEntry const* spellProto = GetSpellProto();
     SpellClassOptionsEntry const* classOptions = spellProto->GetSpellClassOptions();
-    SpellMiscEntry const* spellMisc = spellProto->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellProto->Id);
 
     // For prevent double apply bonuses
     bool loading = (target->GetTypeId() == TYPEID_PLAYER && ((Player*)target)->GetSession()->PlayerLoading());
@@ -5849,7 +5849,7 @@ void Aura::HandleModTotalPercentStat(bool apply, bool /*Real*/)
     }
 
     Unit *target = GetTarget();
-    SpellMiscEntry const* spellMisc = GetSpellProto()->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(GetSpellProto()->Id);
 
     //save current and max HP before applying aura
     uint32 curHPValue = target->GetHealth();
@@ -6676,7 +6676,7 @@ void Aura::HandleShapeshiftBoosts(bool apply)
             for (Unit::SpellAuraHolderMap::iterator itr = tAuras.begin(); itr != tAuras.end();)
             {
                 SpellEntry const *spellInfo = itr->second->GetSpellProto();
-                SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
                 if (!spellMisc)
                     continue;
 
@@ -6697,7 +6697,7 @@ void Aura::HandleShapeshiftBoosts(bool apply)
                 Unit::AuraList const& ShapeShifterAuras = target->GetAurasByType(SPELL_AURA_DUMMY);
                 for(Unit::AuraList::const_iterator i = ShapeShifterAuras.begin(); i != ShapeShifterAuras.end(); ++i)
                 {
-                    SpellMiscEntry const* spellMisc = (*i)->GetSpellProto()->GetSpellMiscs();
+                    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*i)->GetSpellProto()->Id);
                     if (!spellMisc)
                         continue;
 
@@ -6728,7 +6728,7 @@ void Aura::HandleShapeshiftBoosts(bool apply)
                 Unit::AuraList const& modAuras = target->GetAurasByType(SPELL_AURA_MOD_TOTAL_STAT_PERCENTAGE);
                 for (Unit::AuraList::const_iterator i = modAuras.begin(); i != modAuras.end(); ++i)
                 {
-                    SpellMiscEntry const* spellMisc = (*i)->GetSpellProto()->GetSpellMiscs();
+                    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*i)->GetSpellProto()->Id);
                     if (!spellMisc)
                         continue;
 
@@ -6749,7 +6749,7 @@ void Aura::HandleShapeshiftBoosts(bool apply)
                 Unit::AuraList const& dummyAuras = target->GetAurasByType(SPELL_AURA_DUMMY);
                 for(Unit::AuraList::const_iterator i = dummyAuras.begin(); i != dummyAuras.end(); ++i)
                 {
-                    SpellMiscEntry const* spellMisc = (*i)->GetSpellProto()->GetSpellMiscs();
+                    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*i)->GetSpellProto()->Id);
                     if (!spellMisc)
                         continue;
 
@@ -6780,7 +6780,7 @@ void Aura::HandleShapeshiftBoosts(bool apply)
                 Unit::AuraList const& mModTotalStatPct = target->GetAurasByType(SPELL_AURA_MOD_TOTAL_STAT_PERCENTAGE);
                 for(Unit::AuraList::const_iterator i = mModTotalStatPct.begin(); i != mModTotalStatPct.end(); ++i)
                 {
-                    SpellMiscEntry const* spellMisc = (*i)->GetSpellProto()->GetSpellMiscs();
+                    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*i)->GetSpellProto()->Id);
                     if (!spellMisc)
                         continue;
 
@@ -6815,7 +6815,7 @@ void Aura::HandleShapeshiftBoosts(bool apply)
                 if (itr->second.state == PLAYERSPELL_REMOVED) continue;
                 if (itr->first==spellId1 || itr->first==spellId2) continue;
                 SpellEntry const *spellInfo = sSpellStore.LookupEntry(itr->first);
-                SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
                 if (!spellInfo || !spellMisc || !IsPassiveSpell(spellInfo))
                     continue;
 
@@ -7069,7 +7069,7 @@ void Aura::HandleSchoolAbsorb(bool apply, bool Real)
                         for(Unit::AuraList::const_iterator itr = borrowedTime.begin(); itr != borrowedTime.end(); ++itr)
                         {
                             SpellEntry const* i_spell = (*itr)->GetSpellProto();
-                            SpellMiscEntry const* spellMisc = i_spell->GetSpellMiscs();
+                            SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(i_spell->Id);
 
                             if(i_spell->GetSpellFamilyName()==SPELLFAMILY_PRIEST && spellMisc->SpellIconID == 2899 && i_spell->GetEffectMiscValue((*itr)->GetEffIndex()) == 24)
                             {
@@ -7127,7 +7127,7 @@ void Aura::HandleSchoolAbsorb(bool apply, bool Real)
             for(Unit::AuraList::const_iterator itr = vDummyAuras.begin(); itr != vDummyAuras.end(); ++itr)
             {
                 SpellEntry const* vSpell = (*itr)->GetSpellProto();
-                SpellMiscEntry const* spellMisc = vSpell->GetSpellMiscs();
+                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(vSpell->Id);
 
                 // Rapture (main spell)
                 if(vSpell->GetSpellFamilyName() == SPELLFAMILY_PRIEST && spellMisc->SpellIconID == 2894 && vSpell->GetSpellEffectIdByIndex(EFFECT_INDEX_1))
@@ -7188,7 +7188,7 @@ void Aura::PeriodicTick()
     Unit *target = GetTarget();
     SpellEntry const* spellProto = GetSpellProto();
     SpellClassOptionsEntry const* classOptions = spellProto->GetSpellClassOptions();
-    SpellMiscEntry const* spellMisc = spellProto->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellProto->Id);
 
     switch(m_modifier.m_auraname)
     {
@@ -7795,7 +7795,7 @@ void Aura::PeriodicDummyTick()
 {
     SpellEntry const* spell = GetSpellProto();
     SpellClassOptionsEntry const* classOptions = spell->GetSpellClassOptions();
-    SpellMiscEntry const* spellMisc = spell->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spell->Id);
 
     Unit *target = GetTarget();
     switch (spell->GetSpellFamilyName())
@@ -8651,7 +8651,7 @@ m_permanent(false), m_isRemovedOnShapeLost(true), m_deleted(false), m_in_use(0)
     STRAWBERRY_ASSERT(target);
     STRAWBERRY_ASSERT(spellproto && spellproto == sSpellStore.LookupEntry( spellproto->Id ) && "`info` must be pointer to sSpellStore element");
 
-    SpellMiscEntry const* spellMisc = spellproto->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellproto->Id);
 
     if(!caster)
         m_casterGuid = target->GetObjectGuid();
@@ -8756,7 +8756,7 @@ void SpellAuraHolder::_AddSpellAuraHolder()
     }
 
     Unit* caster = GetCaster();
-    SpellMiscEntry const* spellMisc = m_spellProto->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellProto->Id);
 
     // set infinity cooldown state for spells
     if(caster && caster->GetTypeId() == TYPEID_PLAYER)
@@ -8970,7 +8970,7 @@ void SpellAuraHolder::_RemoveSpellAuraHolder()
         // reset cooldown state for spells
         if(caster && caster->GetTypeId() == TYPEID_PLAYER)
         {
-            SpellMiscEntry const* spellMisc = GetSpellProto()->GetSpellMiscs();
+            SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(GetSpellProto()->Id);
 
             if ( spellMisc->Attributes & SPELL_ATTR_DISABLED_WHILE_ACTIVE )
                 // note: item based cooldowns and cooldown spell mods with charges ignored (unknown existing cases)
@@ -9180,7 +9180,7 @@ void SpellAuraHolder::HandleSpellSpecificBoosts(bool apply)
     uint32 spellId4 = 0;
 
     SpellClassOptionsEntry const* classOptions = m_spellProto->GetSpellClassOptions();
-    SpellMiscEntry const* spellMisc = m_spellProto->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellProto->Id);
 
     switch(m_spellProto->GetSpellFamilyName())
     {
@@ -9265,7 +9265,7 @@ void SpellAuraHolder::HandleSpellSpecificBoosts(bool apply)
                     Unit::AuraList const& dummyAuras = m_target->GetAurasByType(SPELL_AURA_DUMMY);
                     for(Unit::AuraList::const_iterator itr = dummyAuras.begin(); itr != dummyAuras.end(); ++itr)
                     {
-                        SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+                        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*itr)->GetSpellProto()->Id);
                         if (!spellMisc)
                             continue;
 
@@ -9372,7 +9372,7 @@ void SpellAuraHolder::HandleSpellSpecificBoosts(bool apply)
                     for(Unit::AuraList::const_iterator itr = dummyAuras.begin(); itr != dummyAuras.end(); ++itr)
                     {
                         SpellEntry const* dummyEntry = (*itr)->GetSpellProto();
-                        SpellMiscEntry const* spellMisc = dummyEntry->GetSpellMiscs();
+                        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(dummyEntry->Id);
                         if (!spellMisc)
                             continue;
 
@@ -9424,7 +9424,7 @@ void SpellAuraHolder::HandleSpellSpecificBoosts(bool apply)
                     Unit::AuraList const& dummyAuras = caster->GetAurasByType(SPELL_AURA_DUMMY);
                     for(Unit::AuraList::const_iterator itr = dummyAuras.begin(); itr != dummyAuras.end(); ++itr)
                     {
-                        SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+                        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*itr)->GetSpellProto()->Id);
                         if (!spellMisc)
                             continue;
 
@@ -9471,7 +9471,7 @@ void SpellAuraHolder::HandleSpellSpecificBoosts(bool apply)
                         for(Unit::AuraList::const_iterator itr = dummyAuras.begin(); itr != dummyAuras.end(); ++itr)
                         {
                             SpellEntry const* dummyEntry = (*itr)->GetSpellProto();
-                            SpellMiscEntry const* spellMisc = dummyEntry->GetSpellMiscs();
+                            SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(dummyEntry->Id);
                             if (!spellMisc)
                                 continue;
 
@@ -9628,7 +9628,7 @@ void SpellAuraHolder::HandleSpellSpecificBoosts(bool apply)
                     Unit::AuraList const& dummyAuras = m_target->GetAurasByType(SPELL_AURA_DUMMY);
                     for(Unit::AuraList::const_iterator itr = dummyAuras.begin(); itr != dummyAuras.end(); ++itr)
                     {
-                        SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+                        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*itr)->GetSpellProto()->Id);
                         if (!spellMisc)
                             continue;
 
@@ -9691,7 +9691,7 @@ void SpellAuraHolder::HandleSpellSpecificBoosts(bool apply)
                             Unit::AuraList const& bloodAuras = m_target->GetAurasByType(SPELL_AURA_DUMMY);
                             for(Unit::AuraList::const_iterator itr = bloodAuras.begin(); itr != bloodAuras.end(); ++itr)
                             {
-                                SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+                                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*itr)->GetSpellProto()->Id);
                                 if (!spellMisc)
                                     continue;
 
@@ -9722,7 +9722,7 @@ void SpellAuraHolder::HandleSpellSpecificBoosts(bool apply)
                             Unit::AuraList const& unholyAuras = m_target->GetAurasByType(SPELL_AURA_DUMMY);
                             for(Unit::AuraList::const_iterator itr = unholyAuras.begin(); itr != unholyAuras.end(); ++itr)
                             {
-                                SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+                                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*itr)->GetSpellProto()->Id);
                                 if (!spellMisc)
                                     continue;
 
@@ -9750,7 +9750,7 @@ void SpellAuraHolder::HandleSpellSpecificBoosts(bool apply)
                             Unit::AuraList const& frostAuras = m_target->GetAurasByType(SPELL_AURA_DUMMY);
                             for(Unit::AuraList::const_iterator itr = frostAuras.begin(); itr != frostAuras.end(); ++itr)
                             {
-                                SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+                                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*itr)->GetSpellProto()->Id);
                                 if (!spellMisc)
                                     continue;
 
@@ -9781,7 +9781,7 @@ void SpellAuraHolder::HandleSpellSpecificBoosts(bool apply)
                             Unit::AuraList const& unholyAuras = m_target->GetAurasByType(SPELL_AURA_DUMMY);
                             for(Unit::AuraList::const_iterator itr = unholyAuras.begin(); itr != unholyAuras.end(); ++itr)
                             {
-                                SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+                                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*itr)->GetSpellProto()->Id);
                                 if (!spellMisc)
                                     continue;
 
@@ -9963,7 +9963,7 @@ void SpellAuraHolder::Update(uint32 diff)
         if (caster->GetChannelObjectGuid() == m_target->GetObjectGuid())
         {
             // Get spell range
-            float max_range = GetSpellMaxRange(sSpellRangeStore.LookupEntry(m_spellProto->GetSpellMiscs()->rangeIndex));
+            float max_range = GetSpellMaxRange(sSpellRangeStore.LookupEntry(sSpellMiscStore.LookupEntry(m_spellProto->Id)->rangeIndex));
 
             if(Player* modOwner = caster->GetSpellModOwner())
                 modOwner->ApplySpellMod(GetId(), SPELLMOD_RANGE, max_range, NULL);
@@ -9986,7 +9986,7 @@ void SpellAuraHolder::RefreshHolder()
 void SpellAuraHolder::SetAuraMaxDuration(int32 duration)
 {
     m_maxDuration = duration;
-    SpellMiscEntry const* spellMisc = GetSpellProto()->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(GetSpellProto()->Id);
 
     // possible overwrite persistent state
     if (duration > 0)

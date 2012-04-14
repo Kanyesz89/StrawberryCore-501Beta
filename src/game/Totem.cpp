@@ -179,7 +179,7 @@ void Totem::SetTypeBySummonSpell(SpellEntry const * spellProto)
             m_type = TOTEM_ACTIVE;
     }
 
-    SpellMiscEntry const* spellMisc = spellProto->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellProto->Id);
     if(spellMisc->SpellIconID == 2056)
         m_type = TOTEM_STATUE;                              //Jewelery statue
 }

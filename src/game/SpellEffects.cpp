@@ -308,7 +308,7 @@ void Spell::EffectSchoolDMG(SpellEffectEntry const* effect)
     if( unitTarget && unitTarget->isAlive())
     {
         SpellClassOptionsEntry const* classOptions = m_spellInfo->GetSpellClassOptions();
-        SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
         switch(m_spellInfo->GetSpellFamilyName())
         {
@@ -554,7 +554,7 @@ void Spell::EffectSchoolDMG(SpellEffectEntry const* effect)
                     Unit::AuraList const& ImprMindBlast = m_caster->GetAurasByType(SPELL_AURA_ADD_FLAT_MODIFIER);
                     for(Unit::AuraList::const_iterator i = ImprMindBlast.begin(); i != ImprMindBlast.end(); ++i)
                     {
-                        SpellMiscEntry const* spellMisc = (*i)->GetSpellProto()->GetSpellMiscs();
+                        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*i)->GetSpellProto()->Id);
                         if (!spellMisc)
                             continue;
 
@@ -636,7 +636,7 @@ void Spell::EffectSchoolDMG(SpellEffectEntry const* effect)
                             Unit::AuraList const& auraList = ((Player*)m_caster)->GetAurasByType(SPELL_AURA_MOD_DURATION_OF_EFFECTS_BY_DISPEL);
                             for(Unit::AuraList::const_iterator iter = auraList.begin(); iter!=auraList.end(); ++iter)
                             {
-                                SpellMiscEntry const* spellMisc = (*iter)->GetSpellProto()->GetSpellMiscs();
+                                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*iter)->GetSpellProto()->Id);
                                 if (!spellMisc)
                                     continue;
 
@@ -785,7 +785,7 @@ void Spell::EffectDummy(SpellEffectEntry const* effect)
     if (!unitTarget && !gameObjTarget && !itemTarget)
         return;
 
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     // selection by spell family
     switch(m_spellInfo->GetSpellFamilyName())
@@ -1738,7 +1738,7 @@ void Spell::EffectDummy(SpellEffectEntry const* effect)
                         unitTarget->CastSpell(m_caster, spellId, true);
 
                         Creature* creatureTarget = (Creature*)unitTarget;
-                        SpellMiscEntry const* spellMisc = pSpell->GetSpellMiscs();
+                        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(pSpell->Id);
 
                         if (const SpellCastTimesEntry *pCastTime = sSpellCastTimesStore.LookupEntry(spellMisc->CastingTimeIndex))
                             creatureTarget->ForcedDespawn(pCastTime->CastTime + 1);
@@ -2698,7 +2698,7 @@ void Spell::EffectDummy(SpellEffectEntry const* effect)
                     Unit::AuraList const& auras = m_caster->GetAurasByType(SPELL_AURA_PROC_TRIGGER_SPELL);
                     for (Unit::AuraList::const_iterator itr = auras.begin(); itr != auras.end(); ++itr)
                     {
-                        SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+                        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*itr)->GetSpellProto()->Id);
                         if (!spellMisc)
                             continue;
 
@@ -2779,7 +2779,7 @@ void Spell::EffectDummy(SpellEffectEntry const* effect)
                     Unit::AuraList const& auraDummy = m_caster->GetAurasByType(SPELL_AURA_DUMMY);
                     for(Unit::AuraList::const_iterator itr = auraDummy.begin(); itr != auraDummy.end(); ++itr)
                     {
-                        SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+                        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*itr)->GetSpellProto()->Id);
                         if (!spellMisc)
                             continue;
 
@@ -2794,7 +2794,7 @@ void Spell::EffectDummy(SpellEffectEntry const* effect)
                     Unit::AuraList const& mod = m_caster->GetAurasByType(SPELL_AURA_ADD_FLAT_MODIFIER);
                     for(Unit::AuraList::const_iterator itr = mod.begin(); itr != mod.end(); ++itr)
                     {
-                        SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+                        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*itr)->GetSpellProto()->Id);
                         if (!spellMisc)
                             continue;
 
@@ -2965,7 +2965,7 @@ void Spell::EffectDummy(SpellEffectEntry const* effect)
                 Unit::AuraList const& decSpeedList = unitTarget->GetAurasByType(SPELL_AURA_MOD_DECREASE_SPEED);
                 for(Unit::AuraList::const_iterator iter = decSpeedList.begin(); iter != decSpeedList.end(); ++iter)
                 {
-                    SpellMiscEntry const* spellMisc = (*iter)->GetSpellProto()->GetSpellMiscs();
+                    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*iter)->GetSpellProto()->Id);
                     if (!spellMisc)
                         continue;
 
@@ -3196,12 +3196,12 @@ void Spell::EffectDummy(SpellEffectEntry const* effect)
                         Unit::AuraList const& mDummyAuras = owner->GetAurasByType(SPELL_AURA_DUMMY);
                         for(Unit::AuraList::const_iterator i = mDummyAuras.begin(); i != mDummyAuras.end(); ++i)
                         {
-                            SpellMiscEntry const* spellMisc = (*i)->GetSpellProto()->GetSpellMiscs();
+                            SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*i)->GetSpellProto()->Id);
                             if (!spellMisc)
                                 continue;
 
                             // only its have dummy with specific icon
-                            if ((*i)->GetSpellProto()->GetSpellFamilyName() == SPELLFAMILY_SHAMAN && (*i)->GetSpellProto()->SpellIconID == 338)
+                            if ((*i)->GetSpellProto()->GetSpellFamilyName() == SPELLFAMILY_SHAMAN && spellMisc->SpellIconID == 338)
                                 damage += (*i)->GetModifier()->m_amount * damage / 100;
                         }
 
@@ -3355,7 +3355,7 @@ void Spell::EffectDummy(SpellEffectEntry const* effect)
                 Unit::AuraList const& auraMod = m_caster->GetAurasByType(SPELL_AURA_ADD_FLAT_MODIFIER);
                 for(Unit::AuraList::const_iterator iter = auraMod.begin(); iter != auraMod.end(); ++iter)
                 {
-                    SpellMiscEntry const* spellMisc = (*iter)->GetSpellProto()->GetSpellMiscs();
+                    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*iter)->GetSpellProto()->Id);
                     if (!spellMisc)
                         continue;
 
@@ -3377,7 +3377,7 @@ void Spell::EffectDummy(SpellEffectEntry const* effect)
                 Unit::AuraList const& dummyList = m_caster->GetAurasByType(SPELL_AURA_DUMMY);
                 for (Unit::AuraList::const_iterator itr = dummyList.begin(); itr != dummyList.end(); ++itr)
                 {
-                    SpellMiscEntry const* spellMisc = (*itr)->GetSpellProto()->GetSpellMiscs();
+                    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*itr)->GetSpellProto()->Id);
                     if (!spellMisc)
                         continue;
 
@@ -3598,7 +3598,7 @@ void Spell::EffectTriggerSpell(SpellEffectEntry const* effect)
         return;
     }
 
-    SpellMiscEntry const* spellMisc = spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(spellInfo->Id);
 
     // select formal caster for triggered spell
     Unit* caster = m_caster;
@@ -4719,7 +4719,7 @@ void Spell::EffectSummonType(SpellEffectEntry const* effect)
         return;
     }
 
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     switch(summon_prop->Group)
     {
@@ -4969,7 +4969,7 @@ void Spell::EffectDispel(SpellEffectEntry const* effect)
         SpellAuraHolder *holder = itr->second;
         if ((1<<holder->GetSpellProto()->GetDispel()) & dispelMask)
         {
-            SpellMiscEntry const* spellMisc = holder->GetSpellProto()->GetSpellMiscs();
+            SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(holder->GetSpellProto()->Id);
             if (!spellMisc)
                 continue;
 
@@ -5379,7 +5379,7 @@ void Spell::DoSummonVehicle(SpellEffectEntry const* effect, uint32 forceFaction)
     if (!m_caster)
         return;
 
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     if (m_caster->hasUnitState(UNIT_STAT_ON_VEHICLE))
     {
@@ -5627,7 +5627,7 @@ void Spell::EffectEnchantItemTmp(SpellEffectEntry const* effect)
 
     // Rockbiter Weapon
     SpellClassOptionsEntry const* classOptions = m_spellInfo->GetSpellClassOptions();
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     if (classOptions && classOptions->SpellFamilyName == SPELLFAMILY_SHAMAN && classOptions->SpellFamilyFlags & UI64LIT(0x0000000000400000))
     {
@@ -6019,7 +6019,7 @@ void Spell::EffectWeaponDmg(SpellEffectEntry const* effect)
     int32 spell_bonus = 0;                                  // bonus specific for spell
 
     SpellClassOptionsEntry const* classOptions = m_spellInfo->GetSpellClassOptions();
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     switch(m_spellInfo->GetSpellFamilyName())
     {
@@ -7968,7 +7968,7 @@ void Spell::EffectScriptEffect(SpellEffectEntry const* effect)
                     Unit::AuraList const& auras = unitTarget->GetAurasByType(SPELL_AURA_DUMMY);
                     for(Unit::AuraList::const_iterator i = auras.begin();i != auras.end(); ++i)
                     {
-                        SpellMiscEntry const* spellMisc = (*i)->GetSpellProto()->GetSpellMiscs();
+                        SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry((*i)->GetSpellProto()->Id);
                         if (!spellMisc)
                             continue;
 
@@ -8672,7 +8672,7 @@ void Spell::EffectLeapForward(SpellEffectEntry const* effect)
     if(unitTarget->IsTaxiFlying())
         return;
 
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     if( spellMisc->rangeIndex == 1)                       //self range
     {
@@ -9117,7 +9117,7 @@ void Spell::EffectTransmitted(SpellEffectEntry const* effect)
     uint32 name_id = effect->EffectMiscValue;
 
     GameObjectInfo const* goinfo = ObjectMgr::GetGameObjectInfo(name_id);
-    SpellMiscEntry const* spellMisc = m_spellInfo->GetSpellMiscs();
+    SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(m_spellInfo->Id);
 
     if (!goinfo)
     {
@@ -9332,7 +9332,7 @@ void Spell::EffectStealBeneficialBuff(SpellEffectEntry const* effect)
         SpellAuraHolder *holder = itr->second;
         if (holder && (1<<holder->GetSpellProto()->GetDispel()) & dispelMask)
         {
-            SpellMiscEntry const* spellMisc = holder->GetSpellProto()->GetSpellMiscs();
+            SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(holder->GetSpellProto()->Id);
             if (!spellMisc)
                 continue;
 

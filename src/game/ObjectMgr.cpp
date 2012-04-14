@@ -7574,7 +7574,7 @@ bool PlayerCondition::Meets(Player const * player) const
             Unit::SpellAuraHolderMap const& auras = player->GetSpellAuraHolderMap();
             for (Unit::SpellAuraHolderMap::const_iterator itr = auras.begin(); itr != auras.end(); ++itr)
             {
-                SpellMiscEntry const* spellMisc = itr->second->GetSpellProto()->GetSpellMiscs();
+                SpellMiscEntry const* spellMisc = sSpellMiscStore.LookupEntry(itr->second->GetSpellProto()->Id);
                 if (!spellMisc)
                     continue;
 
