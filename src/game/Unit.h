@@ -271,6 +271,7 @@ class DynamicObject;
 class GameObject;
 class Item;
 class Pet;
+class BPet;
 class PetAura;
 class Totem;
 class Transport;

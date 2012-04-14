@@ -492,6 +492,7 @@ enum CreatureSubtype
 {
     CREATURE_SUBTYPE_GENERIC,                               // new Creature
     CREATURE_SUBTYPE_PET,                                   // new Pet
+	CREATURE_SUBTYPE_BPET,                                  // new Battle Pet
     CREATURE_SUBTYPE_TOTEM,                                 // new Totem
     CREATURE_SUBTYPE_TEMPORARY_SUMMON,                      // new TemporarySummon
 };
@@ -534,6 +535,7 @@ class Creature : public Unit
 
         CreatureSubtype GetSubtype() const { return m_subtype; }
         bool IsPet() const { return m_subtype == CREATURE_SUBTYPE_PET; }
+		bool IsBPet() const { return m_subtype == CREATURE_SUBTYPE_BPET; }
         bool IsTotem() const { return m_subtype == CREATURE_SUBTYPE_TOTEM; }
         bool IsTemporarySummon() const { return m_subtype == CREATURE_SUBTYPE_TEMPORARY_SUMMON; }
 

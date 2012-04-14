@@ -2737,6 +2737,21 @@ enum TrainerType                                            // this is important
 
 #define MAX_TRAINER_TYPE 4
 
+enum BPET_TYPE
+{
+    BATTLE_PET_TYPE_HU             = 0,                       // Humanoid
+    BATTLE_PET_TYPE_DR             = 1,                       // Dragon
+    BATTLE_PET_TYPE_FL             = 2,                       // Flying
+    BATTLE_PET_TYPE_UN             = 3,                       // Undead
+    BATTLE_PET_TYPE_CR             = 4,                       // Critter
+    BATTLE_PET_TYPE_MA             = 5,                       // Magical
+    BATTLE_PET_TYPE_EL             = 6,                       // Elemental
+    BATTLE_PET_TYPE_BE             = 7,                       // Beast
+    BATTLE_PET_TYPE_AQ             = 8,                       // Aquatic
+	BATTLE_PET_TYPE_ME             = 9,                       // Mechanical
+	MAX_BATTLE_PET_TYPE            = 10
+};
+
 // CreatureType.dbc
 enum CreatureType
 {

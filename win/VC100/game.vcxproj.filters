@@ -2611,12 +2611,6 @@
     <ClCompile Include="..\..\src\game\BattleGroundTK.cpp">
       <Filter>World/Handlers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\game\BPet.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\game\BPetAI.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game\AccountMgr.h">
@@ -3379,12 +3373,6 @@
     </ClInclude>
     <ClInclude Include="..\..\src\game\BattleGroundTK.h">
       <Filter>World/Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\game\BPet.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\game\BPetAI.h">
-      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

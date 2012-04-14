@@ -1860,6 +1860,7 @@ bool ChatHandler::HandleNpcDeleteCommand(char* args)
         case CREATURE_SUBTYPE_PET:
             ((Pet*)unit)->Unsummon(PET_SAVE_AS_CURRENT);
             break;
+		case CREATURE_SUBTYPE_BPET:
         case CREATURE_SUBTYPE_TOTEM:
             ((Totem*)unit)->UnSummon();
             break;
