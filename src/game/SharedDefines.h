@@ -3665,31 +3665,31 @@ enum BanReturn
 enum BattleGroundTypeId
 {
     BATTLEGROUND_TYPE_NONE     = 0,
-    BATTLEGROUND_AV            = 1,
-    BATTLEGROUND_WS            = 2,
-    BATTLEGROUND_AB            = 3,
-    BATTLEGROUND_NA            = 4,
-    BATTLEGROUND_BE            = 5,
-    BATTLEGROUND_AA            = 6,                         // all arenas
-    BATTLEGROUND_EY            = 7,
-    BATTLEGROUND_RL            = 8,
-    BATTLEGROUND_SA            = 9,
-    BATTLEGROUND_DS            = 10,
-    BATTLEGROUND_RV            = 11,
-    BATTLEGROUND_IC            = 30,
-    BATTLEGROUND_RB            = 32,                        // random battleground
-    BATTLEGROUND_RB10          = 100,                       // rated battleground
-    BATTLEGROUND_RB15          = 101,
-    BATTLEGROUND_RB5           = 102,
-    BATTLEGROUND_TP            = 108,                       // 4.0.0
-    BATTLEGROUND_BG            = 120,                       // 4.0.0
-    BATTLEGROUND_ICC           = 441,
-    BATTLEGROUND_RS            = 443,
-    BATTLEGROUND_EE            = 656,
-    BATTLEGROUND_TK            = 699,                       // Temple of Kotmogu
-    BATTLEGROUND_CF            = 706,                       // CTF3
-    BATTLEGROUND_SM            = 708,                       // Silvershard Mines
-    BATTLEGROUND_TA            = 719                        // Tol'Vir Arena
+    BATTLEGROUND_AV            = 1,                         // 1.x - Alterac Valley
+    BATTLEGROUND_WS            = 2,                         // 1.x - Warsong Gultch
+    BATTLEGROUND_AB            = 3,                         // 1.x - Arathi Basin
+    BATTLEGROUND_NA            = 4,                         // 2.x - Nagrand Arena
+    BATTLEGROUND_BE            = 5,                         // 2.x - Blades Edge
+    BATTLEGROUND_AA            = 6,                         // 2.x - All Arenas
+    BATTLEGROUND_EY            = 7,                         // 2.x - Eye Of The Storm
+    BATTLEGROUND_RL            = 8,                         // 2.x - Ruins Of Lordaeron
+    BATTLEGROUND_SA            = 9,                         // 3.x - Strand Of The Ancients
+    BATTLEGROUND_DS            = 10,                        // 3.x - Dalaran Sewers
+    BATTLEGROUND_RV            = 11,                        // 3.x - The Ring Of Valor
+    BATTLEGROUND_IC            = 30,                        // 3.x - Isle Of Conquest
+    BATTLEGROUND_RB            = 32,                        // 4.x - Random Battleground
+    BATTLEGROUND_RB10          = 100,                       // 4.x - Rated Battleground 10
+    BATTLEGROUND_RB15          = 101,                       // 4.x - Rated Battleground 15
+    BATTLEGROUND_RB5           = 102,                       // 4.x - Rated Battleground 5
+    BATTLEGROUND_TP            = 108,                       // 4.x - Twin Peaks
+    BATTLEGROUND_BG            = 120,                       // 4.x - Battle For Gilneas
+    BATTLEGROUND_ICC           = 441,                       // 4.x - Icecrown Citadel ???
+    BATTLEGROUND_RS            = 443,                       // 4.x - Ruby Sanctum ???
+    BATTLEGROUND_EE            = 656,                       // 4.x - Eye Of The Storm Rated BG
+    BATTLEGROUND_TK            = 699,                       // 5.x - Temple of Kotmogu
+    BATTLEGROUND_CF            = 706,                       // 5.x - CTF3
+    BATTLEGROUND_SM            = 708,                       // 5.x - Silvershard Mines
+    BATTLEGROUND_TA            = 719                        // 5.x - Tol'Vir Arena
 };
 
 #define MAX_BATTLEGROUND_TYPE_ID 720
